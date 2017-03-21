@@ -53,4 +53,38 @@ class TechData extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function fetchAll(){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM tech_data');
+        $res = $command->queryAll();
+        return $res;
+    }
+
+    public function fetchOne($id){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM tech_data WHERE id=:id');
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->queryOne();
+        return $res;
+    }
+
+    public function updateOne($id, $type, $content, $author_work, $author_name, $photo){
+        $command = \Yii::$app->db->createCommand("UPDATE tech_data SET `type`=:type, content=:content, author_work=:author_work, author_name=:author_name, photo=:photo WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ":type"=>$type, ':content'=>$content, ':author_work'=>$author_work, ':author_name'=>$author_name, ':photo'=>$photo));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function insertOne($type, $content, $author_work, $author_name, $photo){
+        $command = \Yii::$app->db->createCommand("INSERT INTO tech_data SET `type`=:type, content=:content, author_work=:author_work, author_name=:author_name, photo=:photo, updated_at=:updated_at");
+        $command->bindValues(array(":type"=>$type, ':content'=>$content, ':author_work'=>$author_work, ':author_name'=>$author_name, ':photo'=>$photo, ':updated_at'=>date('Y-m-d H:i:s')));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function deleteOne($id){
+        $command = \Yii::$app->db->createCommand("DELETE FROM tech_data WHERE id=:id");
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->execute();
+        return $res;
+    }
 }

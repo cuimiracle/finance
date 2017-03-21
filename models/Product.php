@@ -58,4 +58,38 @@ class Product extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function fetchAll(){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM product');
+        $res = $command->queryAll();
+        return $res;
+    }
+
+    public function fetchOne($id){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM product WHERE id=:id');
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->queryOne();
+        return $res;
+    }
+
+    public function updateOne($id, $name, $description, $thumbnail, $link_name, $link_url, $photo, $photo_description){
+        $command = \Yii::$app->db->createCommand("UPDATE product SET `name`=:name, description=:description, thumbnail=:thumbnail, link_name=:link_name, link_url=:link_url, photo=:photo, photo_description=:photo_description WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ":name"=>$name, ':description'=>$description, ':thumbnail'=>$thumbnail, ':link_name'=>$link_name, ':link_url'=>$link_url, ':photo'=>$photo,  ':photo_description'=>$photo_description));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function insertOne($name, $description, $thumbnail, $link_name, $link_url, $photo, $photo_description){
+        $command = \Yii::$app->db->createCommand("INSERT INTO product SET `name`=:name, description=:description, thumbnail=:thumbnail, link_name=:link_name, link_url=:link_url, photo=:photo, photo_description=:photo_description, updated_at=:updated_at");
+        $command->bindValues(array(":name"=>$name, ':description'=>$description, ':thumbnail'=>$thumbnail, ':link_name'=>$link_name, ':link_url'=>$link_url, ':photo'=>$photo,  ':photo_description'=>$photo_description, ':updated_at'=>date('Y-m-d H:i:s')));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function deleteOne($id){
+        $command = \Yii::$app->db->createCommand("DELETE FROM product WHERE id=:id");
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->execute();
+        return $res;
+    }
 }

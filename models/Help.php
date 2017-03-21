@@ -49,4 +49,38 @@ class Help extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function fetchAll(){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM help');
+        $res = $command->queryAll();
+        return $res;
+    }
+
+    public function fetchOne($id){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM help WHERE id=:id');
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->queryOne();
+        return $res;
+    }
+
+    public function updateOne($id, $type, $title, $content){
+        $command = \Yii::$app->db->createCommand("UPDATE help SET `type`=:type, title=:title, content=:content WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ":type"=>$type, ':title'=>$title, ':content'=>$content));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function insertOne($type, $title, $content){
+        $command = \Yii::$app->db->createCommand("INSERT INTO help SET `type`=:type, title=:title, content=:content, updated_at=:updated_at");
+        $command->bindValues(array(":type"=>$type, ':title'=>$title, ':content'=>$content, ':updated_at'=>date('Y-m-d H:i:s')));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function deleteOne($id){
+        $command = \Yii::$app->db->createCommand("DELETE FROM help WHERE id=:id");
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->execute();
+        return $res;
+    }
 }

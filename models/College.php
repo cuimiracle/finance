@@ -55,4 +55,38 @@ class College extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function fetchAll(){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM college');
+        $res = $command->queryAll();
+        return $res;
+    }
+
+    public function fetchOne($id){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM college WHERE id=:id');
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->queryOne();
+        return $res;
+    }
+
+    public function updateOne($id, $title, $photo, $name, $description, $price){
+        $command = \Yii::$app->db->createCommand("UPDATE college SET title=:title, photo=:photo, `name`=:name, description=:description, price=:price WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':photo'=>$photo, ':name'=>$name, ':description'=>$description, ':price'=>$price));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function insertOne($title, $photo, $name, $description, $price){
+        $command = \Yii::$app->db->createCommand("INSERT INTO college SET ttitle=:title, photo=:photo, `name`=:name, description=:description, price=:price, updated_at=:updated_at");
+        $command->bindValues(array(':title'=>$title, ':photo'=>$photo, ':name'=>$name, ':description'=>$description, ':price'=>$price, ':updated_at'=>date('Y-m-d H:i:s')));
+        $res = $command->execute();
+        return $res;
+    }
+
+    public function deleteOne($id){
+        $command = \Yii::$app->db->createCommand("DELETE FROM college WHERE id=:id");
+        $command->bindValues(array(":id"=>$id));
+        $res = $command->execute();
+        return $res;
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-class SiteController extends \yii\web\Controller
+class CompanyDynamicsController extends \yii\web\Controller
 {
     public function actionIndex()
     {
