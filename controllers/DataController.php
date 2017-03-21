@@ -4,7 +4,7 @@ use app\models;
 
 class DataController extends \yii\web\Controller
 {
-    public function actionIndex($message)
+    public function actionIndex($message = '')
     {
         echo $message;
         echo '<br/>';
@@ -17,8 +17,8 @@ class DataController extends \yii\web\Controller
         $username = 'testname';
         $password = md5('123456');
         $email = 'test@test.com';
-        $res = $customers->insertOne($username, $password, $email);
-		echo '<pre>';print_r($res);echo '</pre>';
+        //$res = $customers->insertOne($username, $password, $email);
+		//echo '<pre>';print_r($res);echo '</pre>';
 		exit;
         //return $this->render('index');
     }
