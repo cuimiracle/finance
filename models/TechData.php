@@ -77,8 +77,8 @@ class TechData extends \yii\db\ActiveRecord
     public function insertOne($type, $content, $author_work, $author_name, $photo){
         $command = \Yii::$app->db->createCommand("INSERT INTO tech_data SET `type`=:type, content=:content, author_work=:author_work, author_name=:author_name, photo=:photo, updated_at=:updated_at");
         $command->bindValues(array(":type"=>$type, ':content'=>$content, ':author_work'=>$author_work, ':author_name'=>$author_name, ':photo'=>$photo, ':updated_at'=>date('Y-m-d H:i:s')));
-        $res = $command->execute();
-        return $res;
+        $command->execute();
+        return \Yii::$app->db->getLastInsertID();
     }
 
     public function deleteOne($id){

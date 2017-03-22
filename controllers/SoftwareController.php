@@ -5,7 +5,20 @@ use app\models;
 
 class SoftwareController extends \yii\web\Controller
 {
+    public $enableCsrfValidation = false;
     private $model;
+
+    private function succeed($arr = array()){
+        $res = array('result' => true);
+        $res = array_merge($res, $arr);
+        echo json_encode($res);
+    }
+
+    private function fail($arr = array()){
+        $res = array('result' => false, 'message' => '');
+        $res = array_merge($res, $arr);
+        echo json_encode($res);
+    }
 
     public function actionIndex()
     {
@@ -22,30 +35,53 @@ class SoftwareController extends \yii\web\Controller
     public function actionGet_all()
     {
         $res = $this->getModel()->fetchAll();
-        return $res;
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
     }
 
     public function actionGet($id)
     {
         $res = $this->getModel()->fetchOne($id);
-        return $res;
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
     }
 
-    public function actionUpdate($id, $name, $description, $thumbnail, $link_name, $link_url)
+    public function actionUpdate()
     {
+        $post = \Yii::$app->request->post();
+        $id = isset($post['id']) ? $post['id'] : '';
+        $name = isset($post['name']) ? $post['name'] : '';
+        $description = isset($post['description']) ? $post['description'] : '';
+        $thumbnail = isset($post['thumbnail']) ? $post['thumbnail'] : '';
+        $link_name = isset($post['link_name']) ? $post['link_name'] : '';
+        $link_url = isset($post['link_url']) ? $post['link_url'] : '';
+
         $res = $this->getModel()->updateOne($id, $name, $description, $thumbnail, $link_name, $link_url);
-        return $res;
+        if(!$res) return $this->fail();
+        return $this->succeed();
     }
 
-    public function actionInsert($name, $description, $thumbnail, $link_name, $link_url)
+    public function actionInsert()
     {
+        $post = \Yii::$app->request->post();
+        $name = isset($post['name']) ? $post['name'] : '';
+        $description = isset($post['description']) ? $post['description'] : '';
+        $thumbnail = isset($post['thumbnail']) ? $post['thumbnail'] : '';
+        $link_name = isset($post['link_name']) ? $post['link_name'] : '';
+        $link_url = isset($post['link_url']) ? $post['link_url'] : '';
+
         $res = $this->getModel()->insertOne($name, $description, $thumbnail, $link_name, $link_url);
-        return $res;
+        if(!$res) return $this->fail();
+        return $this->succeed(array('insert_id' => $res));
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
+        $post = \Yii::$app->request->post();
+        $id = isset($post['id']) ? $post['id'] : '';
+
         $res = $this->getModel()->deleteOne($id);
-        return $res;
+        if(!$res) return $this->fail();
+        return $this->succeed();
     }
 }

@@ -4,6 +4,8 @@ use app\models;
 
 class DataController extends \yii\web\Controller
 {
+    public $enableCsrfValidation = false;
+
     public function actionIndex($message = '')
     {
         echo $message;

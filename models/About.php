@@ -73,8 +73,8 @@ class About extends \yii\db\ActiveRecord
     public function insertOne($title, $content, $thumbnail){
         $command = \Yii::$app->db->createCommand("INSERT INTO about SET title=:title, content=:content, thumbnail=:thumbnail, updated_at=:updated_at");
         $command->bindValues(array(':title'=>$title, ':content'=>$content, ':thumbnail'=>$thumbnail, ':updated_at'=>date('Y-m-d H:i:s')));
-        $res = $command->execute();
-        return $res;
+        $command->execute();
+        return \Yii::$app->db->getLastInsertID();
     }
 
     public function deleteOne($id){

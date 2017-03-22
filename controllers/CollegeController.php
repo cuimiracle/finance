@@ -5,7 +5,20 @@ use app\models;
 
 class CollegeController extends \yii\web\Controller
 {
+    public $enableCsrfValidation = false;
     private $model;
+
+    private function succeed($arr = array()){
+        $res = array('result' => true);
+        $res = array_merge($res, $arr);
+        echo json_encode($res);
+    }
+
+    private function fail($arr = array()){
+        $res = array('result' => false, 'message' => '');
+        $res = array_merge($res, $arr);
+        echo json_encode($res);
+    }
 
     public function actionIndex()
     {
@@ -22,30 +35,53 @@ class CollegeController extends \yii\web\Controller
     public function actionGet_all()
     {
         $res = $this->getModel()->fetchAll();
-        return $res;
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
     }
 
     public function actionGet($id)
     {
         $res = $this->getModel()->fetchOne($id);
-        return $res;
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
     }
 
-    public function actionUpdate($id, $title, $photo, $name, $description, $price)
+    public function actionUpdate()
     {
+        $post = \Yii::$app->request->post();
+        $id = isset($post['id']) ? $post['id'] : '';
+        $title = isset($post['title']) ? $post['title'] : '';
+        $photo = isset($post['photo']) ? $post['photo'] : '';
+        $name = isset($post['name']) ? $post['name'] : '';
+        $description = isset($post['description']) ? $post['description'] : '';
+        $price = isset($post['price']) ? $post['price'] : '';
+
         $res = $this->getModel()->updateOne($id, $title, $photo, $name, $description, $price);
-        return $res;
+        if(!$res) return $this->fail();
+        return $this->succeed();
     }
 
-    public function actionInsert($title, $photo, $name, $description, $price)
+    public function actionInsert()
     {
+        $post = \Yii::$app->request->post();
+        $title = isset($post['title']) ? $post['title'] : '';
+        $photo = isset($post['photo']) ? $post['photo'] : '';
+        $name = isset($post['name']) ? $post['name'] : '';
+        $description = isset($post['description']) ? $post['description'] : '';
+        $price = isset($post['price']) ? $post['price'] : '';
+
         $res = $this->getModel()->insertOne($title, $photo, $name, $description, $price);
-        return $res;
+        if(!$res) return $this->fail();
+        return $this->succeed(array('insert_id' => $res));
     }
 
-    public function actionDelete($id)
+    public function actionDelete()
     {
+        $post = \Yii::$app->request->post();
+        $id = isset($post['id']) ? $post['id'] : '';
+
         $res = $this->getModel()->deleteOne($id);
-        return $res;
+        if(!$res) return $this->fail();
+        return $this->succeed();
     }
 }

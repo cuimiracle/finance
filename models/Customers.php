@@ -74,14 +74,28 @@ class Customers extends \yii\db\ActiveRecord
     public function insertOne($username, $password, $email){
         $command = \Yii::$app->db->createCommand("INSERT INTO customers SET username=:username, password=:password, email=:email, created_at=:created_at, updated_at=:updated_at");
         $command->bindValues(array(':username'=>$username, ':password'=>$password, ':email'=>$email, ':created_at'=>date('Y-m-d H:i:s'), ':updated_at'=>date('Y-m-d H:i:s')));
-        $res = $command->execute();
-        return $res;
+        $command->execute();
+        return \Yii::$app->db->getLastInsertID();
     }
 
     public function deleteOne($id){
         $command = \Yii::$app->db->createCommand("DELETE FROM customers WHERE id=:id");
         $command->bindValues(array(":id"=>$id));
         $res = $command->execute();
+        return $res;
+    }
+
+    public function validateCustomer($username, $password){
+        $command = \Yii::$app->db->createCommand('SELECT id FROM customers WHERE username=:username AND password=:password');
+        $command->bindValues(array(':username'=>$username, ':password'=>$password));
+        $res = $command->queryScalar();
+        return $res;
+    }
+
+    public function existCustomer($username){
+        $command = \Yii::$app->db->createCommand('SELECT id FROM customers WHERE username=:username');
+        $command->bindValues(array(':username'=>$username));
+        $res = $command->queryScalar();
         return $res;
     }
 }

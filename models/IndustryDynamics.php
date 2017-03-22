@@ -73,8 +73,8 @@ class IndustryDynamics extends \yii\db\ActiveRecord
     public function insertOne($name, $description, $thumbnail){
         $command = \Yii::$app->db->createCommand("INSERT INTO industry_dynamics SET `name`=:name, description=:description, thumbnail=:thumbnail, updated_at=:updated_at");
         $command->bindValues(array(":name"=>$name, ':description'=>$description, ':thumbnail'=>$thumbnail, ':updated_at'=>date('Y-m-d H:i:s')));
-        $res = $command->execute();
-        return $res;
+        $command->execute();
+        return \Yii::$app->db->getLastInsertID();
     }
 
     public function deleteOne($id){

@@ -73,8 +73,8 @@ class Site extends \yii\db\ActiveRecord
     public function insertOne($title, $photo, $photo_description){
         $command = \Yii::$app->db->createCommand("INSERT INTO site SET title=:title, photo=:photo, photo_description=:photo_description, updated_at=:updated_at");
         $command->bindValues(array(":title"=>$title, ':photo'=>$photo,  ':photo_description'=>$photo_description, ':updated_at'=>date('Y-m-d H:i:s')));
-        $res = $command->execute();
-        return $res;
+        $command->execute();
+        return \Yii::$app->db->getLastInsertID();
     }
 
     public function deleteOne($id){
