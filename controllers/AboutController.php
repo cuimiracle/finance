@@ -52,8 +52,8 @@ class AboutController extends \yii\web\Controller
         $id = isset($post['id']) ? $post['id'] : '';
         $title = isset($post['title']) ? $post['title'] : '';
         $content = isset($post['content']) ? $post['content'] : '';
-        $thumbnail = isset($post['thumbnail']) ? $post['thumbnail'] : '';
-        $res = $this->getModel()->updateOne($id, $title, $content, $thumbnail);
+
+        $res = $this->getModel()->updateOne($id, $title, $content);
 
         if(!$res) return $this->fail();
         return $this->succeed();
@@ -64,9 +64,8 @@ class AboutController extends \yii\web\Controller
         $post = \Yii::$app->request->post();
         $title = isset($post['title']) ? $post['title'] : '';
         $content = isset($post['content']) ? $post['content'] : '';
-        $thumbnail = isset($post['thumbnail']) ? $post['thumbnail'] : '';
 
-        $res = $this->getModel()->insertOne($title, $content, $thumbnail);
+        $res = $this->getModel()->insertOne($title, $content);
 
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));

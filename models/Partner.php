@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $photo
- * @property string $photo_description
+ * @property integer $order
  * @property string $updated_at
  */
 class Partner extends \yii\db\ActiveRecord
@@ -28,9 +28,9 @@ class Partner extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['order'], 'integer'],
             [['updated_at'], 'safe'],
             [['photo'], 'string', 'max' => 250],
-            [['photo_description'], 'string', 'max' => 100],
         ];
     }
 
@@ -42,7 +42,7 @@ class Partner extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'photo' => 'Photo',
-            'photo_description' => 'Photo Description',
+            'order' => 'Order',
             'updated_at' => 'Updated At',
         ];
     }
@@ -60,16 +60,16 @@ class Partner extends \yii\db\ActiveRecord
         return $res;
     }
 
-    public function updateOne($id, $photo, $photo_description){
-        $command = \Yii::$app->db->createCommand("UPDATE partner SET photo=:photo, photo_description=:photo_description WHERE id=:id");
-        $command->bindValues(array(":id"=>$id, ":photo"=>$photo, ':photo_description'=>$photo_description));
+    public function updateOne($id, $photo, $order){
+        $command = \Yii::$app->db->createCommand("UPDATE partner SET photo=:photo, order=:order WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ":photo"=>$photo, ':order'=>$order));
         $res = $command->execute();
         return $res;
     }
 
-    public function insertOne($photo, $photo_description){
-        $command = \Yii::$app->db->createCommand("INSERT INTO partner SET photo=:photo, photo_description=:photo_description, updated_at=:updated_at");
-        $command->bindValues(array(":photo"=>$photo, ':photo_description'=>$photo_description, ':updated_at'=>date('Y-m-d H:i:s')));
+    public function insertOne($photo, $order){
+        $command = \Yii::$app->db->createCommand("INSERT INTO partner SET photo=:photo, order=:order, updated_at=:updated_at");
+        $command->bindValues(array(":photo"=>$photo, ':order'=>$order, ':updated_at'=>date('Y-m-d H:i:s')));
         $command->execute();
         return \Yii::$app->db->getLastInsertID();
     }

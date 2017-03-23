@@ -5,22 +5,22 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "site".
+ * This is the model class for table "site_main".
  *
  * @property integer $id
  * @property string $title
+ * @property string $content
  * @property string $photo
- * @property string $photo_description
  * @property string $updated_at
  */
-class Site extends \yii\db\ActiveRecord
+class SiteMain extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'site';
+        return 'site_main';
     }
 
     /**
@@ -29,7 +29,7 @@ class Site extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['photo_description'], 'string'],
+            [['content'], 'string'],
             [['updated_at'], 'safe'],
             [['title'], 'string', 'max' => 100],
             [['photo'], 'string', 'max' => 250],
@@ -44,41 +44,41 @@ class Site extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+            'content' => 'Content',
             'photo' => 'Photo',
-            'photo_description' => 'Photo Description',
             'updated_at' => 'Updated At',
         ];
     }
 
     public function fetchAll(){
-        $command = \Yii::$app->db->createCommand('SELECT * FROM site');
+        $command = \Yii::$app->db->createCommand('SELECT * FROM site_main');
         $res = $command->queryAll();
         return $res;
     }
 
     public function fetchOne($id){
-        $command = \Yii::$app->db->createCommand('SELECT * FROM site WHERE id=:id');
+        $command = \Yii::$app->db->createCommand('SELECT * FROM site_main WHERE id=:id');
         $command->bindValues(array(":id"=>$id));
         $res = $command->queryOne();
         return $res;
     }
 
-    public function updateOne($id, $title, $photo, $photo_description){
-        $command = \Yii::$app->db->createCommand("UPDATE site SET title=:title, photo=:photo, photo_description=:photo_description WHERE id=:id");
-        $command->bindValues(array(":id"=>$id, ":title"=>$title, ':photo'=>$photo,  ':photo_description'=>$photo_description));
+    public function updateOne($id, $title, $content, $photo){
+        $command = \Yii::$app->db->createCommand("UPDATE site_main SET title=:title, content=:content, photo=:photo WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':content'=>$content, ":photo"=>$photo));
         $res = $command->execute();
         return $res;
     }
 
-    public function insertOne($title, $photo, $photo_description){
-        $command = \Yii::$app->db->createCommand("INSERT INTO site SET title=:title, photo=:photo, photo_description=:photo_description, updated_at=:updated_at");
-        $command->bindValues(array(":title"=>$title, ':photo'=>$photo,  ':photo_description'=>$photo_description, ':updated_at'=>date('Y-m-d H:i:s')));
+    public function insertOne($title, $content, $photo){
+        $command = \Yii::$app->db->createCommand("INSERT INTO site_main SET title=:title, content=:content, photo=:photo, updated_at=:updated_at");
+        $command->bindValues(array(':title'=>$title, ':content'=>$content, ":photo"=>$photo, ':updated_at'=>date('Y-m-d H:i:s')));
         $command->execute();
         return \Yii::$app->db->getLastInsertID();
     }
 
     public function deleteOne($id){
-        $command = \Yii::$app->db->createCommand("DELETE FROM site WHERE id=:id");
+        $command = \Yii::$app->db->createCommand("DELETE FROM site_main WHERE id=:id");
         $command->bindValues(array(":id"=>$id));
         $res = $command->execute();
         return $res;

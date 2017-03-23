@@ -3,7 +3,7 @@
 namespace app\controllers;
 use app\models;
 
-class SiteController extends \yii\web\Controller
+class SiteMainController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
     private $model;
@@ -28,7 +28,7 @@ class SiteController extends \yii\web\Controller
     public function getModel()
     {
         if (empty($this->model)) {
-            $this->model = new models\Site;
+            $this->model = new models\SiteMain;
         }
         return $this->model;
     }
@@ -52,10 +52,10 @@ class SiteController extends \yii\web\Controller
         $post = \Yii::$app->request->post();
         $id = isset($post['id']) ? $post['id'] : '';
         $title = isset($post['title']) ? $post['title'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
         $photo = isset($post['photo']) ? $post['photo'] : '';
-        $photo_description = isset($post['photo_description']) ? $post['photo_description'] : '';
 
-        $res = $this->getModel()->updateOne($id, $title, $photo, $photo_description);
+        $res = $this->getModel()->updateOne($id, $title, $content, $photo);
         if(!$res) return $this->fail();
         return $this->succeed();
     }
@@ -64,10 +64,10 @@ class SiteController extends \yii\web\Controller
     {
         $post = \Yii::$app->request->post();
         $title = isset($post['title']) ? $post['title'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
         $photo = isset($post['photo']) ? $post['photo'] : '';
-        $photo_description = isset($post['photo_description']) ? $post['photo_description'] : '';
 
-        $res = $this->getModel()->insertOne($title, $photo, $photo_description);
+        $res = $this->getModel()->insertOne($title, $content, $photo);
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }

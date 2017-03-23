@@ -50,9 +50,9 @@ class CompanyDynamicsController extends \yii\web\Controller
     {
         $post = \Yii::$app->request->post();
         $id = isset($post['id']) ? $post['id'] : '';
-        $description = isset($post['description']) ? $post['description'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
 
-        $res = $this->getModel()->updateOne($id, $description);
+        $res = $this->getModel()->updateOne($id, $content);
         if(!$res) return $this->fail();
         return $this->succeed();
     }
@@ -60,9 +60,9 @@ class CompanyDynamicsController extends \yii\web\Controller
     public function actionInsert()
     {
         $post = \Yii::$app->request->post();
-        $description = isset($post['description']) ? $post['description'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
 
-        $res = $this->getModel()->insertOne($description);
+        $res = $this->getModel()->insertOne($content);
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }

@@ -10,7 +10,6 @@ use Yii;
  * @property integer $id
  * @property string $title
  * @property string $content
- * @property string $thumbnail
  * @property string $updated_at
  */
 class About extends \yii\db\ActiveRecord
@@ -32,7 +31,6 @@ class About extends \yii\db\ActiveRecord
             [['content'], 'string'],
             [['updated_at'], 'safe'],
             [['title'], 'string', 'max' => 100],
-            [['thumbnail'], 'string', 'max' => 255],
         ];
     }
 
@@ -45,7 +43,6 @@ class About extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'content' => 'Content',
-            'thumbnail' => 'Thumbnail',
             'updated_at' => 'Updated At',
         ];
     }
@@ -63,16 +60,16 @@ class About extends \yii\db\ActiveRecord
         return $res;
     }
 
-    public function updateOne($id, $title, $content, $thumbnail){
-        $command = \Yii::$app->db->createCommand("UPDATE about SET title=:title, content=:content, thumbnail=:thumbnail WHERE id=:id");
-        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':content'=>$content, ':thumbnail'=>$thumbnail));
+    public function updateOne($id, $title, $content){
+        $command = \Yii::$app->db->createCommand("UPDATE about SET title=:title, content=:content WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':content'=>$content));
         $res = $command->execute();
         return $res;
     }
 
-    public function insertOne($title, $content, $thumbnail){
-        $command = \Yii::$app->db->createCommand("INSERT INTO about SET title=:title, content=:content, thumbnail=:thumbnail, updated_at=:updated_at");
-        $command->bindValues(array(':title'=>$title, ':content'=>$content, ':thumbnail'=>$thumbnail, ':updated_at'=>date('Y-m-d H:i:s')));
+    public function insertOne($title, $content){
+        $command = \Yii::$app->db->createCommand("INSERT INTO about SET title=:title, content=:content, updated_at=:updated_at");
+        $command->bindValues(array(':title'=>$title, ':content'=>$content, ':updated_at'=>date('Y-m-d H:i:s')));
         $command->execute();
         return \Yii::$app->db->getLastInsertID();
     }

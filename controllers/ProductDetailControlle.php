@@ -3,7 +3,7 @@
 namespace app\controllers;
 use app\models;
 
-class SoftwareController extends \yii\web\Controller
+class ProductDetailController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
     private $model;
@@ -27,7 +27,7 @@ class SoftwareController extends \yii\web\Controller
 
     public function getModel(){
         if(empty($this->model)){
-            $this->model = new models\Software;
+            $this->model = new models\ProductDetail;
         }
         return $this->model;
     }

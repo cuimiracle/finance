@@ -8,8 +8,8 @@ use Yii;
  * This is the model class for table "company_news".
  *
  * @property integer $id
- * @property string $name
- * @property string $description
+ * @property string $title
+ * @property string $content
  * @property string $updated_at
  */
 class CompanyNews extends \yii\db\ActiveRecord
@@ -28,9 +28,9 @@ class CompanyNews extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description'], 'string'],
+            [['content'], 'string'],
             [['updated_at'], 'safe'],
-            [['name'], 'string', 'max' => 100],
+            [['title'], 'string', 'max' => 100],
         ];
     }
 
@@ -41,8 +41,8 @@ class CompanyNews extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
+            'title' => 'Title',
+            'content' => 'Content',
             'updated_at' => 'Updated At',
         ];
     }
@@ -60,16 +60,16 @@ class CompanyNews extends \yii\db\ActiveRecord
         return $res;
     }
 
-    public function updateOne($id, $name, $description){
-        $command = \Yii::$app->db->createCommand("UPDATE company_news SET `name`=:name, description=:description WHERE id=:id");
-        $command->bindValues(array(":id"=>$id, ":name"=>$name, ':description'=>$description));
+    public function updateOne($id, $title, $content){
+        $command = \Yii::$app->db->createCommand("UPDATE company_news SET title=:title, content=:content WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':content'=>$content));
         $res = $command->execute();
         return $res;
     }
 
-    public function insertOne($name, $description){
-        $command = \Yii::$app->db->createCommand("INSERT INTO company_news SET `name`=:name, description=:description, updated_at=:updated_at");
-        $command->bindValues(array(":name"=>$name, ':description'=>$description, ':updated_at'=>date('Y-m-d H:i:s')));
+    public function insertOne($title, $content){
+        $command = \Yii::$app->db->createCommand("INSERT INTO company_news SET title=:title, content=:content, updated_at=:updated_at");
+        $command->bindValues(array(':title'=>$title, ':content'=>$content, ':updated_at'=>date('Y-m-d H:i:s')));
         $command->execute();
         return \Yii::$app->db->getLastInsertID();
     }

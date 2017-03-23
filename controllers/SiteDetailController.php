@@ -3,7 +3,7 @@
 namespace app\controllers;
 use app\models;
 
-class SoftwareController extends \yii\web\Controller
+class SiteDetailController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
     private $model;
@@ -25,13 +25,14 @@ class SoftwareController extends \yii\web\Controller
         // return $this->render('index');
     }
 
-    public function getModel(){
-        if(empty($this->model)){
-            $this->model = new models\Software;
+    public function getModel()
+    {
+        if (empty($this->model)) {
+            $this->model = new models\SiteDetail;
         }
         return $this->model;
     }
-
+    
     public function actionGet_all()
     {
         $res = $this->getModel()->fetchAll();
@@ -53,10 +54,8 @@ class SoftwareController extends \yii\web\Controller
         $title = isset($post['title']) ? $post['title'] : '';
         $content = isset($post['content']) ? $post['content'] : '';
         $photo = isset($post['photo']) ? $post['photo'] : '';
-        $link_name = isset($post['link_name']) ? $post['link_name'] : '';
-        $link_url = isset($post['link_url']) ? $post['link_url'] : '';
 
-        $res = $this->getModel()->updateOne($id, $title, $content, $photo, $link_name, $link_url);
+        $res = $this->getModel()->updateOne($id, $title, $content, $photo);
         if(!$res) return $this->fail();
         return $this->succeed();
     }
@@ -67,10 +66,8 @@ class SoftwareController extends \yii\web\Controller
         $title = isset($post['title']) ? $post['title'] : '';
         $content = isset($post['content']) ? $post['content'] : '';
         $photo = isset($post['photo']) ? $post['photo'] : '';
-        $link_name = isset($post['link_name']) ? $post['link_name'] : '';
-        $link_url = isset($post['link_url']) ? $post['link_url'] : '';
 
-        $res = $this->getModel()->insertOne($title, $content, $photo, $link_name, $link_url);
+        $res = $this->getModel()->insertOne($title, $content, $photo);
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }

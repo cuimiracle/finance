@@ -3,7 +3,7 @@
 namespace app\controllers;
 use app\models;
 
-class ProductController extends \yii\web\Controller
+class ProductMainController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
     private $model;
@@ -27,7 +27,7 @@ class ProductController extends \yii\web\Controller
 
     public function getModel(){
         if(empty($this->model)){
-            $this->model = new models\Product;
+            $this->model = new models\ProductMain;
         }
         return $this->model;
     }
@@ -50,15 +50,12 @@ class ProductController extends \yii\web\Controller
     {
         $post = \Yii::$app->request->post();
         $id = isset($post['id']) ? $post['id'] : '';
-        $name = isset($post['name']) ? $post['name'] : '';
-        $description = isset($post['description']) ? $post['description'] : '';
-        $thumbnail = isset($post['thumbnail']) ? $post['thumbnail'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
+        $photo = isset($post['photo']) ? $post['photo'] : '';
         $link_name = isset($post['link_name']) ? $post['link_name'] : '';
         $link_url = isset($post['link_url']) ? $post['link_url'] : '';
-        $photo = isset($post['photo']) ? $post['photo'] : '';
-        $photo_description = isset($post['photo_description']) ? $post['photo_description'] : '';
 
-        $res = $this->getModel()->updateOne($id, $name, $description, $thumbnail, $link_name, $link_url, $photo, $photo_description);
+        $res = $this->getModel()->updateOne($id, $content, $photo, $link_name, $link_url);
         if(!$res) return $this->fail();
         return $this->succeed();
     }
@@ -66,15 +63,12 @@ class ProductController extends \yii\web\Controller
     public function actionInsert()
     {
         $post = \Yii::$app->request->post();
-        $name = isset($post['name']) ? $post['name'] : '';
-        $description = isset($post['description']) ? $post['description'] : '';
-        $thumbnail = isset($post['thumbnail']) ? $post['thumbnail'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
+        $photo = isset($post['photo']) ? $post['photo'] : '';
         $link_name = isset($post['link_name']) ? $post['link_name'] : '';
         $link_url = isset($post['link_url']) ? $post['link_url'] : '';
-        $photo = isset($post['photo']) ? $post['photo'] : '';
-        $photo_description = isset($post['photo_description']) ? $post['photo_description'] : '';
 
-        $res = $this->getModel()->insertOne($name, $description, $thumbnail, $link_name, $link_url, $photo, $photo_description);
+        $res = $this->getModel()->insertOne($content, $photo, $link_name, $link_url);
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }

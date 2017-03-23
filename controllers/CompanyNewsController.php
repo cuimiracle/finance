@@ -50,10 +50,10 @@ class CompanyNewsController extends \yii\web\Controller
     {
         $post = \Yii::$app->request->post();
         $id = isset($post['id']) ? $post['id'] : '';
-        $name = isset($post['name']) ? $post['name'] : '';
-        $description = isset($post['description']) ? $post['description'] : '';
+        $title = isset($post['title']) ? $post['title'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
 
-        $res = $this->getModel()->updateOne($id, $name, $description);
+        $res = $this->getModel()->updateOne($id, $title, $content);
         if(!$res) return $this->fail();
         return $this->succeed();
     }
@@ -61,10 +61,10 @@ class CompanyNewsController extends \yii\web\Controller
     public function actionInsert()
     {
         $post = \Yii::$app->request->post();
-        $name = isset($post['name']) ? $post['name'] : '';
-        $description = isset($post['description']) ? $post['description'] : '';
+        $title = isset($post['title']) ? $post['title'] : '';
+        $content = isset($post['content']) ? $post['content'] : '';
 
-        $res = $this->getModel()->insertOne($name, $description);
+        $res = $this->getModel()->insertOne($title, $content);
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }

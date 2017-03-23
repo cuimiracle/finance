@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "company_dynamics".
  *
  * @property integer $id
- * @property string $description
+ * @property string $content
  * @property string $updated_at
  */
 class CompanyDynamics extends \yii\db\ActiveRecord
@@ -27,7 +27,7 @@ class CompanyDynamics extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description'], 'string'],
+            [['content'], 'string'],
             [['updated_at'], 'safe'],
         ];
     }
@@ -39,7 +39,7 @@ class CompanyDynamics extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'description' => 'Description',
+            'content' => 'Content',
             'updated_at' => 'Updated At',
         ];
     }
@@ -57,16 +57,16 @@ class CompanyDynamics extends \yii\db\ActiveRecord
         return $res;
     }
 
-    public function updateOne($id, $description){
-        $command = \Yii::$app->db->createCommand("UPDATE company_dynamics SET description=:description WHERE id=:id");
-        $command->bindValues(array(":id"=>$id, ':description'=>$description));
+    public function updateOne($id, $content){
+        $command = \Yii::$app->db->createCommand("UPDATE company_dynamics SET content=:content WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ':content'=>$content));
         $res = $command->execute();
         return $res;
     }
 
-    public function insertOne($description){
-        $command = \Yii::$app->db->createCommand("INSERT INTO company_dynamics SET description=:description, updated_at=:updated_at");
-        $command->bindValues(array(':description'=>$description, ':updated_at'=>date('Y-m-d H:i:s')));
+    public function insertOne($content){
+        $command = \Yii::$app->db->createCommand("INSERT INTO company_dynamics SET content=:content, updated_at=:updated_at");
+        $command->bindValues(array(':content'=>$content, ':updated_at'=>date('Y-m-d H:i:s')));
         $command->execute();
         return \Yii::$app->db->getLastInsertID();
     }
