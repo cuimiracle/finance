@@ -48,31 +48,43 @@ class CompanyDynamicsController extends \yii\web\Controller
 
     public function actionUpdate()
     {
-        $post = \Yii::$app->request->post();
-        $id = isset($post['id']) ? $post['id'] : '';
-        $content = isset($post['content']) ? $post['content'] : '';
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $id = isset($post['id']) ? $post['id'] : '';
+            $content = isset($post['content']) ? $post['content'] : '';
 
-        $res = $this->getModel()->updateOne($id, $content);
+            $res = $this->getModel()->updateOne($id, $content);
+        }
+
         if(!$res) return $this->fail();
         return $this->succeed();
     }
 
     public function actionInsert()
     {
-        $post = \Yii::$app->request->post();
-        $content = isset($post['content']) ? $post['content'] : '';
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $content = isset($post['content']) ? $post['content'] : '';
 
-        $res = $this->getModel()->insertOne($content);
+            $res = $this->getModel()->insertOne($content);
+        }
+
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }
 
     public function actionDelete()
     {
-        $post = \Yii::$app->request->post();
-        $id = isset($post['id']) ? $post['id'] : '';
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $id = isset($post['id']) ? $post['id'] : '';
 
-        $res = $this->getModel()->deleteOne($id);
+            $res = $this->getModel()->deleteOne($id);
+        }
+
         if(!$res) return $this->fail();
         return $this->succeed();
     }

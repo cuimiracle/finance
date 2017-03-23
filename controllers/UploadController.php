@@ -22,11 +22,21 @@ class UploadController extends \yii\web\Controller
 
     public function actionIndex()
     {
+        // echo \Yii::$app->basePath;
+
+        if (\Yii::$app->request->isPost) {
+            $uploadForm = new models\UploadForm;
+            $res = $uploadForm->photos($_FILES);
+
+            echo '<pre>';print_r($res);echo '</pre>';
+
+        }
+
         // return $this->render('index');
     }
 
     public function actionPhoto(){
-        $save_path = $error_message =  '';
+        $save_path = $error_message = '';
         /*
         Array
         (
@@ -68,8 +78,8 @@ class UploadController extends \yii\web\Controller
                 $error_message .=  "Invalid file. ";
             }
 
-            if($error_message) return fail(array('message'=>$error_message));
-            return succeed(array('save_path'=>$save_path));
+            if($error_message) return $this->fail(array('message'=>$error_message));
+            return $this->succeed(array('save_path'=>$save_path));
         }
 
     }
@@ -98,8 +108,8 @@ class UploadController extends \yii\web\Controller
                 $error_message .=  "Invalid file. ";
             }
 
-            if($error_message) return fail(array('message'=>$error_message));
-            return succeed(array('save_path'=>$save_path));
+            if($error_message) return $this->fail(array('message'=>$error_message));
+            return $this->succeed(array('save_path'=>$save_path));
         }
 
     }

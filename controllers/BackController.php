@@ -34,19 +34,22 @@ class BackController extends \yii\web\Controller
 
     public function actionLogin()
     {
-        $post = \Yii::$app->request->post();
-        $username = isset($post['username']) ? $post['username'] : '';
-        $password = isset($post['password']) ? $post['password'] : '';
+        $customer_id = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $username = isset($post['username']) ? $post['username'] : '';
+            $password = isset($post['password']) ? $post['password'] : '';
 
-        $password = MD5($password);
-        $customer_id = $this->getCustomerModel()->validateCustomer($username, $password);
-        // set cookie
-        $cookies = \Yii::$app->response->cookies;
-        $cookies->add(new \yii\web\Cookie([
-            'name' => 'is_login',
-            'value' => true,
-            'expire' => time()+60*60*24
-        ]));
+            $password = MD5($password);
+            $customer_id = $this->getCustomerModel()->validateCustomer($username, $password);
+            // set cookie
+            $cookies = \Yii::$app->response->cookies;
+            $cookies->add(new \yii\web\Cookie([
+                'name' => 'is_login',
+                'value' => true,
+                'expire' => time()+60*60*24
+            ]));
+        }
 
         if(!$customer_id) return $this->fail();
         return $this->succeed(array('customer_id' => $customer_id));
@@ -54,16 +57,19 @@ class BackController extends \yii\web\Controller
 
     public function actionRegister()
     {
-        $post = \Yii::$app->request->post();
-        $username = isset($post['username']) ? $post['username'] : '';
-        $password = isset($post['password']) ? $post['password'] : '';
-        $email = isset($post['email']) ? $post['email'] : '';
+        $customer_id = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $username = isset($post['username']) ? $post['username'] : '';
+            $password = isset($post['password']) ? $post['password'] : '';
+            $email = isset($post['email']) ? $post['email'] : '';
 
-        $res = $this->getCustomerModel()->existCustomer($username);
-        if($res) return $this->fail();
+            $res = $this->getCustomerModel()->existCustomer($username);
+            if($res) return $this->fail();
 
-        $password = MD5($password);
-        $customer_id = $this->getCustomerModel()->insertOne($username, $password, $email);
+            $password = MD5($password);
+            $customer_id = $this->getCustomerModel()->insertOne($username, $password, $email);
+        }
 
         if(!$customer_id) return $this->fail();
         return $this->succeed(array('customer_id' => $customer_id));

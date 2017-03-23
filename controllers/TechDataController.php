@@ -48,39 +48,51 @@ class TechDataController extends \yii\web\Controller
 
     public function actionUpdate()
     {
-        $post = \Yii::$app->request->post();
-        $id = isset($post['id']) ? $post['id'] : '';
-        $type = isset($post['type']) ? $post['type'] : '';
-        $content = isset($post['content']) ? $post['content'] : '';
-        $author_work = isset($post['author_work']) ? $post['author_work'] : '';
-        $author_name = isset($post['author_name']) ? $post['author_name'] : '';
-        $photo = isset($post['photo']) ? $post['photo'] : '';
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $id = isset($post['id']) ? $post['id'] : '';
+            $type = isset($post['type']) ? $post['type'] : '';
+            $content = isset($post['content']) ? $post['content'] : '';
+            $author_work = isset($post['author_work']) ? $post['author_work'] : '';
+            $author_name = isset($post['author_name']) ? $post['author_name'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
-        $res = $this->getModel()->updateOne($id, $type, $content, $author_work, $author_name, $photo);
+            $res = $this->getModel()->updateOne($id, $type, $content, $author_work, $author_name, $photo);
+        }
+
         if(!$res) return $this->fail();
         return $this->succeed();
     }
 
     public function actionInsert()
     {
-        $post = \Yii::$app->request->post();
-        $type = isset($post['type']) ? $post['type'] : '';
-        $content = isset($post['content']) ? $post['content'] : '';
-        $author_work = isset($post['author_work']) ? $post['author_work'] : '';
-        $author_name = isset($post['author_name']) ? $post['author_name'] : '';
-        $photo = isset($post['photo']) ? $post['photo'] : '';
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $type = isset($post['type']) ? $post['type'] : '';
+            $content = isset($post['content']) ? $post['content'] : '';
+            $author_work = isset($post['author_work']) ? $post['author_work'] : '';
+            $author_name = isset($post['author_name']) ? $post['author_name'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
-        $res = $this->getModel()->insertOne($type, $content, $author_work, $author_name, $photo);
+            $res = $this->getModel()->insertOne($type, $content, $author_work, $author_name, $photo);
+        }
+
         if(!$res) return $this->fail();
         return $this->succeed(array('insert_id' => $res));
     }
 
     public function actionDelete()
     {
-        $post = \Yii::$app->request->post();
-        $id = isset($post['id']) ? $post['id'] : '';
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $id = isset($post['id']) ? $post['id'] : '';
 
-        $res = $this->getModel()->deleteOne($id);
+            $res = $this->getModel()->deleteOne($id);
+        }
+
         if(!$res) return $this->fail();
         return $this->succeed();
     }
