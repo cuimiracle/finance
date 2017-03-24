@@ -92,4 +92,11 @@ class HelpController extends \yii\web\Controller
         if(!$res) return $this->fail();
         return $this->succeed();
     }
+
+    public function actionSearch_for_all($content)
+    {
+        $res = $this->getModel()->searchForAll($content);
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
+    }
 }

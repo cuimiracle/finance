@@ -63,6 +63,13 @@ class Help extends \yii\db\ActiveRecord
         return $res;
     }
 
+    public function searchForAll($content){
+        $command = \Yii::$app->db->createCommand('SELECT * FROM help WHERE content LIKE "%:content%"');
+        $command->bindValues(array(":content"=>$content));
+        $res = $command->queryAll();
+        return $res;
+    }
+
     public function updateOne($id, $type, $title, $content){
         $command = \Yii::$app->db->createCommand("UPDATE help SET `type`=:type, title=:title, content=:content WHERE id=:id");
         $command->bindValues(array(":id"=>$id, ":type"=>$type, ':title'=>$title, ':content'=>$content));
