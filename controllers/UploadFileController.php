@@ -6,7 +6,7 @@ use app\models;
 class UploadFileController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
-
+    private $model;
 
     private function succeed($arr = array()){
         $res = array('result' => true);
