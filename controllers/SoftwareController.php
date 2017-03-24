@@ -50,11 +50,19 @@ class SoftwareController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
+            $photo = '';
+            if(!empty($_FILES)){
+                $files = $_FILES;
+                $uploadForm = new models\UploadForm;
+                $res = $uploadForm->photos($files);
+                if(!empty($res['result'])){
+                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
+                }
+            }
             $post = \Yii::$app->request->post();
             $id = isset($post['id']) ? $post['id'] : '';
             $title = isset($post['title']) ? $post['title'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
-            $photo = isset($post['photo']) ? $post['photo'] : '';
             $link_name = isset($post['link_name']) ? $post['link_name'] : '';
             $link_url = isset($post['link_url']) ? $post['link_url'] : '';
 
@@ -69,10 +77,18 @@ class SoftwareController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
+            $photo = '';
+            if(!empty($_FILES)){
+                $files = $_FILES;
+                $uploadForm = new models\UploadForm;
+                $res = $uploadForm->photos($files);
+                if(!empty($res['result'])){
+                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
+                }
+            }
             $post = \Yii::$app->request->post();
             $title = isset($post['title']) ? $post['title'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
-            $photo = isset($post['photo']) ? $post['photo'] : '';
             $link_name = isset($post['link_name']) ? $post['link_name'] : '';
             $link_url = isset($post['link_url']) ? $post['link_url'] : '';
 

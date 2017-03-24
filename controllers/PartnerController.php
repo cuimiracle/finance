@@ -50,10 +50,18 @@ class PartnerController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
+            $photo = '';
+            if(!empty($_FILES)){
+                $files = $_FILES;
+                $uploadForm = new models\UploadForm;
+                $res = $uploadForm->photos($files);
+                if(!empty($res['result'])){
+                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
+                }
+            }
             $post = \Yii::$app->request->post();
 
             $id = isset($post['id']) ? $post['id'] : '';
-            $photo = isset($post['photo']) ? $post['photo'] : '';
             $order = isset($post['order']) ? $post['order'] : 0;
 
             $res = $this->getModel()->updateOne($id, $photo, $order);
@@ -67,8 +75,16 @@ class PartnerController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
+            $photo = '';
+            if(!empty($_FILES)){
+                $files = $_FILES;
+                $uploadForm = new models\UploadForm;
+                $res = $uploadForm->photos($files);
+                if(!empty($res['result'])){
+                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
+                }
+            }
             $post = \Yii::$app->request->post();
-            $photo = isset($post['photo']) ? $post['photo'] : '';
             $order = isset($post['order']) ? $post['order'] : 0;
 
             $res = $this->getModel()->insertOne($photo, $order);

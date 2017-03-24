@@ -3,7 +3,7 @@
 namespace app\controllers;
 use app\models;
 
-class UploadController extends \yii\web\Controller
+class UploadFileController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
 
@@ -22,95 +22,89 @@ class UploadController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        // echo \Yii::$app->basePath;
-
-        if (\Yii::$app->request->isPost) {
-            $uploadForm = new models\UploadForm;
-            $res = $uploadForm->photos($_FILES);
-
-            echo '<pre>';print_r($res);echo '</pre>';
-
-        }
-
         // return $this->render('index');
     }
 
-    public function actionPhoto(){
-        $save_path = $error_message = '';
-        /*
-        Array
-        (
-            [file] => Array
-            (
-                [name] => WechatIMG1.jpeg
-                [type] => image/jpeg
-                [tmp_name] => /private/var/tmp/phpx5XUBu
-                [error] => 0
-                [size] => 84935
-            )
-        )
-        */
-        if (\Yii::$app->request->isPost) {
-            // echo '<pre>';print_r($_FILES);echo '</pre>';
-            if (
-                (      ($_FILES["file"]["type"] == "image/gif")
-                    || ($_FILES["file"]["type"] == "image/jpeg")
-                    || ($_FILES["file"]["type"] == "image/pjpeg")
-                )
-                && ($_FILES["file"]["size"] < 1024*1024*10) // limit file size = 10M
-            ) {
-                if ($_FILES["file"]["error"] > 0){
-                    $error_message .= "Return Code: ".$_FILES["file"]["error"].'. ';
-                }else{
-                    $error_message .=  "Upload: ".$_FILES["file"]["name"].'. ';
-                    $error_message .=  "Type: ".$_FILES["file"]["type"].'. ';
-                    $error_message .=  "Size: ".($_FILES["file"]["size"]/1024)."Kb. ";
-                    $error_message .=  "Temp file: ".$_FILES["file"]["tmp_name"].'. ';
-
-                    $save_path = "upload/".$_FILES["file"]["name"];
-                    if (file_exists($save_path)){
-                        $error_message .= $_FILES["file"]["name"]." already exists. ";
-                    }else{
-                        move_uploaded_file($_FILES["file"]["tmp_name"], $save_path);
-                    }
-                }
-            }else{
-                $error_message .=  "Invalid file. ";
-            }
-
-            if($error_message) return $this->fail(array('message'=>$error_message));
-            return $this->succeed(array('save_path'=>$save_path));
+    public function getModel(){
+        if(empty($this->model)){
+            $this->model = new models\UploadFile;
         }
-
+        return $this->model;
     }
 
-    public function actionFile(){
-        $save_path = $error_message =  '';
+    public function actionGet_all()
+    {
+        $res = $this->getModel()->fetchAll();
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
+    }
+
+    public function actionGet($id)
+    {
+        $res = $this->getModel()->fetchOne($id);
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
+    }
+
+    public function actionUpdate()
+    {
+        $res = false;
         if (\Yii::$app->request->isPost) {
-            // echo '<pre>';print_r($_FILES);echo '</pre>';
-            if ( $_FILES["file"]["size"] < 1024*1024*10 ) { // limit file size = 10M
-                if ($_FILES["file"]["error"] > 0){
-                    $error_message .= "Return Code: ".$_FILES["file"]["error"].'. ';
-                }else{
-                    $error_message .=  "Upload: ".$_FILES["file"]["name"].'. ';
-                    $error_message .=  "Type: ".$_FILES["file"]["type"].'. ';
-                    $error_message .=  "Size: ".($_FILES["file"]["size"]/1024)."Kb. ";
-                    $error_message .=  "Temp file: ".$_FILES["file"]["tmp_name"].'. ';
-
-                    $save_path = "upload/".$_FILES["file"]["name"];
-                    if (file_exists($save_path)){
-                        $error_message .= $_FILES["file"]["name"]." already exists. ";
-                    }else{
-                        move_uploaded_file($_FILES["file"]["tmp_name"], $save_path);
-                    }
+            $file_path = '';
+            if(!empty($_FILES)){
+                $files = $_FILES;
+                $uploadForm = new models\UploadForm;
+                $res = $uploadForm->photos($files);
+                if(!empty($res['result'])){
+                    $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
                 }
-            }else{
-                $error_message .=  "Invalid file. ";
             }
+            $post = \Yii::$app->request->post();
 
-            if($error_message) return $this->fail(array('message'=>$error_message));
-            return $this->succeed(array('save_path'=>$save_path));
+            $id = isset($post['id']) ? $post['id'] : '';
+            $name = isset($post['name']) ? $post['name'] : '';
+
+            $res = $this->getModel()->updateOne($id, $name, $file_path);
         }
 
+        if(!$res) return $this->fail();
+        return $this->succeed();
+    }
+
+    public function actionInsert()
+    {
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $file_path = '';
+            if(!empty($_FILES)){
+                $files = $_FILES;
+                $uploadForm = new models\UploadForm;
+                $res = $uploadForm->photos($files);
+                if(!empty($res['result'])){
+                    $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
+                }
+            }
+            $post = \Yii::$app->request->post();
+            $name = isset($post['name']) ? $post['name'] : '';
+
+            $res = $this->getModel()->insertOne($name, $file_path);
+        }
+
+        if(!$res) return $this->fail();
+        return $this->succeed(array('insert_id' => $res));
+    }
+
+    public function actionDelete()
+    {
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $id = isset($post['id']) ? $post['id'] : '';
+
+            $res = $this->getModel()->deleteOne($id);
+        }
+
+        if(!$res) return $this->fail();
+        return $this->succeed();
     }
 }
