@@ -64,8 +64,9 @@ class SiteMainController extends \yii\web\Controller
             $id = isset($post['id']) ? $post['id'] : '';
             $title = isset($post['title']) ? $post['title'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
+            $link_url = isset($post['link_url']) ? $post['link_url'] : '';
 
-            $res = $this->getModel()->updateOne($id, $title, $content, $photo);
+            $res = $this->getModel()->updateOne($id, $title, $content, $photo, $link_url);
         }
 
         if(!$res) return $this->fail();
@@ -88,8 +89,9 @@ class SiteMainController extends \yii\web\Controller
             $post = \Yii::$app->request->post();
             $title = isset($post['title']) ? $post['title'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
+            $link_url = isset($post['link_url']) ? $post['link_url'] : '';
 
-            $res = $this->getModel()->insertOne($title, $content, $photo);
+            $res = $this->getModel()->insertOne($title, $content, $photo, $link_url);
         }
 
         if(!$res) return $this->fail();

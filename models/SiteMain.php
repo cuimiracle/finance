@@ -46,6 +46,7 @@ class SiteMain extends \yii\db\ActiveRecord
             'title' => 'Title',
             'content' => 'Content',
             'photo' => 'Photo',
+            'link_url' => 'Link Url',
             'updated_at' => 'Updated At',
         ];
     }
@@ -63,16 +64,16 @@ class SiteMain extends \yii\db\ActiveRecord
         return $res;
     }
 
-    public function updateOne($id, $title, $content, $photo){
-        $command = \Yii::$app->db->createCommand("UPDATE site_main SET title=:title, content=:content, photo=:photo WHERE id=:id");
-        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':content'=>$content, ":photo"=>$photo));
+    public function updateOne($id, $title, $content, $photo, $link_url){
+        $command = \Yii::$app->db->createCommand("UPDATE site_main SET title=:title, content=:content, photo=:photo, link_url=:link_url WHERE id=:id");
+        $command->bindValues(array(":id"=>$id, ':title'=>$title, ':content'=>$content, ":photo"=>$photo, ":link_url"=>$link_url));
         $res = $command->execute();
         return $res;
     }
 
-    public function insertOne($title, $content, $photo){
-        $command = \Yii::$app->db->createCommand("INSERT INTO site_main SET title=:title, content=:content, photo=:photo, updated_at=:updated_at");
-        $command->bindValues(array(':title'=>$title, ':content'=>$content, ":photo"=>$photo, ':updated_at'=>date('Y-m-d H:i:s')));
+    public function insertOne($title, $content, $photo, $link_url){
+        $command = \Yii::$app->db->createCommand("INSERT INTO site_main SET title=:title, content=:content, photo=:photo, link_url=:link_url, updated_at=:updated_at");
+        $command->bindValues(array(':title'=>$title, ':content'=>$content, ":photo"=>$photo, ":link_url"=>$link_url, ':updated_at'=>date('Y-m-d H:i:s')));
         $command->execute();
         return \Yii::$app->db->getLastInsertID();
     }
