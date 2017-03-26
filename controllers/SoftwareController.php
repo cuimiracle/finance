@@ -22,7 +22,11 @@ class SoftwareController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        // return $this->render('index');
+        $contents = $this->getModel()->fetchAll();
+
+        return $this->render('index', [
+            'contents' => $contents,
+        ]);
     }
 
     public function getModel(){

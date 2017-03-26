@@ -3,7 +3,7 @@
 namespace app\controllers;
 use app\models;
 
-class CollegeController extends \yii\web\Controller
+class OnlineAccountController extends \yii\web\Controller
 {
     public $enableCsrfValidation = false;
     private $model;
@@ -22,16 +22,16 @@ class CollegeController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        $contents = $this->getModel()->fetchAll();
-
+        $get = \Yii::$app->request->get();
+        $insert_id = isset($get['insert_id']) ? $get['insert_id'] : '';
         return $this->render('index', [
-            'contents' => $contents,
+            'insert_id' => $insert_id,
         ]);
     }
 
     public function getModel(){
         if(empty($this->model)){
-            $this->model = new models\College;
+            $this->model = new models\OnlineAccount;
         }
         return $this->model;
     }
@@ -54,23 +54,12 @@ class CollegeController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $id = isset($post['id']) ? $post['id'] : '';
-            $title = isset($post['title']) ? $post['title'] : '';
             $name = isset($post['name']) ? $post['name'] : '';
-            $description = isset($post['description']) ? $post['description'] : '';
-            $price = isset($post['price']) ? $post['price'] : '';
+            $mobile = isset($post['mobile']) ? $post['mobile'] : '';
 
-            $res = $this->getModel()->updateOne($id, $title, $photo, $name, $description, $price);
+            $res = $this->getModel()->updateOne($id, $name, $mobile);
         }
 
         if(!$res) return $this->fail();
@@ -81,22 +70,11 @@ class CollegeController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
-            $title = isset($post['title']) ? $post['title'] : '';
             $name = isset($post['name']) ? $post['name'] : '';
-            $description = isset($post['description']) ? $post['description'] : '';
-            $price = isset($post['price']) ? $post['price'] : '';
+            $mobile = isset($post['mobile']) ? $post['mobile'] : '';
 
-            $res = $this->getModel()->insertOne($title, $photo, $name, $description, $price);
+            $res = $this->getModel()->insertOne($name, $mobile);
         }
 
         if(!$res) return $this->fail();
@@ -115,5 +93,19 @@ class CollegeController extends \yii\web\Controller
 
         if(!$res) return $this->fail();
         return $this->succeed();
+    }
+
+    public function actionOpen_new()
+    {
+        $res = false;
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $name = isset($post['name']) ? $post['name'] : '';
+            $mobile = isset($post['mobile']) ? $post['mobile'] : '';
+
+            $res = $this->getModel()->insertOne($name, $mobile);
+        }
+
+        $this->redirect(array('/online-account/index','insert_id'=>$res));
     }
 }

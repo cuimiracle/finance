@@ -22,7 +22,13 @@ class HelpController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        // return $this->render('index');
+        $contents = $this->getModel()->fetchAll();
+        $types = $this->getModel()->fetchAllTypes();
+
+        return $this->render('index', [
+            'contents' => $contents,
+            'types' => $types,
+        ]);
     }
 
     public function getModel(){
@@ -35,6 +41,13 @@ class HelpController extends \yii\web\Controller
     public function actionGet_all()
     {
         $res = $this->getModel()->fetchAll();
+        if(!$res) $res = '';
+        return $this->succeed(array('data' => $res));
+    }
+
+    public function actionGet_all_types()
+    {
+        $res = $this->getModel()->fetchAllTypes();
         if(!$res) $res = '';
         return $this->succeed(array('data' => $res));
     }

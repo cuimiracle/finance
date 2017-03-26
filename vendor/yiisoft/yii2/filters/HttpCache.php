@@ -182,21 +182,21 @@ class HttpCache extends ActionFilter
      */
     protected function sendCacheControlHeader()
     {
-        if ($this->sessionCacheLimiter !== null) {
-            if ($this->sessionCacheLimiter === '' && !headers_sent() && Yii::$app->getSession()->getIsActive()) {
-                header_remove('Expires');
-                header_remove('Cache-Control');
-                header_remove('Last-Modified');
-                header_remove('Pragma');
-            }
-            session_cache_limiter($this->sessionCacheLimiter);
-        }
-
-        $headers = Yii::$app->getResponse()->getHeaders();
-
-        if ($this->cacheControlHeader !== null) {
-            $headers->set('Cache-Control', $this->cacheControlHeader);
-        }
+//        if ($this->sessionCacheLimiter !== null) {
+//            if ($this->sessionCacheLimiter === '' && !headers_sent() && Yii::$app->getSession()->getIsActive()) {
+//                header_remove('Expires');
+//                header_remove('Cache-Control');
+//                header_remove('Last-Modified');
+//                header_remove('Pragma');
+//            }
+//            session_cache_limiter($this->sessionCacheLimiter);
+//        }
+//
+//        $headers = Yii::$app->getResponse()->getHeaders();
+//
+//        if ($this->cacheControlHeader !== null) {
+//            $headers->set('Cache-Control', $this->cacheControlHeader);
+//        }
     }
 
     /**

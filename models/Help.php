@@ -29,9 +29,8 @@ class Help extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content'], 'string'],
+            [['type', 'content'], 'string'],
             [['updated_at'], 'safe'],
-            [['type'], 'string', 'max' => 50],
             [['title'], 'string', 'max' => 100],
         ];
     }
@@ -48,6 +47,12 @@ class Help extends \yii\db\ActiveRecord
             'content' => 'Content',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    public function fetchAllTypes(){
+        $command = \Yii::$app->db->createCommand('SELECT type FROM help GROUP BY `type`');
+        $res = $command->queryAll();
+        return $res;
     }
 
     public function fetchAll(){

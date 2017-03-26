@@ -22,7 +22,15 @@ class AboutController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        // return $this->render('index');
+        $contents = $this->getModel()->fetchAll();
+
+        $partners_obj = new models\Partner;
+        $partners = $partners_obj->fetchAll();
+
+        return $this->render('index', [
+            'contents' => $contents,
+            'partners' => $partners,
+        ]);
     }
 
     public function getModel(){

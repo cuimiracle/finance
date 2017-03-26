@@ -48,7 +48,7 @@ class Partner extends \yii\db\ActiveRecord
     }
 
     public function fetchAll(){
-        $command = \Yii::$app->db->createCommand('SELECT * FROM partner');
+        $command = \Yii::$app->db->createCommand('SELECT * FROM partner ORDER BY `order` ASC');
         $res = $command->queryAll();
         return $res;
     }
