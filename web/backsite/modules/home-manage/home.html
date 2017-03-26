@@ -5,31 +5,28 @@
 		<div class="form-group">
 			<label class="col-md-1">标题</label>
 			<div class="col-md-4">
-				<input class="form-control" type="text">
+				<input class="form-control" type="text" ng-model="bannerData.title">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">描述</label>
 			<div class="col-md-6">
-				<input class="form-control" type="text">
+				<input class="form-control" type="text" ng-model="bannerData.content">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">链接</label>
 			<div class="col-md-6">
-				<input class="form-control" type="text">
+				<input class="form-control" type="text" ng-model="bannerData.link_url">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">图片</label>
 			<div class="col-md-2">
-				<input type="file" nv-file-select uploader="uploader"/>
-			</div>
-			<div class="col-md-2">
-				<a class="btn btn-sm btn-default" ng-click="uploader.uploadAll()">上传</a>
+				<input type="file" ng-model="bannerData.photo"/>
 			</div>
 		</div>
-		<button class="btn btn-default" ng-click="upload()">确认</button>
+		<button class="btn btn-default" ng-click="bannerOk()">确认</button>
 
 		<table class="table table-bordered">
 			<thead>
