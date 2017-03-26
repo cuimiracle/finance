@@ -59,6 +59,7 @@ class SiteBanner extends \yii\db\ActiveRecord
 
     public function fetchOne($id){
         $command = \Yii::$app->db->createCommand('SELECT * FROM site_banner WHERE id=:id');
+
         $command->bindValues(array(":id"=>$id));
         $res = $command->queryOne();
         return $res;
