@@ -7,8 +7,10 @@ MYSITE.service('HomeService', function ($http) {
 	};
 
 	// 首页banner - 获取所有数据 id
-	this.getBanner = function () {
-		return $http.get(urlPre + 'site-banner/get');
+	this.getBanner = function (id) {
+		return $http.get(urlPre + 'site-banner/get', {
+			param: {id: id}
+		});
 	};
 
 	// 首页banner - site-banner/insert 插入单条数据（title, content, photo, link_url）

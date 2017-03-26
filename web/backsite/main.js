@@ -2,6 +2,9 @@
 
 // 定义主模块和添加依赖模块
 var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'angularFileUpload'])
+  .config(function ($httpProvider) {
+      $httpProvider.defaults.headers.post['Content-Type'] =  'multipart/form-data';
+  })
   .config(['$httpProvider',
       function($httpProvider) {
           $httpProvider.interceptors.push(['$q',
