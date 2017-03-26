@@ -16,7 +16,7 @@ MYSITE.service('HomeService', function ($http) {
 	// 首页banner - site-banner/insert 插入单条数据（title, content, photo, link_url）
 	this.addBanner = function (data) {
 		return $http.post(urlPre + 'site-banner/insert', data, {
-			contentType: false
+			contentType: 'multipart/form-data'
 		});
 	};
 
