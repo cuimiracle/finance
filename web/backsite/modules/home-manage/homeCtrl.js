@@ -3,6 +3,8 @@
  */
 MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
   function ($scope, HomeService) {
+    $scope.bannerList = [];
+
     $scope.bannerData = {
       title: '',
       content: '',
@@ -14,7 +16,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
 
     function getAllBanner() {
       HomeService.getAllBanner().then(function (res) {
-        console.log(res);
+        $scope.bannerList = res.data.data;
       });
     }
     getAllBanner();
@@ -24,6 +26,12 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
         if (res.data.insert_id) {
           getAllBanner();
         }
+      });
+    };
+
+    $scope.deleteBanner = function (data) {
+      HomeService.deleteBanner(data.id).then(function (res) {
+        getAllBanner();
       });
     };
   }]);
