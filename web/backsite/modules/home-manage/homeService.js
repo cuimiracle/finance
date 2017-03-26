@@ -22,8 +22,8 @@ MYSITE.service('HomeService', function ($http) {
 	};
 
 	// 首页banner - site-banner/update 删除指定单条数据（id）
-	this.deleteBanner = function (data) {
-		return $http.post(urlPre + 'site-banner/delete', data);
+	this.deleteBanner = function (id) {
+		return $http.post(urlPre + 'site-banner/delete', {id: id});
 	};
 
 });
