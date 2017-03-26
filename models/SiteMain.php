@@ -11,6 +11,7 @@ use Yii;
  * @property string $title
  * @property string $content
  * @property string $photo
+ * @property string $link_url
  * @property string $updated_at
  */
 class SiteMain extends \yii\db\ActiveRecord
@@ -84,4 +85,5 @@ class SiteMain extends \yii\db\ActiveRecord
         $res = $command->execute();
         return $res;
     }
+
 }

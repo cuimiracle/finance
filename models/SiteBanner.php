@@ -11,6 +11,7 @@ use Yii;
  * @property string $title
  * @property string $content
  * @property string $photo
+ * @property string $link_url
  * @property string $updated_at
  */
 class SiteBanner extends \yii\db\ActiveRecord

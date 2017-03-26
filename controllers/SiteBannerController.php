@@ -98,7 +98,7 @@ class SiteBannerController extends \yii\web\Controller
         return $this->succeed(array('insert_id' => $res));
     }
 
-    public function actionDelete()
+    public function actionDelete1()
     {
         $res = false;
         if (\Yii::$app->request->isPost) {

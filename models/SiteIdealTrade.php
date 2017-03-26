@@ -32,7 +32,7 @@ class SiteIdealTrade extends \yii\db\ActiveRecord
             [['content'], 'string'],
             [['updated_at'], 'safe'],
             [['title'], 'string', 'max' => 100],
-            [['photo', 'link_url'], 'string', 'max' => 250],
+            [['photo'], 'string', 'max' => 250],
         ];
     }
 
@@ -46,7 +46,6 @@ class SiteIdealTrade extends \yii\db\ActiveRecord
             'title' => 'Title',
             'content' => 'Content',
             'photo' => 'Photo',
-            'link_url' => 'Link Url',
             'updated_at' => 'Updated At',
         ];
     }
