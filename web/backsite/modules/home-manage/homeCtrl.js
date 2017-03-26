@@ -12,13 +12,18 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
 
     $scope.myHtml = '';
 
-    HomeService.getAllBanner().then(function (res) {
-      console.log(res);
-    });
+    function getAllBanner() {
+      HomeService.getAllBanner().then(function (res) {
+        console.log(res);
+      });
+    }
+    getAllBanner();
 
     $scope.bannerOk = function () {
       HomeService.addBanner($scope.bannerData).then(function (res) {
-        console.log(res);
+        if (res.data.insert_id) {
+          getAllBanner();
+        }
       });
     };
   }]);
