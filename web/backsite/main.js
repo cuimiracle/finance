@@ -9,7 +9,7 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'a
       }
       return $.param(data);
     };
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+    $httpProvider.defaults.headers.post['Content-Type'] = 'multipart/form-data;charset=utf-8';
   })
   .config(['$httpProvider',
       function($httpProvider) {
