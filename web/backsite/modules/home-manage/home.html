@@ -1,4 +1,99 @@
 <div class="container-fluid">
-	<h3>内容编辑</h3>
-	<textarea froala ng-model="myHtml"></textarea>
+
+	<form class="form-horizontal">
+		<h3>BANNER图(显示4个)</h3>
+		<div class="form-group">
+			<label class="col-md-1">标题</label>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="bannerData.title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">描述</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="bannerData.content">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">链接</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="bannerData.link_url">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">图片</label>
+			<div class="col-md-2">
+				<input type="file" fileread="bannerData.photo"/>
+			</div>
+		</div>
+		<button class="btn btn-default" ng-click="bannerOk()">确认</button>
+
+		<table class="table table-bordered">
+			<thead>
+			<tr>
+				<td>id</td>
+				<td>标题</td>
+				<td>描述</td>
+				<td>链接</td>
+				<td>图片</td>
+				<td>操作</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in bannerList">
+					<td>{{item.id}}</td>
+					<td>{{item.title}}</td>
+					<td>{{item.content}}</td>
+					<td>{{item.link_url}}</td>
+					<td>{{item.photo}}</td>
+					<td><a ng-click="deleteBanner(item)">删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<h3>特色编辑</h3>
+		<div class="form-group">
+			<label class="col-md-1">标题</label>
+			<div class="col-md-4">
+				<input class="form-control" type="text">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">描述</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">链接</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">图片</label>
+			<div class="col-md-2">
+				<input type="file"/>
+			</div>
+		</div>
+		<button class="btn btn-default">确认</button>
+
+		<table class="table table-bordered">
+			<thead>
+			<tr>
+				<td>标题</td>
+				<td>描述</td>
+				<td>链接</td>
+				<td>图片</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr></tr>
+			</tbody>
+		</table>
+		<hr>
+		<h3>内容编辑</h3>
+		<textarea froala ng-model="myHtml"></textarea>
+		{{myHtml}}
+	</form>
 </div>

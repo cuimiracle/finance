@@ -1,8 +1,31 @@
 MYSITE.service('HomeService', function ($http) {
-	var urlPre = '';
+	var urlPre = '../index.php?r=';
 
-	// 获取主页内容数据
-	this.getHomeData = function () {
-		return $http.get(urlPre + '/home/getData');
+	// 首页banner - 获取所有数据
+	this.getAllBanner = function () {
+		return $http.get(urlPre + 'site-banner/get_all');
 	};
+
+	// 首页banner - 获取所有数据 id
+	this.getBanner = function (id) {
+		return $http.get(urlPre + 'site-banner/get', {
+			param: {id: id}
+		});
+	};
+
+	// 首页banner - site-banner/insert 插入单条数据（title, content, photo, link_url）
+	this.addBanner = function (data) {
+		return $http.post(urlPre + 'site-banner/insert', data);
+	};
+
+	// 首页banner - site-banner/update 更新指定单条数据（id, title, content, photo, link_url）
+	this.updateBanner = function (data) {
+		return $http.post(urlPre + 'site-banner/update', data);
+	};
+
+	// 首页banner - site-banner/update 删除指定单条数据（id）
+	this.deleteBanner = function (id) {
+		return $http.post(urlPre + 'site-banner/delete', {id: id});
+	};
+
 });

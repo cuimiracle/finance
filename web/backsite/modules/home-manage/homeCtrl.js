@@ -1,16 +1,37 @@
 /**
  * 主页内容管理
  */
-MYSITE.value('froalaConfig', {
-		language: 'zh_cn',
-        toolbarInline: false,
-        placeholderText: '请输入编辑内容',
-        pasteAllowedStyleProps: ['font-family', 'font-size', 'color'],
-        toolbarButtons: ['fullscreen', 'print', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'specialCharacters', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
-	    pluginsEnabled: ['link'],
-	    fontFamilySelection: true,
-	    fontSizeSelection: true,
-	    paragraphFormatSelection: true
-    })
-.controller('HomeCtrl', ['$scope', 'HomeService', function ($scope, HomeService) {
-}]);
+MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
+  function ($scope, HomeService) {
+    $scope.bannerList = [];
+
+    $scope.bannerData = {
+      title: '',
+      content: '',
+      photo: '',
+      link_url: ''
+    };
+
+    $scope.myHtml = '';
+
+    function getAllBanner() {
+      HomeService.getAllBanner().then(function (res) {
+        $scope.bannerList = res.data.data;
+      });
+    }
+    getAllBanner();
+
+    $scope.bannerOk = function () {
+      HomeService.addBanner($scope.bannerData).then(function (res) {
+        if (res.data.insert_id) {
+          getAllBanner();
+        }
+      });
+    };
+
+    $scope.deleteBanner = function (data) {
+      HomeService.deleteBanner(data.id).then(function (res) {
+        getAllBanner();
+      });
+    };
+  }]);
