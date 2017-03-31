@@ -1,33 +1,37 @@
 <div class="container-fluid">
 	<h3>首页内容管理</h3>
 	<form class="form-horizontal">
-		<h3>BANNER图(显示4个)</h3>
 		<div class="form-group">
 			<label class="col-md-1">标题</label>
 			<div class="col-md-4">
-				<input class="form-control" type="text" ng-model="bannerData.title">
+				<input class="form-control" type="text" ng-model="data.title">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">描述</label>
 			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="bannerData.content">
+				<input class="form-control" type="text" ng-model="data.content">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">链接</label>
 			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="bannerData.link_url">
+				<input class="form-control" type="text" ng-model="data.link_url">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">图片</label>
 			<div class="col-md-2">
-				<input type="file" fileread="bannerData.photo"/>
+				<input type="file" fileread="data.photo"/>
 			</div>
 		</div>
-		<button class="btn btn-default" ng-click="bannerOk()">确认</button>
+		<button class="btn btn-default" ng-click="bannerOk()">banner确认</button>
+		<button class="btn btn-default" ng-click="introOk()">公司介绍确认</button>
+		<button class="btn btn-default" ng-click="bigImgOk()">大图确认</button>
+		<button class="btn btn-default" ng-click="picTextOk()">图文介绍确认</button>
+		<button class="btn btn-default" ng-click="bottomOk()">底部图片</button>
 		<p> </p>
+		<h3>BANNER图(显示4个)</h3>
 		<table class="table table-bordered">
 			<thead>
 			<tr>
@@ -52,32 +56,6 @@
 		</table>
 		<hr>
 		<h3>公司介绍</h3>
-		<div class="form-group">
-			<label class="col-md-1">标题</label>
-			<div class="col-md-4">
-				<input class="form-control" type="text" ng-model="introData.title">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">描述</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="introData.content">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">链接</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="introData.link_url">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">图片</label>
-			<div class="col-md-2">
-				<input type="file" fileread="introData.photo"/>
-			</div>
-		</div>
-		<button class="btn btn-default" ng-click="introOk()">确认</button>
-		<p> </p>
 		<table class="table table-bordered">
 			<thead>
 			<tr>
@@ -102,19 +80,6 @@
 		</table>
 		<hr>
 		<h3>大图</h3>
-		<div class="form-group">
-			<label class="col-md-1">标题</label>
-			<div class="col-md-4">
-				<input class="form-control" type="text" ng-model="bigImg.title">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">图片</label>
-			<div class="col-md-2">
-				<input type="file" ng-model="bigImg.photo"/>
-			</div>
-		</div>
-		<button class="btn btn-default">确认</button>
 		<p> </p>
 		<table class="table table-bordered">
 			<thead>
@@ -134,31 +99,6 @@
 		</table>
 		<hr>
 		<h3>图文介绍</h3>
-		<div class="form-group">
-			<label class="col-md-1">标题</label>
-			<div class="col-md-4">
-				<input class="form-control" type="text" ng-model="picText.title">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">描述</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="picText.content">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">链接</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="picText.link_url">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">图片</label>
-			<div class="col-md-2">
-				<input type="file" fileread="picText.photo"/>
-			</div>
-		</div>
-		<button class="btn btn-default" ng-click="picTextOk()">确认</button>
 		<p> </p>
 		<table class="table table-bordered">
 			<thead>
@@ -184,31 +124,6 @@
 		</table>
 		<hr>
 		<h3>底部图文</h3>
-		<div class="form-group">
-			<label class="col-md-1">标题</label>
-			<div class="col-md-4">
-				<input class="form-control" type="text" ng-model="bottom.title">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">描述</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="bottom.content">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">链接</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="bottom.link_url">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">图片</label>
-			<div class="col-md-2">
-				<input type="file" fileread="bottom.photo"/>
-			</div>
-		</div>
-		<button class="btn btn-default" ng-click="bottomOk()">确认</button>
 		<p> </p>
 		<table class="table table-bordered">
 			<thead>

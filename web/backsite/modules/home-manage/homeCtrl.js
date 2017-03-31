@@ -3,7 +3,7 @@
  */
 MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
   function ($scope, HomeService) {
-    var initData = {
+    $scope.data = {
       title: '',
       content: '',
       photo: '',
@@ -15,12 +15,6 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
     $scope.bigImgList = [];
     $scope.picTextList = [];
     $scope.bottomList = [];
-
-    $scope.bannerData = _.cloneDeep(initData);
-    $scope.introData = _.cloneDeep(initData);
-    $scope.bigImg = _.cloneDeep(initData);
-    $scope.picText = _.cloneDeep(initData);
-    $scope.bottom = _.cloneDeep(initData);
 
     $scope.myHtml = '';
 
@@ -50,7 +44,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
     commonGetAll('getBottomContentAll', 'bottomList');
 
     $scope.bannerOk = function () {
-      commonAdd($scope.bannerData, 'addBanner', function () {
+      commonAdd($scope.data, 'addBanner', function () {
         commonGetAll('getAllBanner', 'bannerList');
       })
     };
@@ -62,7 +56,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
     };
 
     $scope.introOk = function () {
-      commonAdd($scope.introData, 'addIntro', function () {
+      commonAdd($scope.data, 'addIntro', function () {
         commonGetAll('getAllIntro', 'introList');
       });
     };
@@ -74,7 +68,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
     };
 
     $scope.bigImgOk = function () {
-      commonAdd($scope.bigImg, 'addBigImg', function () {
+      commonAdd($scope.data, 'addBigImg', function () {
         commonGetAll('getBigImgAll', 'bigImgList');
       });
     };
@@ -86,7 +80,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
     };
 
     $scope.picTextOk = function () {
-      commonAdd($scope.picText, 'addPicText', function () {
+      commonAdd($scope.data, 'addPicText', function () {
         commonGetAll('getPicTextAll', 'picTextList');
       });
     };
