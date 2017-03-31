@@ -20,7 +20,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
 
     function commonGetAll(actionName, listName) {
       HomeService[actionName]().then(function (res) {
-        $scope[listName] = res.data.dta;
+        $scope[listName] = res.data.data;
       })
     }
 
