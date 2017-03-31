@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<button class="btn btn-default" ng-click="bannerOk()">确认</button>
-
+		<br>
 		<table class="table table-bordered">
 			<thead>
 			<tr>
@@ -51,7 +51,7 @@
 			</tbody>
 		</table>
 		<hr>
-		<h3>图文介绍</h3>
+		<h3>公司介绍</h3>
 		<div class="form-group">
 			<label class="col-md-1">标题</label>
 			<div class="col-md-4">
@@ -64,12 +64,12 @@
 				<input class="form-control" type="text" ng-model="introData.content">
 			</div>
 		</div>
-		<!--<div class="form-group">-->
-			<!--<label class="col-md-1">链接</label>-->
-			<!--<div class="col-md-6">-->
-				<!--<input class="form-control" type="text" ng-model="introData.link_url">-->
-			<!--</div>-->
-		<!--</div>-->
+		<div class="form-group">
+			<label class="col-md-1">链接</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="introData.link_url">
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="col-md-1">图片</label>
 			<div class="col-md-2">
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 		<button class="btn btn-default" ng-click="introOk()">确认</button>
-
+		<br>
 		<table class="table table-bordered">
 			<thead>
 			<tr>
@@ -94,7 +94,7 @@
 				<td>{{item.id}}</td>
 				<td>{{item.title}}</td>
 				<td>{{item.content}}</td>
-				<!--<td>{{item.link_url}}</td>-->
+				<td>{{item.link_url}}</td>
 				<td>{{item.photo}}</td>
 				<td><a ng-click="deleteintro(item)">删除</a></td>
 			</tr>
@@ -105,40 +105,131 @@
 		<div class="form-group">
 			<label class="col-md-1">标题</label>
 			<div class="col-md-4">
-				<input class="form-control" type="text">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">描述</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">链接</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text">
+				<input class="form-control" type="text" ng-model="bigImg.title">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-1">图片</label>
 			<div class="col-md-2">
-				<input type="file"/>
+				<input type="file" ng-model="bigImg.photo"/>
 			</div>
 		</div>
 		<button class="btn btn-default">确认</button>
-
+		<br>
 		<table class="table table-bordered">
 			<thead>
 			<tr>
 				<td>标题</td>
-				<td>描述</td>
-				<td>链接</td>
 				<td>图片</td>
 			</tr>
 			</thead>
 			<tbody>
-			<tr></tr>
+			<tr ng-repeat="item in bigImgList">
+				<td>{{item.id}}</td>
+				<td>{{item.title}}</td>
+				<td>{{item.photo}}</td>
+				<td><a ng-click="deletebigImg(item)">删除</a></td>
+			</tr>
+			</tbody>
+		</table>
+		<hr>
+		<h3>图文介绍</h3>
+		<div class="form-group">
+			<label class="col-md-1">标题</label>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="picText.title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">描述</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="picText.content">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">链接</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="picText.link_url">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">图片</label>
+			<div class="col-md-2">
+				<input type="file" fileread="picText.photo"/>
+			</div>
+		</div>
+		<button class="btn btn-default" ng-click="picTextOk()">确认</button>
+		<br>
+		<table class="table table-bordered">
+			<thead>
+			<tr>
+				<td>id</td>
+				<td>标题</td>
+				<td>描述</td>
+				<td>链接</td>
+				<td>图片</td>
+				<td>操作</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="item in picTextList">
+				<td>{{item.id}}</td>
+				<td>{{item.title}}</td>
+				<td>{{item.content}}</td>
+				<td>{{item.link_url}}</td>
+				<td>{{item.photo}}</td>
+				<td><a ng-click="deletePicText(item)">删除</a></td>
+			</tr>
+			</tbody>
+		</table>
+		<hr>
+		<h3>底部图文</h3>
+		<div class="form-group">
+			<label class="col-md-1">标题</label>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="bottom.title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">描述</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="bottom.content">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">链接</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="bottom.link_url">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">图片</label>
+			<div class="col-md-2">
+				<input type="file" fileread="bottom.photo"/>
+			</div>
+		</div>
+		<button class="btn btn-default" ng-click="bottomOk()">确认</button>
+		<br>
+		<table class="table table-bordered">
+			<thead>
+			<tr>
+				<td>id</td>
+				<td>标题</td>
+				<td>描述</td>
+				<td>链接</td>
+				<td>图片</td>
+				<td>操作</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="item in bottomList">
+				<td>{{item.id}}</td>
+				<td>{{item.title}}</td>
+				<td>{{item.content}}</td>
+				<td>{{item.link_url}}</td>
+				<td>{{item.photo}}</td>
+				<td><a ng-click="deleteBottom(item)">删除</a></td>
+			</tr>
 			</tbody>
 		</table>
 		<hr>
