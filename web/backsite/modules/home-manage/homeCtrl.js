@@ -15,6 +15,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
 
     $scope.bannerData = _.cloneDeep(initData);
     $scope.introData = _.cloneDeep(initData);
+    delete $scope.introData.link_url;
 
     $scope.myHtml = '';
 
