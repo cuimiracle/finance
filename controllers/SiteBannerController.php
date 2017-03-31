@@ -101,7 +101,7 @@ echo '<pre>';print_r($_FILES);echo '</pre>';
         return $this->succeed(array('insert_id' => $res));
     }
 
-    public function actionDelete1()
+    public function actionDelete()
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
