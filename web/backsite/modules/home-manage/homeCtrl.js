@@ -24,30 +24,43 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
       })
     }
 
-    // function getAllBanner() {
-    //   HomeService.getAllBanner().then(function (res) {
-    //     $scope.bannerList = res.data.data;
-    //   });
-    // }
-    // function getAllIntro() {
-    //   HomeService.getAllIntro().then(function (res) {
-    //     $scope.introList = res.data.data;
-    //   });
-    // }
+    function commonAdd(data, actionName, callback) {
+      HomeService[actionName](data).then(function (res) {
+        if (res.data.insert_id) {
+          callback();
+        }
+      })
+    }
+
+    function commonDelete(id, actionName, callback) {
+      HomeService[actionName](id).then(function () {
+        callback();
+      });
+    }
     commonGetAll('getAllBanner', 'bannerList');
     commonGetAll('getAllIntro', 'introList');
 
     $scope.bannerOk = function () {
-      HomeService.addBanner($scope.bannerData).then(function (res) {
-        if (res.data.insert_id) {
-          commonGetAll('getAllBanner', 'bannerList');
-        }
+      commonAdd($scope.bannerData, 'addBanner', function () {
+        commonGetAll('getAllBanner', 'bannerList');
+      })
+    };
+
+    $scope.introOk = function () {
+      commonAdd($scope.introData, 'addIntro', function () {
+        commonGetAll('getAllIntro', 'introList');
       });
     };
 
     $scope.deleteBanner = function (data) {
-      HomeService.deleteBanner(data.id).then(function (res) {
+      commonDelete(data.id, 'deleteBanner', function () {
         commonGetAll('getAllBanner', 'bannerList');
+      });
+    };
+
+    $scope.deleteIntro = function (data) {
+      commonDelete(data.id, 'deleteIntro', function () {
+        commonGetAll('getAllIntro', 'introList');
       });
     };
   }]);
