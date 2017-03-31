@@ -56,12 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
 MYSITE.config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
-        $stateProvider.state('homeManage', {
+        $stateProvider
+          .state('homeManage', {
             name: 'homeManage',
             url: '/',
             templateUrl: './modules/home-manage/home.html',
             controller: 'HomeCtrl'
-        })
+          }).state('productManage', {
+            name: 'productManage',
+            url: '/product',
+            templateUrl: './modules/product-manage/product.html',
+            controller: 'ProductCtrl'
+          })
     }])
   .value('froalaConfig', {
       language: 'zh_cn',
