@@ -29,7 +29,7 @@
                     <ul class="list-inline img-list">
                         <?php
                         if(!empty($partners)){
-                            foreach($partners as $partner){
+                            foreach($partners as $content){
                         ?>
                         <li><img src="<?=$content['photo']?>"></li>
                         <?php
