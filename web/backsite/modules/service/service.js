@@ -37,6 +37,12 @@ MYSITE.service('Service', function ($http) {
           callback();
         }
       });
+    },
+
+    del: function (scope, controllerName, areaName, data, callback) {
+      self.deleteData(controllerName, data).then(function (res) {
+          callback();
+      });
     }
   }
 });
