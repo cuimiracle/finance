@@ -32,7 +32,9 @@ MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
     angular.forEach(homeContents, function (val, key) {
       Service.method.getAll($scope, val, key);
 
-      $scope[key + 'Ok'] = Service.method.add($scope, val, key, $scope.data);
+      $scope[key + 'Ok'] = function () {
+        Service.method.add($scope, val, key, $scope.data);
+      };
     });
 
     // $scope.bannerOk = function () {
