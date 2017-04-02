@@ -1,5 +1,6 @@
 MYSITE.service('Service', function ($http) {
-  var urlPre = '../index.php?r=';
+  var urlPre = '../index.php?r=',
+    self = this;
 
   this.getAllData = function (controllerName) {
     return $http.get(urlPre + controllerName+ '/get_all');
@@ -25,7 +26,7 @@ MYSITE.service('Service', function ($http) {
 
   this.method = {
     getAll: function (scope, controllerName, listName) {
-      this.getAllData(controllerName).then(function (res) {
+      self.getAllData(controllerName).then(function (res) {
         scope[listName + 'list'] = res.data.data
       });
     }
