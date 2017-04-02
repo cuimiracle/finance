@@ -33,7 +33,9 @@ MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
       Service.method.getAll($scope, val, key);
 
       $scope[key + 'Ok'] = function () {
-        Service.method.add($scope, val, key, $scope.data);
+        Service.method.add($scope, val, key, $scope.data, function () {
+          Service.method.getAll($scope, val, key);
+        });
       };
     });
 
