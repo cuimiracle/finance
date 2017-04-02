@@ -32,7 +32,7 @@ MYSITE.service('Service', function ($http) {
     },
 
     add: function (scope, controllerName, areaName, data, callback) {
-      self.addData(controllerName).then(function (res) {
+      self.addData(controllerName, data).then(function (res) {
         if (res.data.insert_id) { // success
           callback();
         }
