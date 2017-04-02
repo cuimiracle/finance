@@ -25,9 +25,17 @@ MYSITE.service('Service', function ($http) {
   };
 
   this.method = {
-    getAll: function (scope, controllerName, listName) {
+    getAll: function (scope, controllerName, areaName) {
       self.getAllData(controllerName).then(function (res) {
-        scope[listName + 'List'] = res.data.data;
+        scope[areaName + 'List'] = res.data.data;
+      });
+    },
+
+    add: function (scope, controllerName, areaName, data) {
+      self.addData(controllerName).then(function (res) {
+        if (res.data.insert_id) { // success
+          self.getAll(scope, controllerName, areaName);
+        }
       });
     }
   }
