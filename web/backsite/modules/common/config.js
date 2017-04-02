@@ -1,4 +1,4 @@
-MYSITE.const('PageMap', {
+MYSITE.constant('PageMap', {
   home: {
     banner: 'site-banner',
     intro: 'site-ideal-trade',
