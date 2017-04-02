@@ -67,7 +67,12 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
             url: '/product',
             templateUrl: './modules/product-manage/product.html',
             controller: 'ProductCtrl'
-          })
+          }).state('helpManage', {
+          name: 'helpManage',
+          url: '/help',
+          templateUrl: './modules/help-manage/help.html',
+          controller: 'HelpCtrl'
+        })
     }])
   .value('froalaConfig', {
       language: 'zh_cn',
