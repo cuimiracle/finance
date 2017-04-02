@@ -34,7 +34,7 @@ MYSITE.service('Service', function ($http) {
     add: function (scope, controllerName, areaName, data) {
       self.addData(controllerName).then(function (res) {
         if (res.data.insert_id) { // success
-          self.getAll(scope, controllerName, areaName);
+          self.getAllData(scope, controllerName, areaName);
         }
       });
     }
