@@ -27,8 +27,7 @@ MYSITE.service('Service', function ($http) {
   this.method = {
     getAll: function (scope, controllerName, listName) {
       self.getAllData(controllerName).then(function (res) {
-        scope[listName + 'list'] = res.data.data
-        console.log(listName, res.data.data)
+        scope[listName + 'List'] = res.data.data;
       });
     }
   }
