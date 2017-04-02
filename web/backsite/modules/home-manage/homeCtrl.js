@@ -1,14 +1,11 @@
 /**
  * 主页内容管理
  */
-MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
-  function ($scope, HomeService) {
-    $scope.data = {
-      title: '',
-      content: '',
-      photo: '',
-      link_url: ''
-    };
+MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
+  function ($scope, Service, PageMap, InitData) {
+    var homeContents = PageMap.home;
+
+    $scope.data = _.cloneDeep(InitData);
 
     $scope.bannerList = [];
     $scope.introList = [];
@@ -16,13 +13,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
     $scope.picTextList = [];
     $scope.bottomList = [];
 
-    $scope.myHtml = '';
-
-    function commonGetAll(actionName, listName) {
-      HomeService[actionName]().then(function (res) {
-        $scope[listName] = res.data.data;
-      })
-    }
+    // $scope.myHtml = '';
 
     function commonAdd(data, actionName, callback) {
       HomeService[actionName](data).then(function (res) {
@@ -37,11 +28,10 @@ MYSITE.controller('HomeCtrl', ['$scope', 'HomeService',
         callback();
       });
     }
-    commonGetAll('getAllBanner', 'bannerList');
-    commonGetAll('getAllIntro', 'introList');
-    commonGetAll('getBigImgAll', 'bigImgList');
-    commonGetAll('getPicTextAll', 'picTextList');
-    commonGetAll('getBottomContentAll', 'bottomList');
+
+    angular.forEach(homeContents, function (val, key) {
+      Service.method.getAll($scope, val, key);
+    });
 
     $scope.bannerOk = function () {
       commonAdd($scope.data, 'addBanner', function () {
