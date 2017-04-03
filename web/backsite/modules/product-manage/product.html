@@ -36,7 +36,11 @@
 		<button class="btn btn-default" ng-click="bannerOk()">banner确认</button>
 		<button class="btn btn-default" ng-click="introOk()">内容确认</button>
 	</p>
-	<h3>BANNER图(显示4个)</h3>
+	<p>
+		<button class="btn btn-default" ng-click="bannerUpdate()">banner更新</button>
+		<button class="btn btn-default" ng-click="introUpdate()">内容更新</button>
+	</p>
+	<h3>BANNER图(显示3个)</h3>
 	<table class="table table-bordered">
 		<thead>
 		<tr>
@@ -56,7 +60,7 @@
 			<td>{{item.link_url}}</td>
 			<td>{{item.photo}}</td>
 			<td>
-				<a ng-click="bannerUpdate(item)">编辑</a>
+				<a ng-click="edit(item)">编辑</a>
 				<a ng-click="bannerDel(item)">删除</a>
 			</td>
 		</tr>
@@ -83,7 +87,7 @@
 			<td>{{item.link_url}}</td>
 			<td>{{item.photo}}</td>
 			<td>
-				<a ng-click="contentUpdate(item)">编辑</a>
+				<a ng-click="edit(item)">编辑</a>
 				<a ng-click="contentDel(item)">删除</a>
 			</td>
 		</tr>

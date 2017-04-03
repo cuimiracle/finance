@@ -38,7 +38,14 @@
         <button class="btn btn-default" ng-click="introOk()">公司介绍确认</button>
         <button class="btn btn-default" ng-click="bigImgOk()">大图确认</button>
         <button class="btn btn-default" ng-click="picTextOk()">图文介绍确认</button>
-        <button class="btn btn-default" ng-click="bottomOk()">底部图片</button>
+        <button class="btn btn-default" ng-click="bottomOk()">底部图片确认</button>
+    </p>
+    <p>
+        <button class="btn btn-default" ng-click="bannerUpdate()">banner更新</button>
+        <button class="btn btn-default" ng-click="introUpdate()">公司介绍更新</button>
+        <button class="btn btn-default" ng-click="bigImgUpdate()">大图更新</button>
+        <button class="btn btn-default" ng-click="picTextUpdate()">图文介绍更新</button>
+        <button class="btn btn-default" ng-click="bottomUpdate()">底部图片更新</button>
     </p>
     <h3>BANNER图(显示4个)</h3>
     <table class="table table-bordered">
@@ -60,7 +67,7 @@
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
-                <a ng-click="bannerUpdate(item)">编辑</a>
+                <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bannerDel(item)">删除</a>
             </td>
         </tr>
@@ -87,7 +94,7 @@
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
-                <a ng-click="introUpdate(item)">编辑</a>
+                <a ng-click="edit(item)">编辑</a>
                 <a ng-click="introDel(item)">删除</a>
             </td>
         </tr>
@@ -111,7 +118,7 @@
             <td>{{item.title}}</td>
             <td>{{item.photo}}</td>
             <td>
-                <a ng-click="bigImgUpdate(item)">编辑</a>
+                <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bigImgDel(item)">删除</a>
             </td>
         </tr>
@@ -139,7 +146,7 @@
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
-                <a ng-click="picTextUpdate(item)">编辑</a>
+                <a ng-click="edit(item)">编辑</a>
                 <a ng-click="picTextDel(item)">删除</a>
             </td>
         </tr>
@@ -167,7 +174,7 @@
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
-                <a ng-click="bottomUpdate(item)">编辑</a>
+                <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bottomDel(item)">删除</a>
             </td>
         </tr>

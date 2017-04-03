@@ -10,6 +10,10 @@ MYSITE.controller('ProductCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
     $scope.bannerList = [];
     $scope.contentList = [];
 
+    $scope.edit = function (data) {
+      $scope.data = data;
+    };
+
     angular.forEach(homeContents, function (val, key) {
       Service.method.getAll($scope, val, key);
 
@@ -20,8 +24,8 @@ MYSITE.controller('ProductCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
         });
       };
 
-      $scope[key + 'Update'] = function (data) {
-        Service.method.update($scope, val, key, data, function () {
+      $scope[key + 'Update'] = function () {
+        Service.method.update($scope, val, key, $scope.data, function () {
           $scope.data = _.cloneDeep(InitData);
           Service.method.getAll($scope, val, key);
         })
