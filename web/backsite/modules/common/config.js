@@ -28,6 +28,11 @@ MYSITE.value('InitData', {
     partner: 'partner',
     help: 'help'
   },
+  news: {
+    company: 'company-dynamics',
+    news: 'company-news',
+    industry: 'industry-dynamics'
+  },
   tech: {
     main: 'tech-data'
   }

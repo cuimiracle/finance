@@ -1,21 +1,21 @@
 /**
- * 帮助和关于内容管理
+ * 新闻内容管理
  */
-MYSITE.controller('HelpCtrl', ['$scope', 'HomeService', PageMap, InitData,
-  function ($scope, HomeService, PageMap, InitData) {
-    var helpContents = PageMap.help;
+MYSITE.controller('NewsCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
+  function ($scope, Service, PageMap, InitData) {
+    var newsContents = PageMap.news;
 
     $scope.data = _.cloneDeep(InitData);
 
-    $scope.aboutList = [];
-    $scope.partnerList = [];
-    $scope.helpList = [];
+    $scope.companyList = [];
+    $scope.newsList = [];
+    $scope.industryList = [];
 
     $scope.edit = function (data) {
       $scope.data = data;
     };
 
-    angular.forEach(helpContents, function (val, key) {
+    angular.forEach(newsContents, function (val, key) {
       Service.method.getAll($scope, val, key);
 
       $scope[key + 'Ok'] = function () {
@@ -38,5 +38,4 @@ MYSITE.controller('HelpCtrl', ['$scope', 'HomeService', PageMap, InitData,
         });
       }
     });
-
   }]);

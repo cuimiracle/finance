@@ -79,8 +79,15 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
             name: 'collegeManage',
             url: '/',
             templateUrl: './modules/college/college.html',
-            controller: 'HomeCtrl'
+            controller: 'CollegeCtrl'
           })
+          .state('newsManage', {
+            name: 'newsManage',
+            url: '/',
+            templateUrl: './modules/news/news.html',
+            controller: 'NewsCtrl'
+          })
+
     }])
   .value('froalaConfig', {
       language: 'zh_cn',
