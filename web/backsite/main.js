@@ -77,25 +77,25 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
           })
           .state('collegeManage', {
             name: 'collegeManage',
-            url: '/',
+            url: '/college',
             templateUrl: './modules/college/college.html',
             controller: 'CollegeCtrl'
           })
           .state('newsManage', {
             name: 'newsManage',
-            url: '/',
+            url: '/news',
             templateUrl: './modules/news/news.html',
             controller: 'NewsCtrl'
           })
           .state('techManage', {
             name: 'techManage',
-            url: '/',
+            url: '/tech',
             templateUrl: './modules/tech/tech.html',
             controller: 'TechCtrl'
           })
           .state('softwareManage', {
             name: 'softwareManage',
-            url: '/',
+            url: '/software',
             templateUrl: './modules/software/software.html',
             controller: 'SoftwareCtrl'
           })
