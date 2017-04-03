@@ -23,4 +23,8 @@ MYSITE.value('InitData', {
   tech: {
     main: 'tech-data'
   }
-});
+}).filter('to_trusted', ['$sce', function($sce){
+  return function(text) {
+    return $sce.trustAsHtml(text);
+  };
+}]);
