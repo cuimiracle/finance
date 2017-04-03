@@ -63,7 +63,7 @@
         <tr ng-repeat="item in bannerList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td>{{item.content | to_trusted}}</td>
+            <td><div ng-bind-html="item.content | to_trusted"></div></td>
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
@@ -90,7 +90,7 @@
         <tr ng-repeat="item in introList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td>{{item.content | to_trusted}}</td>
+            <td><div ng-bind-html="item.content | to_trusted"></div></td>
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
@@ -142,7 +142,7 @@
         <tr ng-repeat="item in picTextList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td>{{item.content | to_trusted}}</td>
+            <td><div ng-bind-html="item.content | to_trusted"></div></td>
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
@@ -170,7 +170,7 @@
         <tr ng-repeat="item in bottomList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td>{{item.content | to_trusted}}</td>
+            <td><div ng-bind-html="item.content | to_trusted"></div></td>
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
