@@ -3,6 +3,7 @@ MYSITE.value('InitData', {
   content: '',
   photo: '',
   link_url: '',
+  link_name: '',
   price: ''
 }).constant('PageMap', {
   home: {
