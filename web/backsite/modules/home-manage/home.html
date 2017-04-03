@@ -1,160 +1,176 @@
 <div class="container-fluid">
-	<h3>首页内容管理</h3>
-	<form class="form-horizontal">
-		<div class="form-group">
-			<label class="col-md-1">标题</label>
-			<div class="col-md-4">
-				<input class="form-control" type="text" ng-model="data.title">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">描述</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="data.content">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">描述（多行模式）</label>
-			<div class="col-md-10">
-				<textarea froala ng-model="data.content"></textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">链接</label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" ng-model="data.link_url">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-md-1">图片</label>
-			<div class="col-md-2">
-				<input type="file" fileread="data.photo"/>
-			</div>
-		</div>
-	</form>
-	<!--<p>{{data | json}}</p>-->
-	<button class="btn btn-default" ng-click="bannerOk()">banner确认</button>
-	<button class="btn btn-default" ng-click="introOk()">公司介绍确认</button>
-	<button class="btn btn-default" ng-click="bigImgOk()">大图确认</button>
-	<button class="btn btn-default" ng-click="picTextOk()">图文介绍确认</button>
-	<button class="btn btn-default" ng-click="bottomOk()">底部图片</button>
-	<p> </p>
-	<h3>BANNER图(显示4个)</h3>
-	<table class="table table-bordered">
-		<thead>
-		<tr>
-			<td>id</td>
-			<td>标题</td>
-			<td>描述</td>
-			<td>链接</td>
-			<td>图片</td>
-			<td>操作</td>
-		</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="item in bannerList">
-				<td>{{item.id}}</td>
-				<td>{{item.title}}</td>
-				<td>{{item.content}}</td>
-				<td>{{item.link_url}}</td>
-				<td>{{item.photo}}</td>
-				<td><a ng-click="bannerDel(item)">删除</a></td>
-			</tr>
-		</tbody>
-	</table>
-	<hr>
-	<h3>公司介绍</h3>
-	<table class="table table-bordered">
-		<thead>
-		<tr>
-			<td>id</td>
-			<td>标题</td>
-			<td>描述</td>
-			<td>链接</td>
-			<td>图片</td>
-			<td>操作</td>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="item in introList">
-			<td>{{item.id}}</td>
-			<td>{{item.title}}</td>
-			<td>{{item.content}}</td>
-			<td>{{item.link_url}}</td>
-			<td>{{item.photo}}</td>
-			<td><a ng-click="introDel(item)">删除</a></td>
-		</tr>
-		</tbody>
-	</table>
-	<hr>
-	<h3>大图</h3>
-	<p> </p>
-	<table class="table table-bordered">
-		<thead>
-		<tr>
-			<td>id</td>
-			<td>标题</td>
-			<td>图片</td>
-			<td>操作</td>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="item in bigImgList">
-			<td>{{item.id}}</td>
-			<td>{{item.title}}</td>
-			<td>{{item.photo}}</td>
-			<td><a ng-click="bigImgDel(item)">删除</a></td>
-		</tr>
-		</tbody>
-	</table>
-	<hr>
-	<h3>图文介绍</h3>
-	<p> </p>
-	<table class="table table-bordered">
-		<thead>
-		<tr>
-			<td>id</td>
-			<td>标题</td>
-			<td>描述</td>
-			<td>链接</td>
-			<td>图片</td>
-			<td>操作</td>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="item in picTextList">
-			<td>{{item.id}}</td>
-			<td>{{item.title}}</td>
-			<td>{{item.content}}</td>
-			<td>{{item.link_url}}</td>
-			<td>{{item.photo}}</td>
-			<td><a ng-click="picTextDel(item)">删除</a></td>
-		</tr>
-		</tbody>
-	</table>
-	<hr>
-	<h3>底部图文</h3>
-	<p> </p>
-	<table class="table table-bordered">
-		<thead>
-		<tr>
-			<td>id</td>
-			<td>标题</td>
-			<td>描述</td>
-			<td>链接</td>
-			<td>图片</td>
-			<td>操作</td>
-		</tr>
-		</thead>
-		<tbody>
-		<tr ng-repeat="item in bottomList">
-			<td>{{item.id}}</td>
-			<td>{{item.title}}</td>
-			<td>{{item.content}}</td>
-			<td>{{item.link_url}}</td>
-			<td>{{item.photo}}</td>
-			<td><a ng-click="bottomDel(item)">删除</a></td>
-		</tr>
-		</tbody>
-	</table>
+    <h3>首页内容管理</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-1">标题</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" ng-model="data.title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">描述</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" ng-model="data.content">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">描述（多行模式）</label>
+            <div class="col-md-10">
+                <textarea froala ng-model="data.content"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">链接</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" ng-model="data.link_url">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">图片</label>
+            <div class="col-md-2">
+                <input type="file" fileread="data.photo"/>
+            </div>
+        </div>
+    </form>
+    <!--<p>{{data | json}}</p>-->
+    <p>
+        <button class="btn btn-default" ng-click="bannerOk()">banner确认</button>
+        <button class="btn btn-default" ng-click="introOk()">公司介绍确认</button>
+        <button class="btn btn-default" ng-click="bigImgOk()">大图确认</button>
+        <button class="btn btn-default" ng-click="picTextOk()">图文介绍确认</button>
+        <button class="btn btn-default" ng-click="bottomOk()">底部图片</button>
+    </p>
+    <h3>BANNER图(显示4个)</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>描述</td>
+            <td>链接</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in bannerList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.content}}</td>
+            <td>{{item.link_url}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="bannerUpdate(item)">编辑</a>
+                <a ng-click="bannerDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>公司介绍</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>描述</td>
+            <td>链接</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in introList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.content}}</td>
+            <td>{{item.link_url}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="introUpdate(item)">编辑</a>
+                <a ng-click="introDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>大图</h3>
+    <p></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in bigImgList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="bigImgUpdate(item)">编辑</a>
+                <a ng-click="bigImgDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>图文介绍</h3>
+    <p></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>描述</td>
+            <td>链接</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in picTextList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.content}}</td>
+            <td>{{item.link_url}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="picTextUpdate(item)">编辑</a>
+                <a ng-click="picTextDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>底部图文</h3>
+    <p></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>描述</td>
+            <td>链接</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in bottomList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.content}}</td>
+            <td>{{item.link_url}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="bottomUpdate(item)">编辑</a>
+                <a ng-click="bottomDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>

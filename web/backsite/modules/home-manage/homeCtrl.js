@@ -18,8 +18,16 @@ MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
 
       $scope[key + 'Ok'] = function () {
         Service.method.add($scope, val, key, $scope.data, function () {
+          $scope.data = _.cloneDeep(InitData);
           Service.method.getAll($scope, val, key);
         });
+      };
+
+      $scope[key + 'Update'] = function (data) {
+        Service.method.update($scope, val, key, data, function () {
+          $scope.data = _.cloneDeep(InitData);
+          Service.method.getAll($scope, val, key);
+        })
       };
 
       $scope[key + 'Del'] = function (data) {

@@ -39,9 +39,15 @@ MYSITE.service('Service', function ($http) {
       });
     },
 
+    update: function (scope, controllerName, areaName, data, callback) {
+      self.updateData(controllerName, data).then(function (res) {
+        callback();
+      });
+    },
+
     del: function (scope, controllerName, areaName, data, callback) {
       self.deleteData(controllerName, data).then(function (res) {
-          callback();
+        callback();
       });
     }
   }

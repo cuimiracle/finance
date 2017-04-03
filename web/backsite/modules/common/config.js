@@ -1,14 +1,25 @@
-MYSITE.constant('PageMap', {
+MYSITE.value('InitData', {
+  title: '',
+  content: '',
+  photo: '',
+  link_url: '',
+  price: ''
+}).constant('PageMap', {
   home: {
     banner: 'site-banner',
     intro: 'site-ideal-trade',
     bigImg: 'site-single-pic',
     picText: 'site-single-bottom-detail',
     bottom: 'site-single-bottom-detail'
+  },
+  product: {
+    banner: 'product-main',
+    content: 'product-detail'
+  },
+  college: {
+    main: 'college'
+  },
+  tech: {
+    main: 'tech-data'
   }
-}).value('InitData', {
-  title: '',
-  content: '',
-  photo: '',
-  link_url: ''
 });
