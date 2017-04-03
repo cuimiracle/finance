@@ -4,7 +4,9 @@ MYSITE.value('InitData', {
   photo: '',
   link_url: '',
   link_name: '',
-  price: ''
+  price: '',
+  description: '',
+  name: ''
 }).constant('PageMap', {
   home: {
     banner: 'site-banner',

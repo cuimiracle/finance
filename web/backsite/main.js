@@ -60,19 +60,27 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
           .state('homeManage', {
             name: 'homeManage',
             url: '/',
-            templateUrl: './modules/home-manage/home.html',
+            templateUrl: './modules/home/home.html',
             controller: 'HomeCtrl'
-          }).state('productManage', {
+          })
+          .state('productManage', {
             name: 'productManage',
             url: '/product',
-            templateUrl: './modules/product-manage/product.html',
+            templateUrl: './modules/product/product.html',
             controller: 'ProductCtrl'
-          }).state('helpManage', {
-          name: 'helpManage',
-          url: '/help',
-          templateUrl: './modules/help-manage/help.html',
-          controller: 'HelpCtrl'
-        })
+          })
+          .state('helpManage', {
+            name: 'helpManage',
+            url: '/help',
+            templateUrl: './modules/help/help.html',
+            controller: 'HelpCtrl'
+          })
+          .state('collegeManage', {
+            name: 'collegeManage',
+            url: '/',
+            templateUrl: './modules/college/college.html',
+            controller: 'HomeCtrl'
+          })
     }])
   .value('froalaConfig', {
       language: 'zh_cn',

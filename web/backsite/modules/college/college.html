@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <h3>投资学院内容管理</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-1">总方案名</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" ng-model="data.title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">方案名</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" ng-model="data.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">方案内容</label>
+            <div class="col-md-10">
+                <textarea froala ng-model="data.description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">报价</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" ng-model="data.price">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">图片</label>
+            <div class="col-md-2">
+                <input type="file" fileread="data.photo"/>
+            </div>
+        </div>
+    </form>
+    <!--<p>{{data | json}}</p>-->
+    <p>
+        <button class="btn btn-default" ng-click="mainOk()">方案确认</button>
+    </p>
+    <p>
+        <button class="btn btn-default" ng-click="mainUpdate()">方案更新</button>
+    </p>
+    <h3>方案</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>总方案名</td>
+            <td>方案名</td>
+            <td>方案内容</td>
+            <td>报价</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in mainList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.name}}</td>
+            <td ng-bind-html="item.description | to_trusted"></td>
+            <td>{{item.price}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="mainDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -3,7 +3,7 @@
  */
 MYSITE.controller('ProductCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
   function ($scope, Service, PageMap, InitData) {
-    var homeContents = PageMap.product;
+    var productContents = PageMap.product;
 
     $scope.data = _.cloneDeep(InitData);
 
@@ -14,7 +14,7 @@ MYSITE.controller('ProductCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
       $scope.data = data;
     };
 
-    angular.forEach(homeContents, function (val, key) {
+    angular.forEach(productContents, function (val, key) {
       Service.method.getAll($scope, val, key);
 
       $scope[key + 'Ok'] = function () {
