@@ -1,7 +1,7 @@
 /**
  * 帮助和关于内容管理
  */
-MYSITE.controller('HelpCtrl', ['$scope', 'HomeService', PageMap, InitData,
+MYSITE.controller('HelpCtrl', ['$scope', 'HomeService', 'PageMap', 'InitData',
   function ($scope, HomeService, PageMap, InitData) {
     var helpContents = PageMap.help;
 
