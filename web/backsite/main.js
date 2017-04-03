@@ -87,6 +87,12 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
             templateUrl: './modules/news/news.html',
             controller: 'NewsCtrl'
           })
+          .state('techManage', {
+            name: 'techManage',
+            url: '/',
+            templateUrl: './modules/tech/tech.html',
+            controller: 'TechCtrl'
+          })
 
     }])
   .value('froalaConfig', {

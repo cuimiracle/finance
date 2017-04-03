@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <h3>技术分析管理</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-1">类别</label>
+            <div class="col-md-6">
+                <select ng-model="data.type">
+                    <option value="投资分析">投资分析</option>
+                    <otpion value="专家点评">专家点评</otpion>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">内容</label>
+            <div class="col-md-10">
+                <textarea froala ng-model="data.content"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">专家领域</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" ng-model="data.author_work">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">专家姓名</label>
+            <div class="col-md-6">
+                <input class="form-control" type="text" ng-model="data.author_name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">背景图片</label>
+            <div class="col-md-2">
+                <input type="file" fileread="data.photo"/>
+            </div>
+        </div>
+    </form>
+    <!--<p>{{data | json}}</p>-->
+    <p>
+        <button class="btn btn-default" ng-click="mainOk()">确认添加</button>
+    </p>
+    <p>
+        <button class="btn btn-default" ng-click="mainUpdate()">更新</button>
+    </p>
+    <h3>公司动态</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>内容</td>
+            <td>专家领域</td>
+            <td>专家姓名</td>
+            <td>背景图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in mainList">
+            <td>{{item.id}}</td>
+            <td ng-bind-html="item.content | to_trusted"></td>
+            <td>{{item.author_work}}</td>
+            <td>{{item.author_name}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="mainDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -8,6 +8,12 @@ MYSITE.value('InitData', {
   description: '',
   name: '',
   order: ''
+}).value('InitTechData', {
+  id: '',
+  content: '',
+  author_work: '',
+  author_name: '',
+  photo: ''
 }).constant('PageMap', {
   home: {
     banner: 'site-banner',
