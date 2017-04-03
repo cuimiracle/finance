@@ -7,7 +7,8 @@ MYSITE.value('InitData', {
   price: '',
   description: '',
   name: '',
-  order: ''
+  order: '',
+  file_path: ''
 }).value('InitTechData', {
   id: '',
   content: '',
@@ -41,6 +42,9 @@ MYSITE.value('InitData', {
   },
   tech: {
     main: 'tech-data'
+  },
+  software: {
+    software: 'upload-file'
   }
 }).filter('to_trusted', ['$sce', function($sce){
   return function(text) {
