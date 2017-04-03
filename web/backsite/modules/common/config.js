@@ -6,7 +6,8 @@ MYSITE.value('InitData', {
   link_name: '',
   price: '',
   description: '',
-  name: ''
+  name: '',
+  order: ''
 }).constant('PageMap', {
   home: {
     banner: 'site-banner',
@@ -21,6 +22,11 @@ MYSITE.value('InitData', {
   },
   college: {
     main: 'college'
+  },
+  help: {
+    about: 'about',
+    partner: 'partner',
+    help: 'help'
   },
   tech: {
     main: 'tech-data'

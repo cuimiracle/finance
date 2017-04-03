@@ -1,3 +1,107 @@
 <div class="container-fluid">
 	<h3>帮助和关于内容管理</h3>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label class="col-md-1">标题</label>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="data.title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">内容</label>
+			<div class="col-md-6">
+				<input class="form-control" type="text" ng-model="data.content">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-1">方案内容</label>
+			<div class="col-md-10">
+				<select class="form-control" ng-model="data.type">
+					<option value="开户">开户</option>
+					<option value="安全">安全</option>
+					<option value="资金">资金</option>
+					<option value="软件使用常见FAQ">软件使用常见FAQ</option>
+				</select>
+			</div>
+		</div>
+	</form>
+	<p>
+		<button class="btn btn-default" ng-click="aboutOk()">关于内容添加确认</button>
+		<button class="btn btn-default" ng-click="partnerOk()">合作伙伴添加确认</button>
+		<button class="btn btn-default" ng-click="helpOk()">帮助添加确认</button>
+	</p>
+	<p>
+		<button class="btn btn-default" ng-click="aboutUpdate()">关于内容更新</button>
+		<button class="btn btn-default" ng-click="partnerUpdate()">合作伙伴更新</button>
+		<button class="btn btn-default" ng-click="helpUpdate()">帮助更新</button>
+	</p>
+	<h3>关于</h3>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<td>id</td>
+			<td>标题</td>
+			<td>内容</td>
+			<td>操作</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="item in aboutList">
+			<td>{{item.id}}</td>
+			<td>{{item.title}}</td>
+			<td ng-bind-html="item.content | to_trusted"></td>
+			<td>
+				<a ng-click="edit(item)">编辑</a>
+				<a ng-click="aboutDel(item)">删除</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h3>合作伙伴</h3>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<td>id</td>
+			<td>顺序</td>
+			<td>图片</td>
+			<td>操作</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="item in partnerList">
+			<td>{{item.id}}</td>
+			<td>{{item.order}}</td>
+			<td>{{item.photo}}</td>
+			<td>
+				<a ng-click="edit(item)">编辑</a>
+				<a ng-click="partnerDel(item)">删除</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<hr>
+	<h3>帮助</h3>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<td>id</td>
+			<td>类型</td>
+			<td>标题</td>
+			<td>内容</td>
+			<td>操作</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="item in helpList">
+			<td>{{item.id}}</td>
+			<td>{{item.title}}</td>
+			<td ng-bind-html="item.content | to_trusted"></td>
+			<td>
+				<a ng-click="edit(item)">编辑</a>
+				<a ng-click="helpDel(item)">删除</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
 </div>
