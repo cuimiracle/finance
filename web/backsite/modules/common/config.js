@@ -21,7 +21,7 @@ MYSITE.value('InitData', {
     intro: 'site-ideal-trade',
     bigImg: 'site-single-pic',
     picText: 'site-single-bottom-detail',
-    bottom: 'site-single-bottom-detail'
+    bottom: 'site-single-bottom'
   },
   product: {
     banner: 'product-main',

@@ -161,6 +161,7 @@
             <td>id</td>
             <td>标题</td>
             <td>描述</td>
+            <td>链接</td>
             <td>图片</td>
             <td>操作</td>
         </tr>
@@ -170,6 +171,7 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
+            <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
