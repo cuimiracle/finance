@@ -101,6 +101,8 @@ AppAsset::register($this);
         $('[title="'+target+'"]').fadeIn();
     }).first().trigger('click');
 </script>
+<!-- company页js -->
+<script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/static/'?>/vendor/jq_scroll.js"></script>
 
 <?php $this->endBody() ?>
 </body>
