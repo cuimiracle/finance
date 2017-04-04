@@ -67,7 +67,7 @@ MYSITE.service('Service', function ($http, $q) {
       });
     }
   }
-}).service('CheckLogin', function ($http, $q, $timeout, $state) {
+}).service('CheckLogin', function ($http, $q, $rootScope, $timeout, $state) {
   this.check = function () {
     var deferred = $q.defer();
     if ($rootScope.username) {
