@@ -32,7 +32,7 @@ AppAsset::register($this);
 <div class="container-fluid">
     <div class="row nav main-nav">
         <ul class="col-md-6 col-md-offset-1 list-inline">
-            <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=online-account/index'?>"><img src="http://placehold.it/120x35"></a></li>
+            <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php'?>"><img src="http://placehold.it/120x35"></a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=product/index'?>">产品</a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=college/index'?>">投资学院</a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=software/index'?>">软件下载</a></li>
@@ -43,6 +43,29 @@ AppAsset::register($this);
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=help/index'?>">帮助</a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=about/index'?>">关于</a></li>
         </ul>
+    </div>
+    <div class="navbar mobile-nav" role="navigation">
+        <div class="clearfix">
+            <div class="navbar-header pull-left">
+                <a href="<?=\Yii::$app->request->getHostInfo().'/index.php'?>"><img src="http://placehold.it/120x35"></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle mobile-nav-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-list"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=online-account/index'?>"><img src="http://placehold.it/120x35"></a></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=product/index'?>">产品</a></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=college/index'?>">投资学院</a></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=software/index'?>">软件下载</a></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=tech-data/index'?>">技术分析</a></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=company/index'?>">要闻动态</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=help/index'?>">帮助</a></li>
+                        <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=about/index'?>">关于</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

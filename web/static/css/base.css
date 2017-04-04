@@ -67,6 +67,28 @@ a, a:hover {
   display: block;
   line-height: 3rem;
 }
+.mobile-nav {
+  display: none;
+}
+@media(max-width: 767px) {
+  .main-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+    margin: 0;
+  }
+  .mobile-nav .navbar-header {
+    line-height: 50px;
+  }
+  .mobile-nav .glyphicon {
+    font-size: 16px;
+  }
+  .mobile-nav .navbar-nav .dropdown-menu {
+    left: inherit;
+    right: 0;
+  }
+}
 
 /* banner */
 .top-banner-container {
@@ -297,7 +319,7 @@ a, a:hover {
   box-shadow: inset 5px -5px 25px 0 rgba(0,0,0,.1);
 }
 .analysis-tabs a.active {
-  box-shadow: none;``
+  box-shadow: none;
 }
 .comment-area {
   padding-bottom: 7rem;

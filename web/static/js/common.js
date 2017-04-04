@@ -16,4 +16,13 @@ Scroll into viewPort Animation
             element.addClass( animation + " visible");
         }
     });
+
+
 //});
+
+$(function () {
+    var mobileNav = $('.mobile-nav .dropdown-menu');
+    $('.mobile-nav-btn').on('click', function () {
+        mobileNav.toggle();
+    });
+})
