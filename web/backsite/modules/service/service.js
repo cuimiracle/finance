@@ -24,6 +24,14 @@ MYSITE.service('Service', function ($http) {
     return $http.post(urlPre + controllerName + '/delete', {id: data.id})
   };
 
+  this.register = function (data) { // username password email
+    return $http.post(urlPre + 'back/register', data);
+  };
+
+  this.login = function (data) { // username password
+    return $http.post(urlPre + 'back/login', data);
+  };
+
   this.method = {
     getAll: function (scope, controllerName, areaName) {
       self.getAllData(controllerName).then(function (res) {
