@@ -55,6 +55,19 @@ class BackController extends \yii\web\Controller
         return $this->succeed(array('customer_id' => $customer_id));
     }
 
+    public function actionLogout()
+    {
+        $cookies = \Yii::$app->request->cookies;
+        $cookies->remove('is_login');
+        return $this->succeed();
+    }
+
+    public function actionIsLogin(){
+        $cookies = \Yii::$app->request->cookies;
+        $is_login = $cookies->get('is_login', 'false');
+        return $this->succeed(array('is_login' => $is_login));
+    }
+
     public function actionRegister()
     {
         $customer_id = false;
