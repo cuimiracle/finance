@@ -143,6 +143,9 @@ a, a:hover {
   .feature > div {
     padding: 1rem;
   }
+  .feature > div img {
+    width: 100%;
+  }
 }
 .feature > div:hover {
   transform: scale(1.2);
