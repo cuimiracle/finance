@@ -11,7 +11,7 @@
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="<?=$v['photo']?>">
+                            <img class="media-object" src="<?=$v['photo']?>" style="width:100px;height:100px;">
                         </a>
                     </div>
                     <div class="media-body">
