@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <h3>首页内容管理</h3>
-    <form class="form-horizontal">
+    <form class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
             <label class="col-md-1">标题</label>
             <div class="col-md-4">
@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-md-1">图片</label>
             <div class="col-md-2">
-                <input type="file" ng-model="data.photo" base-sixty-four-input/>
+                <input type="file" fileread="data.photo"/>
             </div>
         </div>
     </form>
