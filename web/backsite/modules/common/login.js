@@ -1,4 +1,4 @@
-MYSITE.controller('UserCtrl', function ($scope, Service) {
+MYSITE.controller('LoginCtrl', function ($scope, Service) {
   $scope.data = {
     username: '',
     password: ''

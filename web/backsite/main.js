@@ -57,11 +57,11 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('user', {
-        name: 'user',
+      .state('login', {
+        name: 'login',
         url: '/login',
         templateUrl: './modules/common/login.html',
-        controller: 'UserCtrl'
+        controller: 'LoginCtrl'
       })
       .state('homeManage', {
         name: 'homeManage',
