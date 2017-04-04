@@ -237,15 +237,16 @@ a, a:hover {
   color: #fff;
 }
 .news-wrapper {
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;*/
+  background: #fff;
   border-radius: 4px;
   overflow: hidden;
   height: 17rem;
 }
 .news-wrapper ul li {
   line-height: 2rem;
-  border-bottom: 1px dashed #fff;
-  color: #fff;
+  border-bottom: 1px dashed #333;
+  color: #333;
   margin: 0 1rem;
 }
 .news .panel {
