@@ -86,6 +86,6 @@ MYSITE.service('Service', function ($http, $q) {
         $state.go('login');
       })
     }
-    deferred.promise;
+    return deferred.promise;
   }
 });
