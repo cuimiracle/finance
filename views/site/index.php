@@ -104,7 +104,7 @@
         </div>
         <div class="col-md-6 banner-wrapper animated" data-animation="fadeInRight" data-animation-delay="700">
             <a href="<?=$v['link_url']?>">
-                <img src="<?=$v['photo']?>">
+                <img src="<?=$v['photo']?>" style="width:100%">
                 <!-- <p>1.文字描述文字描述文字描述文字描述</p> -->
             </a>
         </div>
