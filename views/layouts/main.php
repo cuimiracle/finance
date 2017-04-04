@@ -29,7 +29,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <!-- 导航 -->
-<div class="container-fluid">
+<div class="container-fluid" style="background: #fff;">
     <div class="row nav main-nav">
         <ul class="col-md-6 col-md-offset-1 col-xs-9 list-inline">
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php'?>"><img src="http://placehold.it/120x35"></a></li>
