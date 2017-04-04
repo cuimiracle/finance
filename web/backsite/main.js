@@ -48,7 +48,6 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
     function ($rootScope, $state, Service, CheckLogin) {
     $rootScope.$state = $state;
     $rootScope.username = '';
-      CheckLogin.check();
     $rootScope.logout = function () {
       Service.logout().then(function (res) {
         if (res.data.result) {

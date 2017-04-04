@@ -69,7 +69,8 @@ MYSITE.service('Service', function ($http, $q) {
   }
 }).service('CheckLogin', function ($http, $q, $rootScope, $state) {
   this.check = function () {
-    $http.get('../index.php?r=back/is-login').success(function (res) {
+    $http.get('../index.php?r=back/is-login')
+      .success(function (res) {
       console.log('login success', res);
       if (res.data.is_login == 0) {
         $state.go('login');
