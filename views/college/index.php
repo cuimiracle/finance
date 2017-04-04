@@ -53,6 +53,7 @@
             <img class="second" src="<?=$v['photo']?>">
         </div>
     </div>
+    <hr style="border-top:1px solid #ddd;border-bottom:1px solid #fff;">
     <?php
             }
         }
