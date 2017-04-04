@@ -208,13 +208,11 @@ a, a:hover {
 .news {
   background: rgba(0,0,0,0.1);
 }
-.news .news-top {
-  margin-top: -40rem;
-}
 .news-bg {
+  position: fixed;
   left: 0;right: 0;top: 0;bottom: 0;
   margin: 0 -15px;
-  height: 600px;
+  height: 100vh;
   background: hsla(0, 0%, 100%, .3);
   overflow: hidden;
 }
