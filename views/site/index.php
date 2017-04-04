@@ -151,10 +151,10 @@
             }else{
     ?>
     <div class="row mrt30 animated" data-animation="fadeInRight" data-animation-delay="400">
-        <div class="col-md-5 col-md-offset-1 pic text-center">
+        <div class="col-md-4 col-md-offset-1 pic text-center">
             <img src="<?=$v['photo']?>">
         </div>
-        <div class="col-md-5 desc">
+        <div class="col-md-6 desc">
             <p class="main-title">
             <?=$v['title']?>
             </p>
