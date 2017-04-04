@@ -20,8 +20,8 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
             response: function (response) {
               var data = response.data;
               // 统一处理result为false的情况
-              if (data.result && data.result == "false") {
-                alert('error');
+              if (!data.result) {
+                console.error('error');
               }
               return response;
             },
@@ -76,7 +76,12 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         name: 'homeManage',
         url: '/',
         templateUrl: './modules/home/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        resolve: {
+          auth: function (CheckLogin) {
+            return CheckLogin.check();
+          }
+        }
       })
       .state('productManage', {
         name: 'productManage',
