@@ -51,7 +51,7 @@
 <section class="row feature clearfix">
     <?php
     if(!empty($site_details)){
-        foreach($site_details as $v){
+        foreach($site_details as $k => $v){
             if($k >= 3) break;
     ?>
             <div>
@@ -75,7 +75,7 @@
     ?>
     <div class="row mrt30">
         <div class="col-md-4 col-md-offset-1 animated" data-animation="slideInDown" data-animation-delay="600">
-            <img src="<?=$v['photo']?>">
+            <img src="<?=$v['photo']?>" style="width:100%;">
         </div>
         <div class="col-md-6 pd30 animated" data-animation="slideInDown" data-animation-delay="700">
             <h4><?=$v['title']?></h4>
