@@ -129,9 +129,10 @@ a, a:hover {
   border: 1px solid #ddd;
 }
 .feature > div {
+  float: left;
   position: relative;
   width: 33.3%;
-  flex: 1;
+  /*flex: 1;*/
   border-left: 1px solid #ddd;
   padding: 1rem 3rem;
   z-index: 3;
