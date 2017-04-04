@@ -79,7 +79,7 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'HomeCtrl',
         resolve: {
           auth: function (CheckLogin) {
-            return CheckLogin.check();
+            CheckLogin.check();
           }
         }
       })
