@@ -61,4 +61,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/vendor/'?>jq_scroll.js"></script>
+<script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/static/'?>/vendor/jq_scroll.js"></script>
