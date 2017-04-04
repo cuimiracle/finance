@@ -170,7 +170,7 @@
     ?>
 </section>
 
-<section class="container-fluid mrt30 word-intro rela animated" data-animation="fadeInLeft" data-animation-delay="400">
+<section class="container-fluid mrt30 word-intro rela animated" data-animation="fadeInLeft" data-animation-delay="400" style="overflow:hidden;">
     <?php
     if(!empty($site_single_bottom)){
         foreach($site_single_bottom as $k=>$v){
