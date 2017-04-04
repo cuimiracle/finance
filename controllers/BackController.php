@@ -58,6 +58,7 @@ class BackController extends \yii\web\Controller
     public function actionLogout()
     {
         $cookies = \Yii::$app->request->cookies;
+        $cookies->readOnly = false;
         $cookies->remove('is_login');
         return $this->succeed();
     }
