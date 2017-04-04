@@ -77,7 +77,7 @@ class College extends \yii\db\ActiveRecord
     }
 
     public function insertOne($title, $photo, $name, $description, $price){
-        $command = \Yii::$app->db->createCommand("INSERT INTO college SET ttitle=:title, photo=:photo, `name`=:name, description=:description, price=:price, updated_at=:updated_at");
+        $command = \Yii::$app->db->createCommand("INSERT INTO college SET title=:title, photo=:photo, `name`=:name, description=:description, price=:price, updated_at=:updated_at");
         $command->bindValues(array(':title'=>$title, ':photo'=>$photo, ':name'=>$name, ':description'=>$description, ':price'=>$price, ':updated_at'=>date('Y-m-d H:i:s')));
         $res = $command->execute();
         return $res;
