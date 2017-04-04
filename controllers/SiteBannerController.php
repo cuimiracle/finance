@@ -78,7 +78,10 @@ class SiteBannerController extends \yii\web\Controller
         $res = false;
         if (\Yii::$app->request->isPost) {
             if(!empty($_FILES)){
-                echo '<pre>';print_r($_FILES);echo '</pre>';
+                echo 'file:<pre>';print_r($_FILES);echo '</pre>';
+            }
+            if(!empty($_POST)){
+                echo 'post:<pre>';print_r($_POST);echo '</pre>';
             }
             $photo = '';
             if(!empty($_FILES)){
