@@ -69,20 +69,17 @@ MYSITE.service('Service', function ($http, $q) {
   }
 }).service('CheckLogin', function ($http, $q, $rootScope, $state) {
   this.check = function () {
-    var promise = $http.get('../index.php?r=back/is-login')
-      promise.success(function (res) {
-        console.log('login success', res);
-        if (res.data.is_login == 0) {
-          $state.go('login');
-        } else if (res.data.is_login == 1) {
-          if (!$rootScope.username) {
-            $rootScope.username = '已登录';
-          }
-        }
-      })
-      promise.error(function () {
+    $http.get('../index.php?r=back/is-login').success(function (res) {
+      console.log('login success', res);
+      if (res.data.is_login == 0) {
         $state.go('login');
-      })
-    return promise;
+      } else if (res.data.is_login == 1) {
+        if (!$rootScope.username) {
+          $rootScope.username = '已登录';
+        }
+      }
+    }).error(function () {
+      $state.go('login');
+    })
   }
 });
