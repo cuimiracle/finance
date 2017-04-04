@@ -44,9 +44,11 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
   //     ]);
   //   }
   // ])
-  .run(['$rootScope', '$state', 'Service', function ($rootScope, $state, Service) {
+  .run(['$rootScope', '$state', 'Service', 'CheckLogin',
+    function ($rootScope, $state, Service, CheckLogin) {
     $rootScope.$state = $state;
     $rootScope.username = '';
+      CheckLogin.check();
     $rootScope.logout = function () {
       Service.logout().then(function (res) {
         if (res.data.result) {
@@ -77,11 +79,11 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         url: '/',
         templateUrl: './modules/home/home.html',
         controller: 'HomeCtrl',
-        resolve: {
-          auth: function (CheckLogin) {
-            CheckLogin.check();
-          }
-        }
+        // resolve: {
+        //   auth: function (CheckLogin) {
+        //     CheckLogin.check();
+        //   }
+        // }
       })
       .state('productManage', {
         name: 'productManage',
