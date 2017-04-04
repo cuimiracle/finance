@@ -18,14 +18,14 @@ MYSITE.controller('TechCtrl', ['$scope', 'Service', 'PageMap', 'InitTechData',
 
       $scope[key + 'Ok'] = function () {
         Service.method.add($scope, val, key, $scope.data, function () {
-          $scope.data = _.cloneDeep(InitData);
+          $scope.data = _.cloneDeep(InitTechData);
           Service.method.getAll($scope, val, key);
         });
       };
 
       $scope[key + 'Update'] = function () {
         Service.method.update($scope, val, key, $scope.data, function () {
-          $scope.data = _.cloneDeep(InitData);
+          $scope.data = _.cloneDeep(InitTechData);
           Service.method.getAll($scope, val, key);
         })
       };
