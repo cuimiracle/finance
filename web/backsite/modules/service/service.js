@@ -76,13 +76,13 @@ MYSITE.service('Service', function ($http, $q) {
       $http.get('../index.php?r=back/is-login').success(function (res) {
         console.log('login success', res);
         if (res.data.is_login == 0) {
-          $timeout(deferred.reject);
+          $timeout(deferred.reject());
           $state.go('login');
         } else if (res.data.is_login == 1) {
-          $timeout(deferred.resolve)
+          $timeout(deferred.resolve())
         }
       }).error(function () {
-        $timeout(deferred.reject);
+        $timeout(deferred.reject());
         $state.go('login');
       })
     }
