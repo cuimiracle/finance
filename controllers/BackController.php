@@ -65,7 +65,8 @@ class BackController extends \yii\web\Controller
 
     public function actionIsLogin(){
         $cookies = \Yii::$app->request->cookies;
-        $is_login = $cookies->get('is_login', 'false');
+        $tmp = $cookies->get('is_login', 'false');
+        $is_login = $tmp ? 1 : 0;
         return $this->succeed(array('is_login' => $is_login));
     }
 
