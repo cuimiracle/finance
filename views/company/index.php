@@ -1,7 +1,7 @@
 <!-- 要闻 -->
 <div class="container-fluid news rela">
     <div class="news-bg"></div>
-    <div class="row news-top">
+    <div class="row news-top mrt30">
         <div class="col-md-6 col-md-offset-1 news-main">
             <div class="news-title mrb30">业界动态</div>
             <?php
