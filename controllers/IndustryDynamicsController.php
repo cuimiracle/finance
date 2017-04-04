@@ -62,7 +62,7 @@ class IndustryDynamicsController extends \yii\web\Controller
             $post = \Yii::$app->request->post();
             $id = isset($post['id']) ? $post['id'] : '';
             $title = isset($post['title']) ? $post['title'] : '';
-            $content = isset($post['content']) ? $post['$content'] : '';
+            $content = isset($post['content']) ? $post['content'] : '';
 
             $res = $this->getModel()->updateOne($id, $title, $content, $photo);
         }
@@ -86,7 +86,7 @@ class IndustryDynamicsController extends \yii\web\Controller
             }
             $post = \Yii::$app->request->post();
             $title = isset($post['title']) ? $post['title'] : '';
-            $content = isset($post['content']) ? $post['$content'] : '';
+            $content = isset($post['content']) ? $post['content'] : '';
 
             $res = $this->getModel()->insertOne($title, $content, $photo);
         }
