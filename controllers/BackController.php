@@ -35,8 +35,8 @@ class BackController extends \yii\web\Controller
     public function actionLogin()
     {
         $customer_id = false;
-        if (\Yii::$app->request->isPost) {
-            $post = \Yii::$app->request->post();
+        if (\Yii::$app->request->isGet) {
+            $post = \Yii::$app->request->get();
             $username = isset($post['username']) ? $post['username'] : '';
             $password = isset($post['password']) ? $post['password'] : '';
 
