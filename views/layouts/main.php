@@ -92,6 +92,8 @@ AppAsset::register($this);
 <script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/static/'?>js/help.js"></script>
 <!-- product页js -->
 <script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/static/'?>js/product.js"></script>
+<!-- company页js -->
+<script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/static/'?>/vendor/jq_scroll.js"></script>
 <!-- analysis页js -->
 <script type="text/javascript">
     $('.analysis-tabs a').on('click', function () {
@@ -100,9 +102,8 @@ AppAsset::register($this);
         $('.content').hide();
         $('[title="'+target+'"]').fadeIn();
     }).first().trigger('click');
+    $(".news-wrapper").Scroll({line:1,speed:500,timer:3000,up:"but_up",down:"but_down"});
 </script>
-<!-- company页js -->
-<script type="text/javascript" src="<?=\Yii::$app->request->getHostInfo().'/static/'?>/vendor/jq_scroll.js"></script>
 
 <?php $this->endBody() ?>
 </body>
