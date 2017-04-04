@@ -49,7 +49,7 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
     $rootScope.username = '';
     $rootScope.logout = function () {
       Service.logout().then(function (res) {
-        if (res.data.result == 'true') {
+        if (res.data.result) {
           $rootScope.username = '';
           $state.go('login');
         }

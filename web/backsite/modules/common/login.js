@@ -12,8 +12,8 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Service, $state) {
     Service.login($scope.data).then(function (res) {
       console.log('login', res);
       if (res.data.result) {
-        $state.go('homeManage');
         $rootScope.username = $scope.data.username;
+        $state.go('homeManage');
       }
     });
   };
