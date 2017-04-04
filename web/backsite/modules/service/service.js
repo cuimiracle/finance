@@ -69,23 +69,26 @@ MYSITE.service('Service', function ($http, $q) {
   }
 }).service('CheckLogin', function ($http, $q, $rootScope, $timeout, $state) {
   this.check = function () {
-    var deferred = $q.defer();
-    if ($rootScope.username) {
-      deferred.resolve();
-    } else {
-      $http.get('../index.php?r=back/is-login').success(function (res) {
+    // var deferred = $q.defer();
+    // if ($rootScope.username) {
+    //   deferred.resolve();
+    // } else {
+      return $http.get('../index.php?r=back/is-login').success(function (res) {
         console.log('login success', res);
         if (res.data.is_login == 0) {
-          $timeout(deferred.reject());
+          // $timeout(deferred.reject());
           $state.go('login');
         } else if (res.data.is_login == 1) {
-          $timeout(deferred.resolve())
+          if (!$rootScope.username) {
+            $rootScope.username = '已登录';
+          }
+          // $timeout(deferred.resolve())
         }
       }).error(function () {
-        $timeout(deferred.reject());
+        // $timeout(deferred.reject());
         $state.go('login');
       })
-    }
-    return deferred.promise;
+    // }
+    // return deferred.promise;
   }
 });
