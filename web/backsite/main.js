@@ -1,7 +1,7 @@
 'use strict';
 
 // 定义主模块和添加依赖模块
-var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'angularFileUpload'])
+var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'naif.base64', 'angularFileUpload'])
   .config(function ($httpProvider) {
     $httpProvider.defaults.transformRequest = function(data) {
       if (data === undefined) {
