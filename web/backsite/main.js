@@ -11,39 +11,39 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
     };
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
   })
-  .config(['$httpProvider',
-    function ($httpProvider) {
-      $httpProvider.interceptors.push(['$q',
-        function ($q) {
-          return {
-            // status < 300
-            response: function (response) {
-              var data = response.data;
-              // 统一处理result为false的情况
-              if (!data.result) {
-                console.error('error');
-              }
-              return response;
-            },
-            // status >= 400
-            responseError: function (rejection) {
-              switch (rejection.status) {
-                // 401 Unauthorized: jump to login page
-                case 401:
-                  // location.pathname = ;
-                  break;
-                // other Error
-                default:
-                  console.warn('error!', rejection);
-              }
-
-              return $q.reject(rejection);
-            }
-          };
-        }
-      ]);
-    }
-  ])
+  // .config(['$httpProvider',
+  //   function ($httpProvider) {
+  //     $httpProvider.interceptors.push(['$q',
+  //       function ($q) {
+  //         return {
+  //           // status < 300
+  //           response: function (response) {
+  //             var data = response.data;
+  //             // 统一处理result为false的情况
+  //             if (!data.result) {
+  //               console.warn('error');
+  //             }
+  //             return response;
+  //           },
+  //           // status >= 400
+  //           responseError: function (rejection) {
+  //             switch (rejection.status) {
+  //               // 401 Unauthorized: jump to login page
+  //               case 401:
+  //                 // location.pathname = ;
+  //                 break;
+  //               // other Error
+  //               default:
+  //                 console.warn('error!', rejection);
+  //             }
+  //
+  //             return $q.reject(rejection);
+  //           }
+  //         };
+  //       }
+  //     ]);
+  //   }
+  // ])
   .run(['$rootScope', '$state', 'Service', function ($rootScope, $state, Service) {
     $rootScope.$state = $state;
     $rootScope.username = '';
