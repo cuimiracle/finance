@@ -32,6 +32,14 @@ MYSITE.service('Service', function ($http) {
     return $http.post(urlPre + 'back/login', data);
   };
 
+  this.logout = function () {
+    return $http.get(urlPre + 'back/logout');
+  };
+
+  this.isLogin = function () {
+    return $http.get(urlPre + 'back/is-login');
+  };
+
   this.method = {
     getAll: function (scope, controllerName, areaName) {
       self.getAllData(controllerName).then(function (res) {
@@ -58,5 +66,9 @@ MYSITE.service('Service', function ($http) {
         callback();
       });
     }
+  }
+}).service('CheckLogin', function () {
+  this.check = function () {
+
   }
 });

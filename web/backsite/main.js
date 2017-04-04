@@ -20,7 +20,7 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
             response: function (response) {
               var data = response.data;
               // 统一处理result为false的情况
-              if (data.result && data.result == "false" && data.errormsg) {
+              if (data.result && data.result == "false") {
                 alert('error');
               }
               return response;
@@ -44,8 +44,17 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
       ]);
     }
   ])
-  .run(['$rootScope', '$state', function ($rootScope, $state) {
+  .run(['$rootScope', '$state', 'Service', function ($rootScope, $state, Service) {
     $rootScope.$state = $state;
+    $rootScope.username = '';
+    $rootScope.logout = function () {
+      Service.logout().then(function (res) {
+        if (res.data.result == 'true') {
+          $rootScope.username = '';
+          $state.go('login');
+        }
+      });
+    }
   }]);
 
 // bootstrap application

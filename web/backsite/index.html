@@ -23,8 +23,9 @@
             <a class="navbar-brand" href="#">后台管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a ui-sref="login">登录</a></li>
-            <li><a href="">退出</a></li>
+            <li>{{username}}</li>
+            <li><a ui-sref="login" ng-if="!username">登录</a></li>
+            <li><a ng-click="logout()" ng-if="username">退出</a></li>
         </ul>
     </div>
 </div>
