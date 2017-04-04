@@ -2,7 +2,7 @@
 	<h3>帮助和关于内容管理</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label class="col-md-1">类别</label>
+			<label class="col-md-2">类别</label>
 			<div class="col-md-4">
 				<select class="form-control" ng-model="data.type">
 					<option value="开户">开户</option>
@@ -13,21 +13,27 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-1">标题</label>
+			<label class="col-md-2">标题</label>
 			<div class="col-md-4">
 				<input class="form-control" type="text" ng-model="data.title">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-1">内容</label>
+			<label class="col-md-2">内容</label>
 			<div class="col-md-10">
 				<textarea froala ng-model="data.content"></textarea>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-1">合作伙伴图片</label>
+			<label class="col-md-2">合作伙伴图片</label>
 			<div class="col-md-2">
 				<input type="file" fileread="data.photo"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2">合作伙伴顺序</label>
+			<div class="col-md-2">
+				<input type="file" fileread="data.order"/>
 			</div>
 		</div>
 	</form>
