@@ -128,7 +128,7 @@ img {
 .feature {
   text-align: center;
   /*display: flex;*/
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   border: 1px solid #ddd;
 }
 .feature > div {
@@ -144,7 +144,7 @@ img {
 }
 @media (max-width: 767px) {
   .feature > div {
-    padding: 1rem 1rem;
+    padding: 1rem;
   }
 }
 .feature > div:hover {

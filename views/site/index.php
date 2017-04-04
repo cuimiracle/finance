@@ -29,7 +29,7 @@
 </section>
 
 <!-- feature 放置公司特色 -->
-<section class="row feature clearfix">
+<section class="feature clearfix">
     <?php
     if(!empty($site_details)){
         foreach($site_details as $k => $v){
@@ -48,7 +48,7 @@
     ?>
 </section>
 
-<section class="row feature clearfix">
+<section class="feature clearfix">
     <?php
     if(!empty($site_details)){
         foreach($site_details as $k => $v){
