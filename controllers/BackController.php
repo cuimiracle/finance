@@ -46,7 +46,7 @@ class BackController extends \yii\web\Controller
             $cookies = \Yii::$app->response->cookies;
             $cookies->add(new \yii\web\Cookie([
                 'name' => 'is_login',
-                'value' => true,
+                'value' => $username,
                 'expire' => time()+60*60*24
             ]));
         }
@@ -66,8 +66,9 @@ class BackController extends \yii\web\Controller
     public function actionIsLogin(){
         $cookies = \Yii::$app->request->cookies;
         $tmp = $cookies->get('is_login', 'false');
+	$username = isset($tmp->value) ? $tmp->value : '';
         $is_login = $tmp ? 1 : 0;
-        return $this->succeed(array('is_login' => $is_login));
+        return $this->succeed(array('is_login' => $is_login, 'username'=>$username));
     }
 
     public function actionRegister()
