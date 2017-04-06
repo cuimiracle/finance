@@ -82,7 +82,7 @@ MYSITE.service('Service', function ($http, $q) {
   };
   Auth.prototype.login = function (data) {
     var self = this;
-    $http.post('../index.php?r=back/login', data).then(function (res) {
+    return $http.post('../index.php?r=back/login', data).then(function (res) {
       return self.getCurrentUser();
     }, function () {
       console.log('登录不成功');
