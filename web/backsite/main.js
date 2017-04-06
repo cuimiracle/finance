@@ -120,7 +120,12 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         templateUrl: './modules/software/software.html',
         controller: 'SoftwareCtrl'
       })
-
+      .state('customerManage', {
+        name: 'customerManage',
+        url: '/customer',
+        templateUrl: './modules/common/customer.html',
+        controller: 'CustomerCtrl'
+      })
   }])
   .value('froalaConfig', {
     language: 'zh_cn',

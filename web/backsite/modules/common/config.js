@@ -15,6 +15,12 @@ MYSITE.value('InitData', {
   author_work: '',
   author_name: '',
   photo: ''
+}).
+value('CUSTOMER', {
+  id: '',
+  username: '',
+  password: '',
+  email: ''
 }).constant('PageMap', {
   home: {
     banner: 'site-banner',
@@ -45,6 +51,9 @@ MYSITE.value('InitData', {
   },
   software: {
     software: 'upload-file'
+  },
+  customer: {
+    customer: 'customer'
   }
 }).filter('to_trusted', ['$sce', function($sce){
   return function(text) {
