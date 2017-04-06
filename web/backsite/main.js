@@ -117,25 +117,49 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         name: 'newsManage',
         url: '/news',
         templateUrl: './modules/news/news.html',
-        controller: 'NewsCtrl'
+        controller: 'NewsCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
       .state('techManage', {
         name: 'techManage',
         url: '/tech',
         templateUrl: './modules/tech/tech.html',
-        controller: 'TechCtrl'
+        controller: 'TechCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
       .state('softwareManage', {
         name: 'softwareManage',
         url: '/software',
         templateUrl: './modules/software/software.html',
-        controller: 'SoftwareCtrl'
+        controller: 'SoftwareCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
       .state('customerManage', {
         name: 'customerManage',
         url: '/customer',
         templateUrl: './modules/common/customer.html',
-        controller: 'CustomerCtrl'
+        controller: 'CustomerCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
   }])
   .value('froalaConfig', {

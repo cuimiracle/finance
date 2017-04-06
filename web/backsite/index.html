@@ -24,8 +24,8 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="javascript:;" ng-bind="username"></a></li>
-            <li><a ui-sref="login" >登录</a></li>
-            <li ng-controller="LogoutCtrl"><a ng-click="logout()" >退出</a></li>
+            <li ng-if="!username"><a ui-sref="login">登录</a></li>
+            <li ng-controller="LogoutCtrl" ng-if="username"><a ng-click="logout()" >退出</a></li>
         </ul>
     </div>
 </div>
@@ -52,6 +52,9 @@
             </ul>
             <ul class="list-group">
                 <li class="list-group-item"><a ui-sref="helpManage">帮助和关于内容管理</a></li>
+            </ul>
+            <ul class="list-group" ng-if="username">
+                <li class="list-group-item"><a ui-sref="customerManage">用户管理</a></li>
             </ul>
         </div>
         <div class="col-md-10 main-content">
