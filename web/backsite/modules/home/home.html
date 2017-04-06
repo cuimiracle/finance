@@ -1,8 +1,10 @@
 <div class="container-fluid">
     <h3>首页内容管理</h3>
-    <p>banner部分需要的字段：标题／描述／链接／图片(推荐尺寸1300x750)</p>
-    <p>公司介绍部分需要字段：标题／描述／图片(团建尺寸420x320)</p>
-    <p></p>
+    <p>banner滚图部分需要的字段：标题／描述／链接／图片(推荐尺寸1300x750)，不定数</p>
+    <p>特色内容部分需要字段：标题／描述／图片(推荐尺寸140x120)，6个最佳</p>
+    <p>公司介绍部分需要字段：标题／描述／图片(推荐尺寸420x320)，1个</p>
+    <p>次要介绍需要的字段：标题／描述／链接／图片(推荐尺寸600x380)，1个</p>
+    <p>首页大图部分需要字段：标题／描述／图片（推荐尺寸1300x700），1个</p>
     <p></p>
     <form class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
@@ -123,7 +125,6 @@
             <td width="5%">id</td>
             <td width="10%">标题</td>
             <td>描述</td>
-            <td>链接</td>
             <td>图片</td>
             <td width="10%">操作</td>
         </tr>
@@ -133,11 +134,37 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
-            <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="introDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>次要介绍</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td width="5%">id</td>
+            <td width="10%">标题</td>
+            <td>描述</td>
+            <td>图片</td>
+            <td>链接</td>
+            <td width="10%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in subIntroList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td ng-bind-html="item.content | to_trusted"></td>
+            <td>{{item.link_url}}</td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="subIntroDel(item)">删除</a>
             </td>
         </tr>
         </tbody>

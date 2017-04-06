@@ -26,6 +26,7 @@ value('CUSTOMER', {
     banner: 'site-banner',
     feature: 'site-detail',
     intro: 'site-ideal-trade',
+    subIntro: 'site-main',
     bigImg: 'site-single-pic',
     picText: 'site-single-bottom-detail',
     bottom: 'site-single-bottom'
