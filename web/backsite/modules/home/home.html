@@ -6,6 +6,7 @@
     <p>次要介绍需要的字段：标题／描述／链接／图片(推荐尺寸600x380)，1个</p>
     <p>首页大图部分需要字段：标题／图片（推荐尺寸1300x700），1个</p>
     <p>图文介绍部分需要字段：标题／描述／图片（推荐尺寸300x300），2个</p>
+    <p>底部图文部分需要字段：标题／描述／图片（图片需扁长形），1个</p>
     <p></p>
     <form class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
@@ -55,7 +56,7 @@
         <button class="btn btn-default" ng-click="subIntroOk()">次要介绍确认添加</button>
         <button class="btn btn-default" ng-click="bigImgOk()">大图确认添加</button>
         <button class="btn btn-default" ng-click="picTextOk()">图文介绍确认添加</button>
-        <button class="btn btn-default" ng-click="bottomOk()">底部图片确认添加</button>
+        <button class="btn btn-default" ng-click="bottomOk()">底部图文确认添加</button>
     </p>
     <hr>
     <p>
@@ -66,7 +67,7 @@
         <button class="btn btn-default" ng-click="subIntroUpdate()">次要介绍更新</button>
         <button class="btn btn-default" ng-click="bigImgUpdate()">大图更新</button>
         <button class="btn btn-default" ng-click="picTextUpdate()">图文介绍更新</button>
-        <button class="btn btn-default" ng-click="bottomUpdate()">底部图片更新</button>
+        <button class="btn btn-default" ng-click="bottomUpdate()">底部图文更新</button>
     </p>
     <hr>
     <h3>BANNER图</h3>
@@ -188,7 +189,7 @@
         <tr ng-repeat="item in bigImgList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td><img ng-src="{{item.photo}}" width="80"></td>
+            <td><img ng-src="{{item.photo}}" width="200"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bigImgDel(item)">删除</a>
@@ -240,7 +241,7 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
-            <td><img ng-src="{{item.photo}}" width="80"></td>
+            <td><img ng-src="{{item.photo}}" width="150"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bottomDel(item)">删除</a>

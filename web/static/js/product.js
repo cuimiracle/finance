@@ -6,8 +6,8 @@
 		infinite: true,
 		speed: 1000,
 		arrows: {
-			prev: '<a class="unslider-arrow prev"><img src="/static/img/arrow-right.svg"></a>',
-			next: '<a class="unslider-arrow next"><img src="/static/img/arrow-right.svg"></a>'
+			prev: '<a class="unslider-arrow prev"><span class="glyphicon glyphicon-chevron-left"></span></a>',
+			next: '<a class="unslider-arrow next"><span class="glyphicon glyphicon-chevron-right"></span></a>'
 		}
 	});
 
