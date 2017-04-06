@@ -12,14 +12,14 @@ MYSITE.controller('CustomerCtrl', function ($scope, Service,PageMap, CUSTOMER) {
 
     $scope[key + 'Ok'] = function () {
       Service.method.add($scope, val, key, $scope.data, function () {
-        $scope.data = _.cloneDeep(InitData);
+        $scope.data = _.cloneDeep(CUSTOMER);
         Service.method.getAll($scope, val, key);
       });
     };
 
     $scope[key + 'Update'] = function () {
       Service.method.update($scope, val, key, $scope.data, function () {
-        $scope.data = _.cloneDeep(InitData);
+        $scope.data = _.cloneDeep(CUSTOMER);
         Service.method.getAll($scope, val, key);
       })
     };
