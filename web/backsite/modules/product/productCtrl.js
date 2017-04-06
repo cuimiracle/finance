@@ -1,8 +1,8 @@
 /**
  * 产品内容管理
  */
-MYSITE.controller('ProductCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
-  function ($scope, Service, PageMap, InitData) {
+MYSITE.controller('ProductCtrl', ['$scope', 'Service', 'PageMap', 'InitData','FileUploader',
+  function ($scope, Service, PageMap, InitData, FileUploader) {
     var productContents = PageMap.product;
 
     $scope.data = _.cloneDeep(InitData);
