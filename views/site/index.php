@@ -37,7 +37,7 @@
     ?>
     <div>
         <div class="animated" data-animation="zoomIn" data-animation-delay="700">
-            <img src="<?=$v['photo']?>" style="width:100%;">
+            <img src="<?=$v['photo']?>">
         </div>
         <p class="title"><?=$v['title']?></p>
         <p class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></p>
