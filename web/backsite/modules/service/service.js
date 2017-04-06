@@ -61,7 +61,7 @@ MYSITE.service('Service', function ($http, $q) {
   }
   Auth.prototype.getCurrentUser = function () {
     var self = this;
-    return $http.get('../index.php?r=back/is-login').success(function (res) {
+    return $http.get('../index.php?r=back/is-login').then(function (res) {
       if (res.data.is_login == 1) {
         self.set(res.data.username);
         $rootScope.$broadcast('login.success');
