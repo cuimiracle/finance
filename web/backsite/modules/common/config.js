@@ -53,7 +53,7 @@ value('CUSTOMER', {
     software: 'upload-file'
   },
   customer: {
-    customer: 'customer'
+    customer: 'customers'
   }
 }).filter('to_trusted', ['$sce', function($sce){
   return function(text) {
