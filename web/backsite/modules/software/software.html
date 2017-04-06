@@ -70,12 +70,12 @@
         <thead>
         <tr>
             <td width="5%">id</td>
-            <td width="10%">标题</td>
+            <td width="8%">标题</td>
             <td>内容</td>
             <td width="5%">超链接名称</td>
             <td width="10%">超链接路径</td>
-            <td width="10%">图片</td>
-            <td width="10%">操作</td>
+            <td width="8%">图片</td>
+            <td width="8%">操作</td>
         </tr>
         </thead>
         <tbody>
@@ -85,7 +85,7 @@
             <td>{{item.content}}</td>
             <td>{{item.link_name}}</td>
             <td>{{item.link_url}}</td>
-            <td><img ng-src="item.photo" width="80"></td>
+            <td><img src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="softwareDel(item)">删除</a>
