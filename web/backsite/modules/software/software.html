@@ -10,7 +10,7 @@
         <div class="form-group">
             <label class="col-md-1">内容</label>
             <div class="col-md-10">
-                <textarea ng-model="data.content"></textarea>
+                <textarea class="form-control" ng-model="data.content"></textarea>
             </div>
         </div>
         <div class="form-group">
@@ -70,9 +70,9 @@
             <td width="5%">id</td>
             <td width="10%">标题</td>
             <td>内容</td>
-            <td>超链接名称</td>
-            <td>超链接路径</td>
-            <td>图片</td>
+            <td width="5%">超链接名称</td>
+            <td width="10%">超链接路径</td>
+            <td width="10%">图片</td>
             <td width="10%">操作</td>
         </tr>
         </thead>
@@ -80,7 +80,7 @@
         <tr ng-repeat="item in softwareList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td ng-bind-html="item.content | to_trusted"></td>
+            <td ng-bind="item.content"></td>
             <td>{{item.link_name}}</td>
             <td>{{item.link_url}}</td>
             <td>{{item.photo}}</td>
