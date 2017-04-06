@@ -51,7 +51,7 @@
         <button class="btn btn-default" ng-click="bannerOk()">banner确认添加</button>
         <button class="btn btn-default" ng-click="featureOk()">特色内容确认添加</button>
         <button class="btn btn-default" ng-click="introOk()">公司介绍确认添加</button>
-        <button class="btn btn-default" ng-click="subIntroOk()">次要内容确认添加</button>
+        <button class="btn btn-default" ng-click="subIntroOk()">次要介绍确认添加</button>
         <button class="btn btn-default" ng-click="bigImgOk()">大图确认添加</button>
         <button class="btn btn-default" ng-click="picTextOk()">图文介绍确认添加</button>
         <button class="btn btn-default" ng-click="bottomOk()">底部图片确认添加</button>
@@ -62,7 +62,7 @@
         <button class="btn btn-default" ng-click="bannerUpdate()">banner更新</button>
         <button class="btn btn-default" ng-click="featureUpdate()">特色内容更新</button>
         <button class="btn btn-default" ng-click="introUpdate()">公司介绍更新</button>
-        <button class="btn btn-default" ng-click="subIntroUpdate()">次要内容更新</button>
+        <button class="btn btn-default" ng-click="subIntroUpdate()">次要介绍更新</button>
         <button class="btn btn-default" ng-click="bigImgUpdate()">大图更新</button>
         <button class="btn btn-default" ng-click="picTextUpdate()">图文介绍更新</button>
         <button class="btn btn-default" ng-click="bottomUpdate()">底部图片更新</button>
@@ -86,7 +86,7 @@
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
             <td>{{item.link_url}}</td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bannerDel(item)">删除</a>
@@ -111,7 +111,7 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="featureDel(item)">删除</a>
@@ -136,7 +136,7 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="introDel(item)">删除</a>
@@ -163,7 +163,7 @@
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
             <td>{{item.link_url}}</td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="subIntroDel(item)">删除</a>
@@ -187,7 +187,7 @@
         <tr ng-repeat="item in bigImgList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bigImgDel(item)">删除</a>
@@ -215,7 +215,7 @@
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
             <td>{{item.link_url}}</td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="picTextDel(item)">删除</a>
@@ -241,7 +241,7 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bottomDel(item)">删除</a>

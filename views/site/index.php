@@ -160,9 +160,9 @@
             <p class="main-title">
             <?=$v['title']?>
             </p>
-            <p class="main-word">
+            <div class="main-word">
             <?=$v['content']?>
-            </p>
+            </div>
         </div>
     </div>
     <?php
