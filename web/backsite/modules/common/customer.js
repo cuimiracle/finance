@@ -1,10 +1,13 @@
+/**
+ * 用户管理
+ */
 MYSITE.controller('CustomerCtrl', function ($scope, Service, CUSTOMER) {
   var customerContents = PageMap.customer;
 
   $scope.data = _.cloneDeep(CUSTOMER);
   $scope.customerList = [];
 
-  angular.forEach(collegeContents, function (val, key) {
+  angular.forEach(customerContents, function (val, key) {
     Service.method.getAll($scope, val, key);
 
     $scope[key + 'Ok'] = function () {
