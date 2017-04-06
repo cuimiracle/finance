@@ -3,7 +3,7 @@
  */
 MYSITE.controller('AccountCtrl', ['$scope', 'Service', 'PageMap', 'ACCOUNT',
   function ($scope, Service, PageMap, InitData) {
-    var accountContents = PageMap.software;
+    var accountContents = PageMap.account;
 
     $scope.data = _.cloneDeep(InitData);
 
