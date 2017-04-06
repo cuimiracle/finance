@@ -24,7 +24,7 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Service, Auth, $sta
       }
     });
   };
-}).controller('LogoutCtrl', function ($rootScope, $scope, Auth) {
+}).controller('LogoutCtrl', function ($rootScope, $scope, $state, Auth) {
   $scope.logout = function () {
     Auth.logout().then(function () {
       $rootScope.username = '';
