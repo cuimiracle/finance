@@ -4,7 +4,8 @@
     <p>特色内容部分需要字段：标题／描述／图片(推荐尺寸140x120)，6个最佳</p>
     <p>公司介绍部分需要字段：标题／描述／图片(推荐尺寸420x320)，1个</p>
     <p>次要介绍需要的字段：标题／描述／链接／图片(推荐尺寸600x380)，1个</p>
-    <p>首页大图部分需要字段：标题／描述／图片（推荐尺寸1300x700），1个</p>
+    <p>首页大图部分需要字段：标题／图片（推荐尺寸1300x700），1个</p>
+    <p>图文介绍部分需要字段：标题／描述／图片（推荐尺寸300x300），2个</p>
     <p></p>
     <form class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
@@ -204,7 +205,6 @@
             <td width="5%">id</td>
             <td width="10%">标题</td>
             <td>描述</td>
-            <td>链接</td>
             <td>图片</td>
             <td width="10%">操作</td>
         </tr>
@@ -214,7 +214,6 @@
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
             <td ng-bind-html="item.content | to_trusted"></td>
-            <td>{{item.link_url}}</td>
             <td><img ng-src="{{item.photo}}" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>

@@ -141,9 +141,9 @@
             <p class="main-title">
             <?=$v['title']?>
             </p>
-            <p class="main-word">
+            <div class="main-word">
             <?=$v['content']?>
-            </p>
+            </div>
         </div>
         <div class="col-md-4 pic text-center">
             <img src="<?=$v['photo']?>">
@@ -180,7 +180,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h2 class="text-center"><?=$v['title']?></h2>
-            <p class="pd30"><?=$v['content']?></p>
+            <div class="pd30"><?=$v['content']?></div>
         </div>
     </div>
     <div class="absol bg">
