@@ -44,7 +44,7 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
   //     ]);
   //   }
   // ])
-  .run(function ($rootScope, $state, Service, Auth) {
+  .run(function ($rootScope, $state) {
     $rootScope.$state = $state;
     $rootScope.username = '';
 
