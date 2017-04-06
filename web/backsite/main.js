@@ -70,11 +70,12 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         url: '/',
         templateUrl: './modules/home/home.html',
         controller: 'HomeCtrl',
-        resolve: {
-          auth: function (CheckAuth) {
-            return CheckAuth.check();
-          }
-        }
+        // resolve: {
+        //   auth: function (CheckAuth) {
+        //     console.log('auth!');
+        //     return CheckAuth.check();
+        //   }
+        // }
       })
       .state('productManage', {
         name: 'productManage',
