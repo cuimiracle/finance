@@ -30,7 +30,7 @@
             <div class="col-md-2">
                 <input type="text" ng-model="data.photo">
                 <input type="file" nv-file-select="" uploader="uploader"/>
-                <button ng-click="upload.uploadAll()"></button>
+                <button ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">上传图片</button>
             </div>
         </div>
     </form>
