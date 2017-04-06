@@ -8,6 +8,7 @@ MYSITE.controller('SoftwareCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
     $scope.data = _.cloneDeep(InitData);
 
     $scope.softwareList = [];
+    $scope.uploadList = [];
 
     $scope.edit = function (data) {
       $scope.data = data;

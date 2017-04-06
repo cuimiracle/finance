@@ -50,7 +50,8 @@ value('CUSTOMER', {
     main: 'tech-data'
   },
   software: {
-    software: 'upload-file'
+    software: 'software',
+    upload: 'upload-file'
   },
   customer: {
     customer: 'customers'
