@@ -259,6 +259,9 @@ a, a:hover {
   color: #333;
   margin: 0 1rem;
 }
+.news-wrapper ul li p {
+  margin: 0;
+}
 .news .panel {
   box-shadow: 1px 1px 10px rgba(50, 46, 46, 0.51)
 }

@@ -1,5 +1,7 @@
 <div class="container-fluid">
     <h3>软件管理</h3>
+    <p>软件下载页面内容需要字段：标题／内容／超链接名称／超链接路径／图片（推荐242x200），3个</p>
+    <p>软件链接管理需要字段：软件名称／软件下载路径（用于软件管理）</p>
     <form class="form-horizontal">
         <div class="form-group">
             <label class="col-md-1">标题</label>
@@ -57,22 +59,27 @@
         </div>
     </form>
     <!--<p>{{data | json}}</p>-->
+    <hr>
     <p>
+        添加按钮：
         <button class="btn btn-default" ng-click="softwareOk()">确认添加页面内容</button>
         <button class="btn btn-default" ng-click="uploadOk()">确认添加上传的软件</button>
     </p>
+    <hr>
     <p>
+        内容更新按钮：
         <button class="btn btn-default" ng-click="softwareUpdate()">页面内容更新</button>
         <button class="btn btn-default" ng-click="uploadUpdate()">上传的软件更新</button>
     </p>
+    <hr>
     <h3>软件下载页面内容</h3>
     <table class="table table-bordered">
         <thead>
         <tr>
             <td width="5%">id</td>
             <td width="8%">标题</td>
-            <td width="56%">内容</td>
-            <td width="5%">超链接名称</td>
+            <td width="40%">内容</td>
+            <td width="15%">超链接名称</td>
             <td width="10%">超链接路径</td>
             <td width="8%">图片</td>
             <td width="8%">操作</td>

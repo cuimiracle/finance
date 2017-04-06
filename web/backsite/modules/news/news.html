@@ -1,4 +1,7 @@
 <div class="container-fluid">
+    <p>业界动态需要字段：标题／内容／图片（推荐尺寸100x100）</p>
+    <p>公司动态需要字段：内容</p>
+    <p>公司新闻需要字段：标题／内容</p>
     <h3>新闻管理</h3>
     <form class="form-horizontal">
         <div class="form-group">
@@ -27,16 +30,46 @@
         </div>
     </form>
     <!--<p>{{data | json}}</p>-->
+    <hr>
     <p>
+        添加按钮：
+        <button class="btn btn-default" ng-click="industryOk()">业界动态确认添加</button>
         <button class="btn btn-default" ng-click="companyOk()">公司动态确认添加</button>
         <button class="btn btn-default" ng-click="newsOk()">公司新闻确认添加</button>
-        <button class="btn btn-default" ng-click="industryOk()">行业动态确认添加</button>
     </p>
+    <hr>
     <p>
+        更新按钮：
+        <button class="btn btn-default" ng-click="industryUpdate()">业界动态更新</button>
         <button class="btn btn-default" ng-click="companyUpdate()">公司动态更新</button>
         <button class="btn btn-default" ng-click="newsUpdate()">公司新闻更新</button>
-        <button class="btn btn-default" ng-click="industryUpdate()">行业动态更新</button>
     </p>
+    <hr>
+    <h3>业界动态</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td width="5%">id</td>
+            <td width="10%">标题</td>
+            <td>内容</td>
+            <td>图片</td>
+            <td width="10%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in industryList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td ng-bind-html="item.content | to_trusted"></td>
+            <td><img ng-src="{{item.photo}}" width="80"></td>
+            <td>
+                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="industryDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
     <h3>公司动态</h3>
     <table class="table table-bordered">
         <thead>
@@ -76,31 +109,6 @@
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="newsDel(item)">删除</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <hr>
-    <h3>行业新闻</h3>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <td width="5%">id</td>
-            <td width="10%">标题</td>
-            <td>内容</td>
-            <td>图片</td>
-            <td width="10%">操作</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="item in industryList">
-            <td>{{item.id}}</td>
-            <td>{{item.title}}</td>
-            <td ng-bind-html="item.content | to_trusted"></td>
-            <td>{{item.photo}}</td>
-            <td>
-                <a ng-click="edit(item)">编辑</a>
-                <a ng-click="industryDel(item)">删除</a>
             </td>
         </tr>
         </tbody>
