@@ -96,7 +96,7 @@ MYSITE.service('Service', function ($http, $q) {
     });
   }
   return new Auth();
-}).factory('checkAuth', function (Auth, $q, $rootScope, $state) {
+}).factory('CheckAuth', function (Auth, $q, $rootScope, $state) {
   return {
     check: function () {
       var deferred = $q.defer();
