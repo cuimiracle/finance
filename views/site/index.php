@@ -33,7 +33,7 @@
     <?php
     if(!empty($site_details)){
         foreach($site_details as $k => $v){
-            if($k < 3) break;
+            if($k < 3){
     ?>
     <div>
         <div class="animated" data-animation="zoomIn" data-animation-delay="700">
@@ -43,6 +43,7 @@
         <p class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></p>
     </div>
     <?php
+            }
         }
     }
     ?>
@@ -52,7 +53,7 @@
     <?php
     if(!empty($site_details)){
         foreach($site_details as $k => $v){
-            if($k >= 3) break;
+            if($k >= 3){
     ?>
     <div>
         <div class="animated" data-animation="zoomIn" data-animation-delay="700">
@@ -62,6 +63,7 @@
         <p class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></p>
     </div>
     <?php
+            }
         }
     }
     ?>
