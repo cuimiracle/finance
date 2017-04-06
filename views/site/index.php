@@ -40,7 +40,7 @@
             <img src="<?=$v['photo']?>">
         </div>
         <p class="title"><?=$v['title']?></p>
-        <p class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></p>
+        <div class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></div>
     </div>
     <?php
             }
@@ -60,7 +60,7 @@
             <img src="<?=$v['photo']?>">
         </div>
         <p class="title"><?=$v['title']?></p>
-        <p class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></p>
+        <div class="desc animated" data-animation="slideInUp" data-animation-delay="700"><?=$v['content']?></div>
     </div>
     <?php
             }
