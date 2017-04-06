@@ -49,7 +49,6 @@ class UploadFileController extends \yii\web\Controller
     public function actionPhotos(){
         $file_path = '';
         if(!empty($_FILES)){
-            echo '<pre>';print_r($_FILES);echo '</pre>';exit;
             $files = $_FILES;
             $uploadForm = new models\UploadForm;
             $res = $uploadForm->photos($files);
