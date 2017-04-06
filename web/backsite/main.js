@@ -81,19 +81,37 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         name: 'productManage',
         url: '/product',
         templateUrl: './modules/product/product.html',
-        controller: 'ProductCtrl'
+        controller: 'ProductCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
       .state('helpManage', {
         name: 'helpManage',
         url: '/help',
         templateUrl: './modules/help/help.html',
-        controller: 'HelpCtrl'
+        controller: 'HelpCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
       .state('collegeManage', {
         name: 'collegeManage',
         url: '/college',
         templateUrl: './modules/college/college.html',
-        controller: 'CollegeCtrl'
+        controller: 'CollegeCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            console.log('auth!');
+            return CheckAuth.check();
+          }
+        }
       })
       .state('newsManage', {
         name: 'newsManage',
