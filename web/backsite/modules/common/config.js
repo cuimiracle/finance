@@ -24,6 +24,7 @@ value('CUSTOMER', {
 }).constant('PageMap', {
   home: {
     banner: 'site-banner',
+    feature: 'site-detail',
     intro: 'site-ideal-trade',
     bigImg: 'site-single-pic',
     picText: 'site-single-bottom-detail',

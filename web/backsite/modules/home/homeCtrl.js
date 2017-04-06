@@ -8,6 +8,7 @@ MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData','FileU
     $scope.data = _.cloneDeep(InitData);
 
     $scope.bannerList = [];
+    $scope.featureList = [];
     $scope.introList = [];
     $scope.bigImgList = [];
     $scope.picTextList = [];

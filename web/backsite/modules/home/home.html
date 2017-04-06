@@ -1,5 +1,9 @@
 <div class="container-fluid">
     <h3>首页内容管理</h3>
+    <p>banner部分需要的字段：标题／描述／链接／图片(推荐尺寸1300x750)</p>
+    <p>公司介绍部分需要字段：标题／描述／图片(团建尺寸420x320)</p>
+    <p></p>
+    <p></p>
     <form class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
             <label class="col-md-1">标题</label>
@@ -39,21 +43,28 @@
         </div>
     </form>
     <!--<p>{{data | json}}</p>-->
+    <hr>
     <p>
+        添加按钮：
         <button class="btn btn-default" ng-click="bannerOk()">banner确认添加</button>
+        <button class="btn btn-default" ng-click="featureOk()">特色内容确认添加</button>
         <button class="btn btn-default" ng-click="introOk()">公司介绍确认添加</button>
         <button class="btn btn-default" ng-click="bigImgOk()">大图确认添加</button>
         <button class="btn btn-default" ng-click="picTextOk()">图文介绍确认添加</button>
         <button class="btn btn-default" ng-click="bottomOk()">底部图片确认添加</button>
     </p>
+    <hr>
     <p>
+        内容更新按钮：
         <button class="btn btn-default" ng-click="bannerUpdate()">banner更新</button>
+        <button class="btn btn-default" ng-click="featureUpdate()">特色内容更新</button>
         <button class="btn btn-default" ng-click="introUpdate()">公司介绍更新</button>
         <button class="btn btn-default" ng-click="bigImgUpdate()">大图更新</button>
         <button class="btn btn-default" ng-click="picTextUpdate()">图文介绍更新</button>
         <button class="btn btn-default" ng-click="bottomUpdate()">底部图片更新</button>
     </p>
-    <h3>BANNER图(显示4个)</h3>
+    <hr>
+    <h3>BANNER图</h3>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -75,6 +86,31 @@
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="bannerDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>特色内容</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>描述</td>
+            <td>图片</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in featureList">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td ng-bind-html="item.content | to_trusted"></td>
+            <td>{{item.photo}}</td>
+            <td>
+                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="featureDel(item)">删除</a>
             </td>
         </tr>
         </tbody>
