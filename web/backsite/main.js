@@ -72,7 +72,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'HomeCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -84,7 +83,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'ProductCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -96,7 +94,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'HelpCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -108,7 +105,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'CollegeCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -120,7 +116,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'NewsCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -132,7 +127,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'TechCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -144,7 +138,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'SoftwareCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
@@ -156,7 +149,6 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         controller: 'CustomerCtrl',
         resolve: {
           auth: function (CheckAuth) {
-            console.log('auth!');
             return CheckAuth.check();
           }
         }
