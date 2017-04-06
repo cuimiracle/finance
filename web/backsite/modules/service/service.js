@@ -64,6 +64,7 @@ MYSITE.service('Service', function ($http, $q) {
     return $http.get('../index.php?r=back/is-login').then(function (res) {
       if (res.data.is_login == 1) {
         self.set(res.data.username);
+        $rootScope.username = res.data.username;
         $rootScope.$broadcast('login.success');
       } else {
         self.set(null);
