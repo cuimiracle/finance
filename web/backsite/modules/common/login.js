@@ -11,11 +11,9 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Service, Auth, $sta
   $scope.login = function () {
     Auth.login($scope.data).then(function (res) {
       console.log('login', res);
-      if (res) {
-        $rootScope.$broadcast('login.success');
-        $rootScope.username = Auth.current();
-        $state.go('homeManage');
-      }
+      $rootScope.$broadcast('login.success');
+      $rootScope.username = Auth.current();
+      $state.go('homeManage');
     });
   };
   $scope.register = function () {
