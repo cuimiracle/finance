@@ -1,7 +1,7 @@
 /**
  * 用户管理
  */
-MYSITE.controller('CustomerCtrl', function ($scope, Service, CUSTOMER) {
+MYSITE.controller('CustomerCtrl', function ($scope, Service,PageMap, CUSTOMER) {
   var customerContents = PageMap.customer;
 
   $scope.data = _.cloneDeep(CUSTOMER);
