@@ -25,7 +25,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="javascript:;" ng-bind="username"></a></li>
             <li><a ui-sref="login" >登录</a></li>
-            <li><a ng-click="logout()" >退出</a></li>
+            <li ng-controller="LogoutCtrl"><a ng-click="logout()" >退出</a></li>
         </ul>
     </div>
 </div>

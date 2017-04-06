@@ -47,12 +47,7 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
   .run(function ($rootScope, $state, Service, Auth) {
     $rootScope.$state = $state;
     $rootScope.username = '';
-    $rootScope.logout = function () {
-      Auth.logout().then(function () {
-        $rootScope.username = '';
-        $state.go('login');
-      })
-    }
+
   });
 
 // bootstrap application

@@ -26,59 +26,11 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Auth, $state) {
       }
     });
   };
-}).factory('Auth', function ($http, $q, $rootScope, $state) {
-  function Auth() {
-    this.auth = {username: null};
-  }
-  Auth.prototype.getCurrentUser = function () {
-    var self = this;
-    return $http.get('../index.php?r=back/is-login').success(function (res) {
-      if (res.data.is_login == 1) {
-        self.set(res.data.username);
-        $rootScope.$broadcast('login.success');
-      } else {
-        self.set(null);
-        $state.go('login');
-      }
-    })
-  };
-  Auth.prototype.current = function () {
-    return this.auth.username;
-  }
-  Auth.prototype.isAuthed = function () {
-    return this.auth.username != null;
-  };
-  Auth.prototype.set = function (username) {
-    this.auth.username = username;
-  };
-  Auth.prototype.login = function (data) {
-    var self = this;
-    $http.post('../index.php?r=back/login', data).then(function (res) {
-      return self.getCurrentUser();
-    }, function () {
-      console.log('登录不成功');
-      return false;
+}).controller('LogoutCtrl', function ($rootScope, $scope, Auth) {
+  $scope.logout = function () {
+    Auth.logout().then(function () {
+      $rootScope.username = '';
+      $state.go('login');
     })
   }
-  Auth.prototype.logout = function () {
-    var self = this;
-    return $http.get('../index.php?r=back/logout').then(function () {
-      self.set(null);
-    });
-  }
-}).factory('checkAuth', function (Auth, $q, $rootScope, $state) {
-  return {
-    check: function () {
-      var deferred = $q.defer();
-      Auth.getCurrentUser().then(function () {
-        if (!Auth.isAuthed()) {
-          deferred.reject();
-          $state.go('login');
-        } else {deffered.resolve();}
-      }, function () {
-        deferred.reject();
-      });
-      return deferred.promise;
-    }
-  }
-});
+})
