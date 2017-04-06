@@ -47,8 +47,8 @@ MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData','FileU
     });
 
     uploader.onSuccessItem = function(fileItem, response, status, headers) {
-      console.log('success', fileItem, response);
-      $scope.data.photo = response[0];
+      // console.log('success', fileItem, response);
+      $scope.data.photo = response.file_path;
     };
     var imageFilter = {
       name: 'imageFilter',

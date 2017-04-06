@@ -10,7 +10,7 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Service, Auth, $sta
   };
   $scope.login = function () {
     Auth.login($scope.data).then(function (res) {
-      console.log('login', res);
+      // console.log('login', res);
       $rootScope.$broadcast('login.success');
       $rootScope.username = Auth.current();
       $state.go('homeManage');
@@ -18,7 +18,7 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Service, Auth, $sta
   };
   $scope.register = function () {
     Service.register($scope.registerData).then(function (res) {
-      console.log('register', res);
+      // console.log('register', res);
       if (res.data.result) {
         alert('注册成功，请登录');
       }
