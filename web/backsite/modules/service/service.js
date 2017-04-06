@@ -104,7 +104,7 @@ MYSITE.service('Service', function ($http, $q) {
         if (!Auth.isAuthed()) {
           deferred.reject();
           $state.go('login');
-        } else {deffered.resolve();}
+        } else {deferred.resolve();}
       }, function () {
         deferred.reject();
       });
