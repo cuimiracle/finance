@@ -28,18 +28,6 @@ MYSITE.service('Service', function ($http, $q) {
     return $http.post(urlPre + 'back/register', data);
   };
 
-  this.login = function (data) { // username password
-    return $http.post(urlPre + 'back/login', data);
-  };
-
-  this.logout = function () {
-    return $http.get(urlPre + 'back/logout');
-  };
-
-  this.isLogin = function () {
-    return $http.get(urlPre + 'back/is-login');
-  };
-
   this.method = {
     getAll: function (scope, controllerName, areaName) {
       self.getAllData(controllerName).then(function (res) {

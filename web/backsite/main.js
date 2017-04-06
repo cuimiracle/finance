@@ -44,19 +44,16 @@ var MYSITE = angular.module('mySite', ['ui.router', 'ui.bootstrap', 'froala', 'n
   //     ]);
   //   }
   // ])
-  .run(['$rootScope', '$state', 'Service', 'CheckLogin',
-    function ($rootScope, $state, Service, CheckLogin) {
+  .run(function ($rootScope, $state, Service, Auth) {
     $rootScope.$state = $state;
     $rootScope.username = '';
     $rootScope.logout = function () {
-      Service.logout().then(function (res) {
-        if (res.data.result) {
-          $rootScope.username = '';
-          $state.go('login');
-        }
-      });
+      Auth.logout().then(function () {
+        $rootScope.username = '';
+        $state.go('login');
+      })
     }
-  }]);
+  });
 
 // bootstrap application
 document.addEventListener('DOMContentLoaded', function () {
@@ -78,11 +75,11 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
         url: '/',
         templateUrl: './modules/home/home.html',
         controller: 'HomeCtrl',
-        // resolve: {
-        //   auth: function (CheckLogin) {
-        //     CheckLogin.check();
-        //   }
-        // }
+        resolve: {
+          auth: function (CheckAuth) {
+            return CheckAuth.check();
+          }
+        }
       })
       .state('productManage', {
         name: 'productManage',
