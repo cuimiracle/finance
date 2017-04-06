@@ -48,6 +48,18 @@ MYSITE.service('Service', function ($http, $q, FileUploader) {
     return uploader;
   };
 
+  this.softwareUploader = function (successCallback) {
+    var uploader = new FileUploader({
+      url: urlPre + 'upload-file/files',
+      headers: { 'Content-Transfer-Encoding': 'utf-8' }
+    });
+    uploader.onSuccessItem = function(fileItem, response, status, headers) {
+      // console.log('success', fileItem, response);
+      successCallback(response.file_path);
+    };
+    return uploader;
+  };
+
   this.method = {
     getAll: function (scope, controllerName, areaName) {
       self.getAllData(controllerName).then(function (res) {

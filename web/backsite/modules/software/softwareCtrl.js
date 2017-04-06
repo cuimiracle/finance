@@ -39,5 +39,9 @@ MYSITE.controller('SoftwareCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
       $scope.uploader = Service.uploader(function (path) {
         $scope.data.photo = path;
       });
+
+      $scope.softwareUploader = Service.softwareUploader(function (path) {
+        $scope.data.file_path = path;
+      })
     });
   }]);

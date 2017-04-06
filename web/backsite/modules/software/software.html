@@ -15,8 +15,14 @@
         </div>
         <div class="form-group">
             <label class="col-md-1">软件下载路径</label>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <input class="form-control" type="text" ng-model="data.file_path">
+            </div>
+            <div class="col-md-2">
+                <input type="file" nv-file-select uploader="softwareUploader">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-default" ng-click="softwareUploader.uploadAll()" ng-disabled="!softwareUploader.getNotUploadedItems().length">上传应用</button>
             </div>
         </div>
         <div class="form-group">
