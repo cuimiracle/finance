@@ -28,7 +28,9 @@
         <div class="form-group">
             <label class="col-md-1">图片</label>
             <div class="col-md-2">
+                <input type="text" ng-model="data.photo">
                 <input type="file" nv-file-select="" uploader="uploader"/>
+                <button ng-click="upload.uploadAll()"></button>
             </div>
         </div>
     </form>
