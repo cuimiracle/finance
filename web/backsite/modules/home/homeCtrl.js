@@ -1,8 +1,8 @@
 /**
  * 主页内容管理
  */
-MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
-  function ($scope, Service, PageMap, InitData) {
+MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData','FileUploader',
+  function ($scope, Service, PageMap, InitData, FileUploader) {
     var homeContents = PageMap.home;
 
     $scope.data = _.cloneDeep(InitData);
