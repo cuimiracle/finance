@@ -54,21 +54,13 @@ class TechDataController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $id = isset($post['id']) ? $post['id'] : '';
             $type = isset($post['type']) ? $post['type'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
             $author_work = isset($post['author_work']) ? $post['author_work'] : '';
             $author_name = isset($post['author_name']) ? $post['author_name'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
             $res = $this->getModel()->updateOne($id, $type, $content, $author_work, $author_name, $photo);
         }
@@ -81,20 +73,12 @@ class TechDataController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $type = isset($post['type']) ? $post['type'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
             $author_work = isset($post['author_work']) ? $post['author_work'] : '';
             $author_name = isset($post['author_name']) ? $post['author_name'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
             $res = $this->getModel()->insertOne($type, $content, $author_work, $author_name, $photo);
         }

@@ -56,6 +56,7 @@ class UploadFileController extends \yii\web\Controller
                 $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
             }
         }
+        if(!$file_path) return $this->fail();
         return $this->succeed(array('file_path' => $file_path));
     }
 
@@ -69,6 +70,7 @@ class UploadFileController extends \yii\web\Controller
                 $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
             }
         }
+        if(!$file_path) return $this->fail();
         return $this->succeed(array('file_path' => $file_path));
     }
 
@@ -76,19 +78,11 @@ class UploadFileController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $file_path = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
 
             $id = isset($post['id']) ? $post['id'] : '';
             $name = isset($post['name']) ? $post['name'] : '';
+            $file_path = isset($post['file_path']) ? $post['file_path'] : '';
 
             $res = $this->getModel()->updateOne($id, $name, $file_path);
         }
@@ -101,17 +95,9 @@ class UploadFileController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $file_path = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->files($files);
-                if(!empty($res['result'])){
-                    $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $name = isset($post['name']) ? $post['name'] : '';
+            $file_path = isset($post['file_path']) ? $post['file_path'] : '';
 
             $res = $this->getModel()->insertOne($name, $file_path);
         }

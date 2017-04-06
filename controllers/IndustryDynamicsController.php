@@ -50,19 +50,11 @@ class IndustryDynamicsController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $id = isset($post['id']) ? $post['id'] : '';
             $title = isset($post['title']) ? $post['title'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
             $res = $this->getModel()->updateOne($id, $title, $content, $photo);
         }
@@ -75,18 +67,10 @@ class IndustryDynamicsController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $title = isset($post['title']) ? $post['title'] : '';
             $content = isset($post['content']) ? $post['content'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
             $res = $this->getModel()->insertOne($title, $content, $photo);
         }

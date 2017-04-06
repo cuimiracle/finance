@@ -54,21 +54,13 @@ class CollegeController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $id = isset($post['id']) ? $post['id'] : '';
             $title = isset($post['title']) ? $post['title'] : '';
             $name = isset($post['name']) ? $post['name'] : '';
             $description = isset($post['description']) ? $post['description'] : '';
             $price = isset($post['price']) ? $post['price'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
             $res = $this->getModel()->updateOne($id, $title, $photo, $name, $description, $price);
         }
@@ -81,20 +73,12 @@ class CollegeController extends \yii\web\Controller
     {
         $res = false;
         if (\Yii::$app->request->isPost) {
-            $photo = '';
-            if(!empty($_FILES)){
-                $files = $_FILES;
-                $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
-                if(!empty($res['result'])){
-                    $photo = !empty($res['success']) ? array_shift($res['success']) : '';
-                }
-            }
             $post = \Yii::$app->request->post();
             $title = isset($post['title']) ? $post['title'] : '';
             $name = isset($post['name']) ? $post['name'] : '';
             $description = isset($post['description']) ? $post['description'] : '';
             $price = isset($post['price']) ? $post['price'] : '';
+            $photo = isset($post['photo']) ? $post['photo'] : '';
 
             $res = $this->getModel()->insertOne($title, $photo, $name, $description, $price);
         }
