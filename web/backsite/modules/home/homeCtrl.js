@@ -1,8 +1,8 @@
 /**
  * 主页内容管理
  */
-MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData','FileUploader',
-  function ($scope, Service, PageMap, InitData, FileUploader) {
+MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
+  function ($scope, Service, PageMap, InitData) {
     var homeContents = PageMap.home;
 
     $scope.data = _.cloneDeep(InitData);
@@ -41,21 +41,24 @@ MYSITE.controller('HomeCtrl', ['$scope', 'Service', 'PageMap', 'InitData','FileU
       }
     });
 
-    var uploader = $scope.uploader = new FileUploader({
-      url: '../index.php?r=upload-file/photos',
-      headers: { 'Content-Transfer-Encoding': 'utf-8' }
+    // var uploader = $scope.uploader = new FileUploader({
+    //   url: '../index.php?r=upload-file/photos',
+    //   headers: { 'Content-Transfer-Encoding': 'utf-8' }
+    // });
+    //
+    // uploader.onSuccessItem = function(fileItem, response, status, headers) {
+    //   // console.log('success', fileItem, response);
+    //   $scope.data.photo = response.file_path;
+    // };
+    // var imageFilter = {
+    //   name: 'imageFilter',
+    //   fn: function(item /*{File|FileLikeObject}*/, options) {
+    //     var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+    //     return '|jpg|png|jpeg|gif|'.indexOf(type) !== -1;
+    //   }
+    // }
+    // $scope.uploader.filters.push(imageFilter);
+    $scope.uploader = Service.uploader(function (path) {
+      $scope.data.photo = path;
     });
-
-    uploader.onSuccessItem = function(fileItem, response, status, headers) {
-      // console.log('success', fileItem, response);
-      $scope.data.photo = response.file_path;
-    };
-    var imageFilter = {
-      name: 'imageFilter',
-      fn: function(item /*{File|FileLikeObject}*/, options) {
-        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-        return '|jpg|png|jpeg|gif|'.indexOf(type) !== -1;
-      }
-    }
-    $scope.uploader.filters.push(imageFilter);
   }]);
