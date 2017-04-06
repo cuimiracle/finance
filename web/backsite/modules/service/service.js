@@ -95,6 +95,7 @@ MYSITE.service('Service', function ($http, $q) {
       self.set(null);
     });
   }
+  return new Auth();
 }).factory('checkAuth', function (Auth, $q, $rootScope, $state) {
   return {
     check: function () {
