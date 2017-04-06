@@ -35,5 +35,9 @@ MYSITE.controller('CollegeCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
           Service.method.getAll($scope, val, key);
         });
       }
+
+      $scope.uploader = Service.uploader(function (path) {
+        $scope.data.photo = path;
+      });
     });
   }]);

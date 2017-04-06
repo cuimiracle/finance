@@ -35,5 +35,9 @@ MYSITE.controller('TechCtrl', ['$scope', 'Service', 'PageMap', 'InitTechData',
           Service.method.getAll($scope, val, key);
         });
       }
+
+      $scope.uploader = Service.uploader(function (path) {
+        $scope.data.photo = path;
+      });
     });
   }]);

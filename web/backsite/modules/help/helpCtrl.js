@@ -39,4 +39,8 @@ MYSITE.controller('HelpCtrl', ['$scope', 'Service', 'PageMap', 'InitData',
       }
     });
 
+    $scope.uploader = Service.uploader(function (path) {
+      $scope.data.photo = path;
+    });
+
   }]);
