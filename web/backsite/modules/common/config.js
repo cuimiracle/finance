@@ -21,6 +21,9 @@ value('CUSTOMER', {
   username: '',
   password: '',
   email: ''
+}).value('ACCOUNT', {
+  name: '',
+  mobile: ''
 }).constant('PageMap', {
   home: {
     banner: 'site-banner',
@@ -57,6 +60,9 @@ value('CUSTOMER', {
   },
   customer: {
     customer: 'customers'
+  },
+  account: {
+    account: 'online-account'
   }
 }).filter('to_trusted', ['$sce', function($sce){
   return function(text) {

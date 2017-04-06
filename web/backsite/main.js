@@ -153,6 +153,17 @@ MYSITE.config(['$stateProvider', '$urlRouterProvider',
           }
         }
       })
+      .state('accountManage', {
+        name: 'accountManage',
+        url: '/account',
+        templateUrl: './modules/account/account.html',
+        controller: 'AccountCtrl',
+        resolve: {
+          auth: function (CheckAuth) {
+            return CheckAuth.check();
+          }
+        }
+      })
   }])
   .value('froalaConfig', {
     language: 'zh_cn',

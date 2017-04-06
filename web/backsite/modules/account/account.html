@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <h3>开户管理</h3>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-1">标题</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" ng-model="data.title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">姓名</label>
+            <div class="col-md-10">
+                <textarea class="form-control" ng-model="data.name"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-1">电话</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" ng-model="data.mobile">
+            </div>
+        </div>
+    </form>
+    <!--<p>{{data | json}}</p>-->
+    <hr>
+    <p>
+        添加按钮：
+        <button class="btn btn-default" ng-click="accountOk()">用户添加</button>
+    </p>
+    <hr>
+    <p>
+        内容更新按钮：
+        <button class="btn btn-default" ng-click="accountUpdate()">用户更新</button>
+    </p>
+    <hr>
+    <h3>开户用户管理</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td width="5%">id</td>
+            <td width="8%">姓名</td>
+            <td width="40%">电话</td>
+            <td width="8%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in accountList">
+            <td>{{item.id}}</td>
+            <td>{{item.name</td>
+            <td>{{item.mobile}}</td>
+            <td>
+                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="accountDel(item)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
