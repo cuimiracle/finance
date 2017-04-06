@@ -46,6 +46,32 @@ class UploadFileController extends \yii\web\Controller
         return $this->succeed(array('data' => $res));
     }
 
+    public function actionPhotos(){
+        $file_path = '';
+        if(!empty($_FILES)){
+            $files = $_FILES;
+            $uploadForm = new models\UploadForm;
+            $res = $uploadForm->photos($files);
+            if(!empty($res['result'])){
+                $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
+            }
+        }
+        return $file_path;
+    }
+
+    public function actionFiles(){
+        $file_path = '';
+        if(!empty($_FILES)){
+            $files = $_FILES;
+            $uploadForm = new models\UploadForm;
+            $res = $uploadForm->files($files);
+            if(!empty($res['result'])){
+                $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
+            }
+        }
+        return $file_path;
+    }
+
     public function actionUpdate()
     {
         $res = false;
@@ -79,7 +105,7 @@ class UploadFileController extends \yii\web\Controller
             if(!empty($_FILES)){
                 $files = $_FILES;
                 $uploadForm = new models\UploadForm;
-                $res = $uploadForm->photos($files);
+                $res = $uploadForm->files($files);
                 if(!empty($res['result'])){
                     $file_path = !empty($res['success']) ? array_shift($res['success']) : '';
                 }
