@@ -10,7 +10,7 @@
         <div class="form-group">
             <label class="col-md-1">姓名</label>
             <div class="col-md-10">
-                <textarea class="form-control" ng-model="data.name"></textarea>
+                <input class="form-control" ng-model="data.name">
             </div>
         </div>
         <div class="form-group">
@@ -45,7 +45,7 @@
         <tbody>
         <tr ng-repeat="item in accountList">
             <td>{{item.id}}</td>
-            <td>{{item.name</td>
+            <td>{{item.name}}</td>
             <td>{{item.mobile}}</td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
