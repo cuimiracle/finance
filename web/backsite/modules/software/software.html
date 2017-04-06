@@ -58,10 +58,12 @@
     </form>
     <!--<p>{{data | json}}</p>-->
     <p>
-        <button class="btn btn-default" ng-click="softwareOk()">确认添加</button>
+        <button class="btn btn-default" ng-click="softwareOk()">确认添加页面内容</button>
+        <button class="btn btn-default" ng-click="uploadOk()">确认添加上传的软件</button>
     </p>
     <p>
-        <button class="btn btn-default" ng-click="softwareUpdate()">更新</button>
+        <button class="btn btn-default" ng-click="softwareUpdate()">页面内容更新</button>
+        <button class="btn btn-default" ng-click="uploadUpdate()">上传的软件更新</button>
     </p>
     <h3>软件下载页面内容</h3>
     <table class="table table-bordered">
@@ -80,10 +82,10 @@
         <tr ng-repeat="item in softwareList">
             <td>{{item.id}}</td>
             <td>{{item.title}}</td>
-            <td ng-bind="item.content"></td>
+            <td>{{item.content}}</td>
             <td>{{item.link_name}}</td>
             <td>{{item.link_url}}</td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="item.photo" width="80"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="softwareDel(item)">删除</a>
