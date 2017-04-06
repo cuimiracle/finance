@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <h3>投资学院内容管理</h3>
+    <p>图片尺寸推荐300x300</p>
     <form class="form-horizontal">
         <div class="form-group">
             <label class="col-md-1">总方案名</label>
@@ -40,9 +41,11 @@
     </form>
     <!--<p>{{data | json}}</p>-->
     <p>
+        确认按钮：
         <button class="btn btn-default" ng-click="mainOk()">方案确认添加</button>
     </p>
     <p>
+        内容更新按钮：
         <button class="btn btn-default" ng-click="mainUpdate()">方案更新</button>
     </p>
     <h3>方案</h3>
@@ -65,7 +68,7 @@
             <td>{{item.name}}</td>
             <td ng-bind-html="item.description | to_trusted"></td>
             <td>{{item.price}}</td>
-            <td>{{item.photo}}</td>
+            <td><img ng-src="{{item.photo}}" width="150"></td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
                 <a ng-click="mainDel(item)">删除</a>

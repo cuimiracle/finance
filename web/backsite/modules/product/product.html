@@ -1,5 +1,8 @@
 <div class="container-fluid">
 	<h3>产品内容管理</h3>
+	<p>banner滚图部分需要字段：描述／链接名称／链接路径／图片</p>
+	<p>内容介绍部分需要字段：标题／描述／链接名称／链接路径／图片（推荐尺寸300x300）</p>
+	<p></p>
 	<form class="form-horizontal">
 		<div class="form-group">
 			<label class="col-md-1">标题</label>
@@ -8,7 +11,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-1">描述（多行模式）</label>
+			<label class="col-md-1">描述</label>
 			<div class="col-md-10">
 				<textarea froala ng-model="data.content"></textarea>
 			</div>
@@ -20,7 +23,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-1">链接</label>
+			<label class="col-md-1">链接路径</label>
 			<div class="col-md-6">
 				<input class="form-control" type="text" ng-model="data.link_url">
 			</div>
@@ -38,15 +41,20 @@
 			</div>
 		</div>
 	</form>
+	<hr>
 	<p>
+		添加按钮：
 		<button class="btn btn-default" ng-click="bannerOk()">banner确认添加</button>
 		<button class="btn btn-default" ng-click="contentOk()">内容确认添加</button>
 	</p>
+	<hr>
 	<p>
+		内容更新按钮：
 		<button class="btn btn-default" ng-click="bannerUpdate()">banner更新</button>
 		<button class="btn btn-default" ng-click="contentUpdate()">内容更新</button>
 	</p>
-	<h3>BANNER图(显示3个)</h3>
+	<hr>
+	<h3>BANNER图</h3>
 	<table class="table table-bordered">
 		<thead>
 		<tr>
@@ -64,7 +72,7 @@
 			<td ng-bind-html="item.content | to_trusted"></td>
 			<td>{{item.link_name}}</td>
 			<td>{{item.link_url}}</td>
-			<td>{{item.photo}}</td>
+			<td><img ng-src="{{item.photo}}" width="150"></td>
 			<td>
 				<a ng-click="edit(item)">编辑</a>
 				<a ng-click="bannerDel(item)">删除</a>
@@ -91,7 +99,7 @@
 			<td>{{item.title}}</td>
 			<td ng-bind-html="item.content | to_trusted"></td>
 			<td>{{item.link_url}}</td>
-			<td>{{item.photo}}</td>
+			<td><img ng-src="{{item.photo}}" width="80"></td>
 			<td>
 				<a ng-click="edit(item)">编辑</a>
 				<a ng-click="contentDel(item)">删除</a>
