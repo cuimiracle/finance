@@ -4,7 +4,7 @@
         <div class="form-group">
             <label class="col-md-1">用户名</label>
             <div class="col-md-4">
-                <input class="form-control" type="text" ng-model="data.username">
+                <input class="form-control" type="text" ng-model="data.username" ng-disabled="username === 'admin'">
             </div>
         </div>
         <div class="form-group">
@@ -40,7 +40,7 @@
             <td>{{item.username}}</td>
             <td>{{item.email}}</td>
             <td>
-                <a ng-click="edit(item)">编辑</a>
+                <a ng-click="edit(item)" ng-if="item.username !== 'admin' || (item.username === 'admin' && username === 'admin')">编辑</a>
                 <a ng-click="customerDel(item)" ng-if="item.username !== 'admin'">删除</a>
             </td>
         </tr>
