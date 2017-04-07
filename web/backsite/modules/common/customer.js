@@ -8,6 +8,10 @@ MYSITE.controller('CustomerCtrl', function ($scope, Service,PageMap, CUSTOMER, $
   $scope.data = _.cloneDeep(CUSTOMER);
   $scope.customerList = [];
 
+  $scope.edit = function (data) {
+    $scope.data = data;
+  };
+
   angular.forEach(customerContents, function (val, key) {
     Service.method.getAll($scope, val, key);
 
