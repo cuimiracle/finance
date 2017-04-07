@@ -16,14 +16,6 @@ MYSITE.controller('LoginCtrl', function ($scope, $rootScope, Service, Auth, $sta
       $state.go('homeManage');
     });
   };
-  $scope.register = function () {
-    Service.register($scope.registerData).then(function (res) {
-      // console.log('register', res);
-      if (res.data.result) {
-        alert('注册成功，请登录');
-      }
-    });
-  };
 }).controller('LogoutCtrl', function ($rootScope, $scope, $state, Auth) {
   $scope.logout = function () {
     Auth.logout().then(function () {

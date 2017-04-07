@@ -21,7 +21,7 @@
         </div>
     </form>
     <p>
-        <button class="btn btn-default" ng-click="customerOk()">确认添加</button>
+        <button class="btn btn-default" ng-click="customerOk()" ng-if="username === 'admin'">确认添加</button>
         <button class="btn btn-default" ng-click="customerUpdate()">确认修改</button>
     </p>
     <hr>
@@ -31,7 +31,6 @@
             <td>id</td>
             <td>用户名</td>
             <td>邮箱</td>
-            <td>密码</td>
             <td>操作</td>
         </tr>
         </thead>
@@ -40,10 +39,9 @@
             <td>{{item.id}}</td>
             <td>{{item.username}}</td>
             <td>{{item.email}}</td>
-            <td>{{item.password}}</td>
             <td>
                 <a ng-click="edit(item)">编辑</a>
-                <a ng-click="customerDel(item)">删除</a>
+                <a ng-click="customerDel(item)" ng-if="username !== 'admin'">删除</a>
             </td>
         </tr>
         </tbody>
