@@ -41,7 +41,8 @@
             <td>{{item.email}}</td>
             <td>
                 <a ng-click="edit(item)" ng-if="item.username === username || username === 'admin'">编辑</a>
-                <a ng-click="customerDel(item)" ng-if="item.username !== 'admin' && item.username === username">删除</a>
+                <a ng-click="customerDel(item)" ng-if="(item.username !== 'admin' &&
+                item.username === username) || (username === 'admin' && item.username !== 'admin')">删除</a>
             </td>
         </tr>
         </tbody>
