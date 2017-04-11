@@ -146,7 +146,7 @@ a, a:hover {
   .feature > div {
     padding: 1rem;
     font-size: 0.5rem;
-    height: 12.5rem;
+    height: 16rem;
   }
   .feature .title {
     margin-top: 0.5rem;
@@ -154,6 +154,11 @@ a, a:hover {
   }
   .feature > div img {
     width: 100%;
+  }
+}
+@media (max-device-width: 480px) {
+  .feature > div {
+    height: 12.5rem;
   }
 }
 .feature > div:hover {
