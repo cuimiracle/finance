@@ -2,6 +2,7 @@ html {
   min-height: 100%;
   position: relative;
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
   min-height: 100%;
   height: 100%;
   background-color: #f0f0f0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 a, a:hover {
   color: #333;
@@ -145,7 +146,7 @@ a, a:hover {
 @media (max-width: 767px) {
   .feature > div {
     padding: 1rem;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     height: 16rem;
   }
   .feature .title {
