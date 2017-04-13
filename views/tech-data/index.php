@@ -97,7 +97,7 @@
 
 
     <div class="text-center mrb30">
-        <a class="btn btn-primary mrt30" href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=online-account/index'?>">一键开模拟账户</a>
-        <a class="btn btn-success mrt30" href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=online-account/index'?>">一键开实盘账户</a>
+        <a class="btn btn-primary mrt30" href="http://micait.cn/">一键开模拟账户</a>
+        <a class="btn btn-success mrt30" href="http://micait.cn/">一键开实盘账户</a>
     </div>
 </div>

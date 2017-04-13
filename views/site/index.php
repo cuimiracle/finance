@@ -100,9 +100,8 @@
             <h2 class="word-slider"><?=$v['title']?></h2>
             <h3>投资外盘 明智之选</h3>
             <p>资金 + 线路直达交易所   界面简洁华丽</p>
-            <p>在线1分钟模拟账户，3天实盘账户</p>
-            <a class="btn btn-primary mrt30" href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=online-account/index'?>">一键开模拟账户</a>
-            <a class="btn btn-success mrt30" href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=online-account/index'?>">一键开实盘账户</a>
+            <a class="btn btn-primary mrt30" href="http://micait.cn/">一键开模拟账户</a>
+            <a class="btn btn-success mrt30" href="http://micait.cn/">一键开实盘账户</a>
         </div>
         <div class="col-md-6 banner-wrapper animated" data-animation="fadeInRight" data-animation-delay="700">
             <a href="<?=$v['link_url']?>">
