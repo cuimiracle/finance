@@ -100,8 +100,8 @@
             <h2 class="word-slider"><?=$v['title']?></h2>
             <h3>投资外盘 明智之选</h3>
             <p>资金 + 线路直达交易所   界面简洁华丽</p>
-            <a class="btn btn-primary mrt30" href="http://micait.cn/">一键开模拟账户</a>
-            <a class="btn btn-success mrt30" href="http://micait.cn/">一键开实盘账户</a>
+            <a class="btn btn-primary mrt30" href="http://116.62.51.56/reg/demoUser.aspx">一键开模拟账户</a>
+            <a class="btn btn-success mrt30" href="http://116.62.51.56/reg/LiveUser.aspx">一键开实盘账户</a>
         </div>
         <div class="col-md-6 banner-wrapper animated" data-animation="fadeInRight" data-animation-delay="700">
             <a href="<?=$v['link_url']?>">
