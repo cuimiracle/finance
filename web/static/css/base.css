@@ -208,13 +208,13 @@ a, a:hover {
   top: 50%;
   transform: translateY(-100%);
 }
-.intros .unslider-arrow.prev {
-  -moz-transform:scaleX(-1) translateY(-100%);
-  -webkit-transform:scaleX(-1) translateY(-100%);
-  -o-transform:scaleX(-1) translateY(-100%);
-  transform:scaleX(-1) translateY(-100%);
-  filter:FlipH;/*IE*/
-}
+/*.intros .unslider-arrow.prev {*/
+  /*-moz-transform:scaleX(-1) translateY(-100%);*/
+  /*-webkit-transform:scaleX(-1) translateY(-100%);*/
+  /*-o-transform:scaleX(-1) translateY(-100%);*/
+  /*transform:scaleX(-1) translateY(-100%);*/
+  /*filter:FlipH;!*IE*!*/
+/*}*/
 .intro-slider p {
   width: 60%;
   margin: 15px auto 0 auto;
