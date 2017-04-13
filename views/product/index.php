@@ -31,9 +31,6 @@
     <div class="product-content mrt30">
         <div class="row">
             <div class="col-md-6 col-md-offset-1 desc">
-                <p class="sub-title">
-                    场景
-                </p>
                 <p class="desc-title main-title">
                     <?=$v['title']?>
                 </p>
@@ -53,12 +50,9 @@
     <div class="product-content mrt30">
         <div class="row">
             <div class="col-md-4 col-md-offset-1 pic text-center">
-                <img src="http://placehold.it/300x300">
+                <img src="<?=$v['photo']?>">
             </div>
             <div class="col-md-6 desc">
-                <p class="sub-title">
-                    场景
-                </p>
                 <p class="desc-title main-title">
                     <?=$v['title']?>
                 </p>
