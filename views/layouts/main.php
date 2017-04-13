@@ -32,7 +32,7 @@ AppAsset::register($this);
 <div class="container-fluid" style="background: #fff;">
     <div class="row nav main-nav">
         <ul class="col-md-6 col-md-offset-1 col-xs-9 list-inline">
-            <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php'?>"><img src="http://placehold.it/120x35"></a></li>
+            <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php'?>"><img src="<?=\Yii::$app->request->getHostInfo().'/static/'?>img/logo.png" height="45"></a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=product/index'?>">产品</a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=college/index'?>">投资学院</a></li>
             <li><a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=software/index'?>">软件下载</a></li>
@@ -77,7 +77,7 @@ AppAsset::register($this);
         <a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=help/index'?>">帮助</a> ｜
         <a href="<?=\Yii::$app->request->getHostInfo().'/index.php?r=about/index'?>">关于我们</a>
     </div>
-    <p>&copy;公司名公司名公司名公司名 &nbsp;&nbsp; 备案号：XXXXXXXXX</p>
+    <p>&copy;徐州财迷网络科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;备案号：苏ICP备17011536号-1</p>
 </div>
 
 <!-- 公共js -->
