@@ -39,6 +39,7 @@ class UploadForm extends Model
                         (      ($file["type"] == "image/gif")
                             || ($file["type"] == "image/jpeg")
                             || ($file["type"] == "image/pjpeg")
+                            || ($file["type"] == "image/png")
                         )
                         && ($file["size"] < self::$photo_limit_size)
                     ) {
