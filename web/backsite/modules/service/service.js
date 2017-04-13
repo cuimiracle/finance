@@ -41,7 +41,7 @@ MYSITE.service('Service', function ($http, $q, FileUploader) {
       name: 'imageFilter',
       fn: function(item /*{File|FileLikeObject}*/, options) {
         var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-        return '|jpg|png|jpeg|gif|'.indexOf(type) !== -1;
+        return '|jpg|png|PNG|jpeg|gif|GIF|JPG|'.indexOf(type) !== -1;
       }
     };
     uploader.filters.push(imageFilter);
