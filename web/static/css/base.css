@@ -207,6 +207,7 @@ a, a:hover {
 .intros .unslider-arrow {
   top: 50%;
   transform: translateY(-100%);
+  font-size: 2rem;
 }
 /*.intros .unslider-arrow.prev {*/
   /*-moz-transform:scaleX(-1) translateY(-100%);*/
