@@ -43,55 +43,45 @@
         }
         ?>
     </div>
+
     <div class="content" title="comment">
+        <?php
+        if(!empty($contents)){
+            foreach($contents as $k => $v) {
+                if($v['type'] == '专家点评'){
+                    if($k % 2 == 0){
+        ?>
         <div class="row comment-wrapper mrb30">
             <a class="col-md-10 col-md-offset-1 rela comment-area">
                 <div class="row bg-img absol"></div>
                 <div class="row">
                     <div class="col-md-5 col-md-offset-1 rela comment-content">
-                        <p>点评内容：内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                        <p><?=$v['content']?></p>
                         <hr>
-                        <p><b>XX专家：张三</b></p>
+                        <p><b><?=$v['author_work']?>：<?=$v['author_name']?></b></p>
                     </div>
                 </div>
             </a>
         </div>
+        <?php       }else{       ?>
         <div class="row comment-wrapper mrb30">
             <a class="col-md-10 col-md-offset-1 rela comment-area">
                 <div class="row bg-img absol"></div>
                 <div class="row">
                     <div class="col-md-5 col-md-offset-6 rela comment-content">
-                        <p>点评内容：内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                        <p><?=$v['content']?></p>
                         <hr>
-                        <p><b>XX专家：李四</b></p>
+                        <p><b><?=$v['author_work']?>：<?=$v['author_name']?></b></p>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="row comment-wrapper mrb30">
-            <a class="col-md-10 col-md-offset-1 rela comment-area">
-                <div class="row bg-img absol"></div>
-                <div class="row">
-                    <div class="col-md-5 col-md-offset-1 rela comment-content">
-                        <p>点评内容：内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                        <hr>
-                        <p><b>XX专家：张三</b></p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="row comment-wrapper mrb30">
-            <a class="col-md-10 col-md-offset-1 rela comment-area">
-                <div class="row bg-img absol"></div>
-                <div class="row">
-                    <div class="col-md-5 col-md-offset-6 rela comment-content">
-                        <p>点评内容：内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
-                        <hr>
-                        <p><b>XX专家：李四</b></p>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <?php
+                    }
+                }
+            }
+        }
+        ?>
 
     </div>
 
