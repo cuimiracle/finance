@@ -2,8 +2,7 @@
 <div class="container-fluid about">
     <div class="row about-title">
         <div class="col-md-offset-2 col-md-4">
-            <h1>公司名</h1>
-            <p>全国领先，汇聚精英</p>
+            <p style="font-size: 30px;">全国领先，汇聚精英</p>
         </div>
         <div class="col-md-6 img"></div>
     </div>
